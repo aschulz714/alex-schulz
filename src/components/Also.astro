@@ -1,0 +1,60 @@
+---
+const notes = [
+  {
+    lead: 'Family office work',
+    body: 'Paul Allen’s Vulcan Inc. and, separately, Craig McCaw’s family office. Co-founder of Microsoft; cellular industry pioneer.',
+  },
+  {
+    lead: 'Two IMDB credits',
+    body: '7 Minutes (2014) and Twin Peaks: The Return (2017, David Lynch). Production accounting. IMDB: nm5681118.',
+  },
+  {
+    lead: 'Summa cum laude',
+    body: 'BA Accounting, Washington State University. Delta Sigma Pi Scholarship Key — highest GPA in all of business and economics.',
+  },
+  {
+    lead: 'Perfect GPA',
+    body: '4.0 across every graduate program completed — UK Digital Mapping and UMD Geospatial Intelligence (USGIF-accredited).',
+  },
+  {
+    lead: 'Hawaii roots',
+    body: 'Born in Honolulu. Summers with uncle Steve Ozark, who ran backstage catering in Hawaii for 30+ years — Santana, Dylan, Elton John, and Jimmy Buffett were among the acts he cooked for over his career.',
+  },
+  {
+    lead: 'Spatial finance',
+    body: 'The emerging field formally recognized by Oxford’s Smith School and the Alan Turing Institute; 69% of top hedge funds now use geospatial alternative data.',
+  },
+];
+---
+
+<section id="also" class="relative border-y border-hairline bg-paper-soft/45 py-16 md:py-28">
+  <div class="section-shell">
+    <div class="mb-12 grid grid-cols-1 gap-7 md:mb-16 md:grid-cols-[180px_1fr] md:gap-14">
+      <p class="coord pt-1">03 / Notes</p>
+      <div>
+        <h2 class="section-heading max-w-2xl text-3xl md:text-5xl">
+          Things the resume hides.
+        </h2>
+        <p class="section-copy mt-5 max-w-xl text-base md:text-lg">
+          Six footnotes with the texture a single bio line never quite captures.
+        </p>
+      </div>
+    </div>
+
+    <ol class="notes-list grid grid-cols-1 border-t border-hairline md:grid-cols-2 lg:grid-cols-3">
+      {notes.map((n, i) => (
+        <li class="reveal border-b border-hairline bg-paper-soft/35 p-5 md:border-r md:p-6 lg:[&:nth-child(3n)]:border-r-0">
+          <span class="coord text-accent">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <h3 class="mt-8 font-sans text-lg font-semibold leading-snug md:text-xl">
+            {n.lead}
+          </h3>
+          <p class="section-copy mt-3 text-sm md:text-base">
+            {n.body}
+          </p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

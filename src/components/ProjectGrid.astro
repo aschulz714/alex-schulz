@@ -1,0 +1,200 @@
+---
+import { getCollection, render } from 'astro:content';
+
+const entries = await getCollection('projects');
+const sorted = entries.sort((a, b) => b.data.year - a.data.year);
+
+const rendered = await Promise.all(
+  sorted.map(async (entry) => ({
+    entry,
+    Content: (await render(entry)).Content,
+  }))
+);
+
+const categoryLabel: Record<string, string> = {
+  geospatial: 'Geospatial',
+  python: 'Python / Data',
+  web: 'Web',
+};
+
+const evidenceMeta: Record<string, { kicker: string; rows: [string, string][] }> = {
+  item2: {
+    kicker: 'Evidence file',
+    rows: [
+      ['Input', 'Satellite + physical-world data'],
+      ['Method', 'Python backend pipelines'],
+      ['Output', 'Operational signals'],
+    ],
+  },
+  'satellite-commodities': {
+    kicker: 'Research file',
+    rows: [
+      ['Input', 'Sentinel-2 + NDVI'],
+      ['Coverage', 'Sawmills + citrus counties'],
+      ['Output', 'Commodity activity signals'],
+    ],
+  },
+  hodego: {
+    kicker: 'Product file',
+    rows: [
+      ['Users', 'Athletes + elite coaches'],
+      ['Role', 'Co-founder / architecture'],
+      ['Output', 'AWS-hosted MVP'],
+    ],
+  },
+  'rail-served': {
+    kicker: 'Map file',
+    rows: [
+      ['Input', 'Industrial parcels + rail'],
+      ['Coverage', 'Washington State'],
+      ['Output', 'Interactive property database'],
+    ],
+  },
+  'pacific-county-timber': {
+    kicker: 'Land file',
+    rows: [
+      ['Input', 'Forest land parcels'],
+      ['Method', 'QGIS / Mapshaper / MapBox'],
+      ['Output', 'Choropleth web map'],
+    ],
+  },
+};
+---
+
+<section id="work" class="relative py-16 md:py-28">
+  <div class="section-shell">
+    <div class="mb-12 grid grid-cols-1 gap-7 md:mb-16 md:grid-cols-[180px_1fr] md:gap-14">
+      <p class="coord pt-1">02 / Work</p>
+      <div>
+        <h2 class="section-heading max-w-2xl text-3xl md:text-5xl">
+          Selected projects.
+        </h2>
+        <p class="section-copy mt-5 max-w-xl text-base md:text-lg">
+          Geospatial tools, Python pipelines, and web work. Each project is a small proof point for
+          the larger spatial-finance thesis.
+        </p>
+      </div>
+    </div>
+
+    <ol class="project-list grid grid-cols-1 gap-5 md:grid-cols-2">
+      {sorted.map((entry, index) => (
+        <li class={`reveal ${index === 0 ? 'md:col-span-2' : ''}`}>
+          <button
+            type="button"
+            class={`project-card group h-full w-full overflow-hidden rounded-lg border border-hairline bg-paper-soft text-left shadow-[0_18px_48px_rgba(16,30,26,0.08)] transition-all duration-200 hover:-translate-y-1 hover:border-accent/45 ${index === 0 ? 'md:grid md:grid-cols-[0.9fr_1.1fr]' : 'flex flex-col'}`}
+            data-project-slug={entry.id}
+            aria-haspopup="dialog"
+            aria-label={`Open details for ${entry.data.title}`}
+          >
+            <div class={`evidence-panel ${index === 0 ? 'md:border-b-0 md:border-r' : ''}`}>
+              <div class="flex items-center justify-between gap-3">
+                <p class="coord text-accent">{evidenceMeta[entry.id]?.kicker ?? 'Project file'}</p>
+                <p class="coord">{String(index + 1).padStart(2, '0')}</p>
+              </div>
+              <div class="mt-6 space-y-3">
+                {(evidenceMeta[entry.id]?.rows ?? [
+                  ['Category', categoryLabel[entry.data.category] ?? entry.data.category],
+                  ['Year', String(entry.data.year)],
+                  ['Stack', entry.data.tech.slice(0, 2).join(' / ')],
+                ]).map(([label, value]) => (
+                  <div class="evidence-row">
+                    <span class="coord">{label}</span>
+                    <span>{value}</span>
+                  </div>
+                ))}
+              </div>
+              <div class="signal-strip mt-7" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <div class="flex flex-1 flex-col p-5 md:p-6">
+              <div class="mb-7 flex items-start justify-between gap-4">
+                <p class="coord">
+                  {categoryLabel[entry.data.category] ?? entry.data.category} / {entry.data.year}
+                </p>
+                <span class="mono rounded-sm border border-hairline bg-paper-soft px-2 py-1 text-xs text-ink-muted transition-colors group-hover:border-accent group-hover:text-accent" aria-hidden="true">
+                  ->
+                </span>
+              </div>
+
+              <h3 class={`font-sans font-semibold leading-tight text-ink ${index === 0 ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'}`}>
+                {entry.data.title}
+              </h3>
+              <p class="section-copy mt-4 flex-1 text-sm md:text-base">
+                {entry.data.blurb}
+              </p>
+
+              {entry.data.tech.length > 0 && (
+                <div class="mt-7 flex flex-wrap gap-2">
+                  {entry.data.tech.slice(0, index === 0 ? 5 : 4).map((t) => (
+                    <span class="rounded-sm border border-hairline bg-paper/70 px-2.5 py-1 text-xs text-ink-muted mono">{t}</span>
+                  ))}
+                </div>
+              )}
+
+              <span class="mt-7 inline-flex items-center gap-2 text-sm font-medium text-accent">
+                Read case note <span class="mono text-xs transition-transform group-hover:translate-x-1" aria-hidden="true">-></span>
+              </span>
+            </div>
+          </button>
+        </li>
+      ))}
+    </ol>
+  </div>
+
+  <!-- Hidden content templates — cloned into the modal on open. -->
+  <div hidden aria-hidden="true">
+    {rendered.map(({ entry, Content }) => (
+      <template data-project-template={entry.id}>
+        <article>
+          <p class="coord mb-4 text-accent">{categoryLabel[entry.data.category]} / {entry.data.year}</p>
+          <h2 id="project-modal-title" class="section-heading mb-5 text-3xl md:text-4xl">
+            {entry.data.title}
+          </h2>
+          <p class="mb-8 max-w-xl text-lg leading-snug text-ink-soft md:text-xl">
+            {entry.data.blurb}
+          </p>
+          {entry.data.tech.length > 0 && (
+            <div class="flex flex-wrap gap-2 mb-10">
+              {entry.data.tech.map((t) => (
+                <span class="rounded-sm border border-hairline bg-paper-soft px-2.5 py-1 text-xs text-ink-muted mono">{t}</span>
+              ))}
+            </div>
+          )}
+          <div class="prose max-w-none prose-headings:font-sans prose-headings:font-semibold prose-headings:tracking-normal prose-p:text-ink-soft prose-strong:text-ink prose-a:text-accent">
+            <Content />
+          </div>
+          {(entry.data.links.repo || entry.data.links.demo) && (
+            <div class="mt-10 flex flex-wrap gap-3">
+              {entry.data.links.repo && (
+                <a
+                  href={entry.data.links.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="button-secondary"
+                >
+                  Repository <span class="mono text-xs" aria-hidden="true">↗</span>
+                </a>
+              )}
+              {entry.data.links.demo && (
+                <a
+                  href={entry.data.links.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="button-primary"
+                >
+                  Live demo <span class="mono text-xs" aria-hidden="true">↗</span>
+                </a>
+              )}
+            </div>
+          )}
+        </article>
+      </template>
+    ))}
+  </div>
+</section>

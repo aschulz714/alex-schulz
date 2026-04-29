@@ -1,0 +1,27 @@
+---
+export interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<svg
+  class={`w-full h-8 text-ink/15 ${className}`}
+  viewBox="0 0 1200 40"
+  preserveAspectRatio="none"
+  aria-hidden="true"
+>
+  <path
+    d="M0,20 Q50,10 100,18 T200,22 T300,15 T400,25 T500,18 T600,20 T700,12 T800,24 T900,18 T1000,22 T1100,15 T1200,20"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1"
+  />
+  <path
+    d="M0,28 Q50,22 100,30 T200,26 T300,32 T400,24 T500,30 T600,26 T700,32 T800,22 T900,30 T1000,24 T1100,32 T1200,28"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="0.6"
+    opacity="0.6"
+  />
+</svg>

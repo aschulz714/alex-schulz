@@ -1,0 +1,120 @@
+---
+// Modal scaffolding. Content is cloned in at open time from <template> tags rendered by ProjectGrid.
+// All cleanup lives in the native `close` event handler so ESC, backdrop, close-button, and
+// programmatic `modal.close()` all converge on one code path — no double-unwind history bugs.
+---
+
+<dialog
+  id="project-modal"
+  class="w-[calc(100%-2rem)] max-w-3xl overflow-hidden rounded-lg border border-hairline bg-paper text-ink shadow-2xl backdrop:bg-ink/55 backdrop:backdrop-blur-md"
+  aria-labelledby="project-modal-title"
+>
+  <button
+    type="button"
+    id="project-modal-close"
+    class="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-sm border border-hairline bg-paper-soft text-base leading-none transition-colors hover:border-ink hover:bg-ink hover:text-paper-soft"
+    aria-label="Close dialog"
+  >
+    <span aria-hidden="true">×</span>
+  </button>
+  <div id="project-modal-body" class="max-h-[84vh] overflow-y-auto p-7 md:p-12"></div>
+</dialog>
+
+<script>
+  type OpenSource = 'click' | 'hash' | 'load';
+
+  const modal = document.getElementById('project-modal') as HTMLDialogElement | null;
+  const body = document.getElementById('project-modal-body');
+  const closeBtn = document.getElementById('project-modal-close');
+
+  if (!modal || !body || !closeBtn) {
+    console.warn('[modal] required elements not found');
+  } else {
+    let lastFocused: HTMLElement | null = null;
+    let closingFromPopstate = false;
+    let openSource: OpenSource = 'click';
+
+    function mountTemplate(slug: string): boolean {
+      const template = document.querySelector<HTMLTemplateElement>(
+        `template[data-project-template="${CSS.escape(slug)}"]`
+      );
+      if (!template) return false;
+      body!.replaceChildren(template.content.cloneNode(true));
+      return true;
+    }
+
+    function openModal(slug: string, source: OpenSource = 'click') {
+      if (modal!.open) return;
+      if (!mountTemplate(slug)) {
+        console.warn(`[modal] no template for slug "${slug}"`);
+        return;
+      }
+      lastFocused = document.activeElement as HTMLElement | null;
+      openSource = source;
+      modal!.showModal();
+      document.body.classList.add('modal-open');
+      if (source === 'click') {
+        history.pushState({ projectModal: slug }, '', `#project-${slug}`);
+      }
+      closeBtn!.focus();
+    }
+
+    // Single cleanup path — fires for ESC, modal.close(), backdrop-close, close-button-close.
+    modal.addEventListener('close', () => {
+      document.body.classList.remove('modal-open');
+      body!.replaceChildren();
+      lastFocused?.focus();
+      lastFocused = null;
+      if (closingFromPopstate) {
+        closingFromPopstate = false;
+        return;
+      }
+      // 'click' pushed our own entry; 'hash' rode the browser's hash-click entry. Both
+      // unwind via history.back(). 'load' (direct-load or cross-route) added no entry —
+      // clear the hash via replaceState so the URL doesn't keep pointing at a closed modal.
+      if (openSource === 'load' && location.hash.startsWith('#project-')) {
+        history.replaceState(null, '', location.pathname + location.search);
+      } else {
+        history.back();
+      }
+    });
+
+    // Card clicks.
+    document.querySelectorAll<HTMLButtonElement>('.project-card').forEach((card) => {
+      card.addEventListener('click', () => {
+        const slug = card.dataset.projectSlug;
+        if (slug) openModal(slug, 'click');
+      });
+    });
+
+    // Close button and backdrop both just trigger the native close.
+    closeBtn.addEventListener('click', () => modal.close());
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.close();
+    });
+
+    // Mobile back button / restored hash entry from popstate.
+    window.addEventListener('popstate', () => {
+      if (modal!.open) {
+        closingFromPopstate = true;
+        modal!.close();
+      } else {
+        const match = location.hash.match(/^#project-(.+)$/);
+        if (match) openModal(match[1], 'load');
+      }
+    });
+
+    // In-page hash navigation (clicking a /#project-<slug> link while already on /).
+    window.addEventListener('hashchange', () => {
+      if (modal!.open) return;
+      const match = location.hash.match(/^#project-(.+)$/);
+      if (match) openModal(match[1], 'hash');
+    });
+
+    // Direct-load deep link (/#project-<slug>).
+    window.addEventListener('DOMContentLoaded', () => {
+      const match = location.hash.match(/^#project-(.+)$/);
+      if (match) openModal(match[1], 'load');
+    });
+  }
+</script>

@@ -1,0 +1,146 @@
+---
+import { HOME_COORDS } from '../data/timeline';
+---
+
+<section class="relative overflow-hidden">
+  <div class="section-shell pt-12 pb-16 md:pt-20 md:pb-24">
+    <div class="dossier-panel rounded-lg">
+      <div class="grid grid-cols-1 md:grid-cols-[1.04fr_0.96fr]">
+        <div class="border-b border-hairline p-5 md:border-b-0 md:border-r md:p-8 lg:p-10">
+          <div class="mb-9 flex flex-wrap items-center gap-3">
+            <p class="coord text-accent">Field dossier / Alex Schulz / 2026</p>
+            <span class="coord rounded-sm border border-signal/30 bg-signal-soft px-2 py-1 text-signal">
+              CPA + GEOINT
+            </span>
+          </div>
+
+          <h1 class="section-heading max-w-3xl text-5xl leading-[0.96] text-balance sm:text-6xl md:text-7xl">
+            Alex Schulz maps the financial signals hiding in the physical world.
+          </h1>
+
+          <div class="annotation mt-8">
+            <p class="min-h-[1.35em] text-2xl font-semibold leading-snug text-ink md:text-3xl">
+              <span id="role-cycler" class="inline-block">CPA.</span>
+            </p>
+            <p class="section-copy mt-4 max-w-xl text-base md:text-lg">
+              A living resume and portfolio for work at the intersection of accounting discipline,
+              geospatial intelligence, and market data that still has a latitude and longitude.
+            </p>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#work" class="button-primary">View work <span class="mono text-xs" aria-hidden="true">↓</span></a>
+            <a href="/resume.pdf" class="button-secondary">Resume <span class="mono text-xs" aria-hidden="true">↓</span></a>
+            <a href="mailto:alex.j.schulz@gmail.com" class="button-secondary">Contact</a>
+          </div>
+
+          <dl class="ledger-rule mt-9 grid grid-cols-1 divide-y divide-hairline sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+            <div class="p-4 sm:pl-0">
+              <dt class="coord text-accent">Credential</dt>
+              <dd class="mt-2 text-lg font-semibold text-ink">CPA + MS GEOINT</dd>
+            </div>
+            <div class="p-4">
+              <dt class="coord text-signal">Estimated overlap</dt>
+              <dd class="mt-2 text-lg font-semibold text-ink">10-20 in the US</dd>
+            </div>
+            <div class="p-4 sm:pr-0">
+              <dt class="coord">Current thesis</dt>
+              <dd class="mt-2 text-lg font-semibold text-ink">Spatial finance</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="relative p-3 md:p-4">
+          <div class="mb-3 flex items-center justify-between gap-3 px-1">
+            <p class="coord">Origin point</p>
+            <p class="coord text-accent">{HOME_COORDS[1].toFixed(4)} N / {Math.abs(HOME_COORDS[0]).toFixed(4)} W</p>
+          </div>
+          <div
+            id="hero-map"
+            class="relative aspect-[4/5] w-full overflow-hidden rounded-md border border-hairline bg-accent-soft md:aspect-[5/6]"
+          ></div>
+
+          <p class="coord absolute left-6 top-14 rounded-sm border border-hairline bg-paper-soft/90 px-2 py-1 backdrop-blur">
+            <span id="map-label">Lake Stevens, WA</span>
+          </p>
+          <p class="coord mono absolute bottom-6 right-6 rounded-sm border border-hairline bg-paper-soft/90 px-2 py-1 backdrop-blur">
+            <span id="map-coord">{HOME_COORDS[1].toFixed(3)}, {HOME_COORDS[0].toFixed(3)}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import maplibregl, { type StyleSpecification } from 'maplibre-gl';
+  import 'maplibre-gl/dist/maplibre-gl.css';
+
+  const HOME: [number, number] = [-122.2021, 47.979];
+  const HOME_ZOOM = 10;
+
+  const container = document.getElementById('hero-map');
+  const labelEl = document.getElementById('map-label');
+  const coordEl = document.getElementById('map-coord');
+  if (!container) throw new Error('hero-map container not found');
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const map = new maplibregl.Map({
+    container,
+    style: 'https://tiles.openfreemap.org/styles/positron',
+    center: HOME,
+    zoom: HOME_ZOOM,
+    interactive: false,
+    attributionControl: { compact: true },
+    pitchWithRotate: false,
+    dragRotate: false,
+  });
+
+  let pin: maplibregl.Marker | null = null;
+
+  map.on('load', () => {
+    container.classList.add('map-ready');
+
+    // Strip all label layers for a pure geometry read. Monochrome = already positron, so no further color edits.
+    const style = map.getStyle();
+    (style.layers ?? []).forEach((layer) => {
+      if (layer.type === 'symbol') {
+        map.setLayoutProperty(layer.id, 'visibility', 'none');
+      }
+    });
+
+    // Custom pin: a small dark circle instead of the default balloon.
+    const el = document.createElement('div');
+    el.style.cssText =
+      'width:10px;height:10px;border-radius:9999px;background:#0a0a0a;box-shadow:0 0 0 3px rgba(250,250,250,0.9),0 0 0 4px rgba(10,10,10,0.15)';
+    pin = new maplibregl.Marker({ element: el }).setLngLat(HOME).addTo(map);
+  });
+
+  // Custom event wired from Timeline: fires when a milestone scrolls into view.
+  window.addEventListener('pan-hero-map', (raw) => {
+    const e = raw as CustomEvent<{ lng: number; lat: number; zoom: number; label?: string }>;
+    if (!e.detail) return;
+    const { lng, lat, zoom, label } = e.detail;
+    map.flyTo({ center: [lng, lat], zoom, duration: prefersReducedMotion ? 0 : 1800, essential: true });
+    if (pin) pin.setLngLat([lng, lat]);
+    if (labelEl && label) labelEl.textContent = label;
+    if (coordEl) coordEl.textContent = `${lat.toFixed(3)}, ${lng.toFixed(3)}`;
+  });
+
+  // Role cycler — quiet and slow. Each entry is a complete noun phrase so grammar holds.
+  const roles = ['CPA.', 'Geospatial analyst.', 'Developer.', 'All three.'];
+  const cycler = document.getElementById('role-cycler');
+  if (cycler && !prefersReducedMotion) {
+    let i = 0;
+    cycler.style.transition = 'opacity 400ms ease';
+    setInterval(() => {
+      cycler.style.opacity = '0';
+      setTimeout(() => {
+        i = (i + 1) % roles.length;
+        cycler.textContent = roles[i]!;
+        cycler.style.opacity = '1';
+      }, 400);
+    }, 2800);
+  }
+</script>

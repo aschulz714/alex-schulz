@@ -1,0 +1,92 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const OG_IMAGE_VERSION = 3;
+
+const {
+  title = 'Alex Schulz | CPA, Geospatial, Developer',
+  description = 'A living resume and portfolio from Alex Schulz: CPA, geospatial intelligence graduate, and builder at the intersection of finance and physical-world data.',
+  ogImage = 'og-image.png',
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString() ?? 'https://aschulz714.github.io/';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImageUrl = `${siteUrl}${ogImage}?v=${OG_IMAGE_VERSION}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Alex Schulz" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+  </head>
+  <body class="min-h-screen text-ink">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 button-primary"
+    >
+      Skip to content
+    </a>
+
+    <header class="fixed top-0 left-0 right-0 z-40 border-b border-hairline bg-paper/90 backdrop-blur-xl">
+      <nav class="section-shell py-3 flex items-center justify-between gap-5">
+        <a href="/" class="group min-w-0">
+          <span class="block text-sm font-semibold leading-none">
+            <span class="sm:hidden">AS</span>
+            <span class="hidden sm:inline">Alex Schulz</span>
+          </span>
+          <span class="mt-1 hidden text-xs text-ink-muted sm:block">CPA / GEOINT / builder</span>
+        </a>
+        <div class="flex items-center gap-1 rounded-md border border-hairline bg-paper-soft/70 p-1 text-sm text-ink-soft">
+          <a href="/#work" class="rounded-sm px-3 py-2 hover:bg-accent-soft hover:text-accent transition-colors">Work</a>
+          <a href="/about" class="rounded-sm px-3 py-2 hover:bg-accent-soft hover:text-accent transition-colors">About</a>
+          <a href="/resume.pdf" class="hidden rounded-sm px-3 py-2 hover:bg-accent-soft hover:text-accent transition-colors sm:inline-block">Resume</a>
+          <a href="mailto:alex.j.schulz@gmail.com" class="rounded-sm bg-ink px-3 py-2 text-paper-soft hover:bg-accent transition-colors">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="pt-16">
+      <slot />
+    </main>
+
+    <footer class="mt-24 md:mt-36 border-t border-hairline bg-paper-soft/55">
+      <div class="section-shell py-10 md:py-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="coord">47.9790 N / 122.2021 W / Lake Stevens, WA</p>
+          <p class="mt-2 max-w-lg text-sm text-ink-muted">
+            Living resume, portfolio, and working notebook for finance, geospatial data, and product experiments.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3 text-sm">
+          <a href="/resume.pdf" class="button-secondary">Resume</a>
+          <a href="mailto:alex.j.schulz@gmail.com" class="button-primary">Email</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
