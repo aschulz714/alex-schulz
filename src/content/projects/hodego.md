@@ -9,6 +9,16 @@ tech:
   - React
   - LoopBack 4
   - Startup / product
+status: Co-founded startup
+artifact:
+  label: MVP
+  detail: Product architecture and delivery with a small developer team.
+caseStudy:
+  question: Can elite coaching be unbundled from geography and made available to serious athletes remotely?
+  data: Coach expertise, athlete needs, session workflows, and competition-support use cases.
+  method: Product architecture, React/TypeScript, LoopBack, AWS delivery, and team coordination.
+  signal: Founder/operator proof that the thesis can become a shipped product, not only analysis.
+  why: It shows the builder range needed to turn specialized knowledge into software people can use.
 links:
   demo: https://hodego.com
 featured: true

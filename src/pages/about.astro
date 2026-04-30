@@ -1,5 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const chapters = [
+  ['01', 'Origin', '#honolulu-to-everett'],
+  ['02', 'Map', '#the-map-on-the-porch'],
+  ['03', 'Comeback', '#valedictorian-trinity-dropout-comeback'],
+  ['04', 'Capital', '#two-billionaire-family-offices'],
+  ['05', 'Film', '#a-brief-entertainment-career'],
+  ['06', 'Pivot', '#the-pivot'],
+  ['07', 'Thesis', '#why-this-combination-matters'],
+];
 ---
 
 <Base
@@ -33,14 +43,56 @@ import Base from '../layouts/Base.astro';
           <dd class="mt-2 text-lg font-semibold">Spatial finance</dd>
         </div>
       </dl>
+
+      <div class="mt-8 grid max-w-5xl gap-4 lg:grid-cols-[minmax(0,1fr)_23rem]">
+        <div class="surface rounded-md p-5">
+          <p class="coord text-accent">Working habit</p>
+          <p class="mt-3 text-lg leading-relaxed text-ink-soft">
+            I get pulled toward the useful detail sitting just outside the frame: the map margin,
+            the rail spur, the filing footnote, the small operational clue that changes the larger
+            story.
+          </p>
+        </div>
+
+        <div class="surface overflow-hidden rounded-md p-3">
+          <div class="px-2 pb-3">
+            <p class="coord text-signal">Soundtrack</p>
+            <p class="mt-2 text-sm font-semibold text-ink">Jadakiss - Things I've Been Through</p>
+          </div>
+          <iframe
+            class="block h-[152px] w-full rounded-md border-0"
+            title="Spotify Embed: Jadakiss - Things I've Been Through"
+            src="https://open.spotify.com/embed/track/1nzOHmHda8NbuwGJjFz5fP?utm_source=generator&theme=0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Article body, rendered with typography plugin -->
   <section class="relative">
     <div class="section-shell py-14 md:py-20">
+      <nav
+        class="mb-12 grid max-w-5xl grid-cols-2 border-y border-hairline bg-paper-soft/40 sm:grid-cols-4 lg:grid-cols-7"
+        aria-label="About page chapters"
+      >
+        {chapters.map(([number, label, href]) => (
+          <a
+            href={href}
+            class="group border-b border-r border-hairline px-3 py-4 transition-colors hover:bg-accent-soft sm:px-4 lg:border-b-0"
+          >
+            <span class="coord text-accent">{number}</span>
+            <span class="mt-2 block text-sm font-semibold text-ink-soft transition-colors group-hover:text-accent">
+              {label}
+            </span>
+          </a>
+        ))}
+      </nav>
+
       <div class="prose prose-lg max-w-3xl prose-headings:font-sans prose-headings:font-semibold prose-headings:tracking-normal prose-headings:text-ink prose-p:text-ink-soft prose-p:leading-relaxed prose-strong:text-ink prose-strong:font-medium prose-a:text-accent prose-a:underline prose-a:decoration-hairline hover:prose-a:decoration-accent">
-        <h2>Honolulu to Everett.</h2>
+        <h2 id="honolulu-to-everett">Honolulu to Everett.</h2>
         <p>
           Born at Kapiolani Women &amp; Children's Hospital in Honolulu — the same hospital as Obama, for whatever that's worth.
           My mom lived in Hawaii for ten years; my dad for five. A year after I was born we moved to
@@ -52,20 +104,59 @@ import Base from '../layouts/Base.astro';
           Some childhood summers I was back in Hawaii, staying with my uncle <strong>Steve Ozark</strong>.
           Steve ran backstage catering in Hawaii for more than thirty years — across his career he
           cooked for Santana, Bob Dylan, Neil Diamond, Elton John, Jimmy Buffett, and many others. He
-          was also a crew member on <em>The Glen Campbell Goodtime Hour</em> from 1969 to 1972. I wasn't
-          backstage for the big headliners; the summer after senior year I helped him with a 70s soul
-          revue — the Stylistics, the Chi-Lites, the Manhattans, the Main Ingredient. The lesson I
-          took from Steve, even before I could articulate it, was that the world is smaller and more
-          reachable than it looks. He knew everyone on Oahu. He passed away in 2014.
+          was also a crew member on <em>The Glen Campbell Goodtime Hour</em> from 1969 to 1972. Through
+          Steve I was backstage for Lil Wayne twice, Elton John, Kevin Hart, Shaquille O'Neal's All
+          Star Comedy Jam, Steve Miller Band, and Boyz II Men. The summer after senior year I also
+          helped him with a 70s soul revue: the Stylistics, the Chi-Lites, the Manhattans, the Main
+          Ingredient. The lesson I took from Steve, even before I could articulate it, was that the
+          world is smaller and more reachable than it looks. He knew everyone on Oahu. He passed away
+          in 2014.
         </p>
 
-        <h2>Valedictorian, Trinity, dropout, comeback.</h2>
+        <h2 id="the-map-on-the-porch">The map on the porch.</h2>
+        <figure class="not-prose my-10 overflow-hidden rounded-md border border-hairline bg-paper-soft">
+          <img
+            src="/images/industrial-map-of-washington.jpeg"
+            alt="Framed Industrial Map of Washington from the family collection"
+            class="block w-full"
+            loading="lazy"
+          />
+          <figcaption class="border-t border-hairline px-4 py-3 text-sm leading-relaxed text-ink-muted">
+            Industrial Map of Washington, from my mom's grandparents' dairy farm in Custer,
+            Washington.
+          </figcaption>
+        </figure>
+        <p>
+          One of the objects that made maps feel personal was an old Industrial Map of Washington
+          from my mom's grandparents' dairy farm in Custer, Washington. It had been hanging on the
+          porch by a thumb tack until my mom took it home and framed it.
+        </p>
+        <p>
+          I think that is part of why my work keeps circling back to maps: they show industry,
+          movement, land, and memory at once. They are how hidden systems become visible.
+        </p>
+        <p>
+          Land records became personal in another way, too. I helped my mom fight two adverse
+          possession lawsuits with different neighbors: one settled, one won. It was an unwanted
+          education in boundaries, documentation, recorded facts, and the gap between being right and
+          being able to prove it.
+        </p>
+
+        <h2 id="valedictorian-trinity-dropout-comeback">Valedictorian, Trinity, dropout, comeback.</h2>
         <p>
           Graduated high school as <strong>valedictorian of Everett High School</strong>. It started as
           a family bet — Steve mailed me a hundred-dollar bill for every semester I got a 4.0, and by
           sophomore year I realized I might be able to keep it going. I went to
           <strong>Trinity University</strong> in San Antonio — ranked #40 among national liberal arts
           colleges, #1 in Texas — and didn't finish. I dropped out.
+        </p>
+        <p>
+          After freshman year at Trinity, one of those strange doors opened: a job with
+          <strong>Craig McCaw's family office</strong>. McCaw is a cellular-industry pioneer; I was
+          flown down to Montecito, California, to help with properties there, including a property
+          Craig had acquired from John Cleese. That fall, Trinity's annual speaker happened to be John
+          Cleese, and I found myself in a private meet-and-greet telling him I had just worked at his
+          former property.
         </p>
         <p>
           Came home, enrolled at <strong>Washington State University</strong>, and graduated
@@ -75,17 +166,25 @@ import Base from '../layouts/Base.astro';
           of fraternity membership. The dropout and the comeback happened in the same five years.
           I've earned a 4.0 in every program I've completed since.
         </p>
-
-        <h2>Two billionaire family offices.</h2>
         <p>
-          The first accounting years ran through some unusually well-funded buildings.
-          At <strong>Vulcan Inc.</strong> — Paul Allen's family office — I worked as a staff accountant
+          The geospatial thread was already trying to surface there. I wanted to minor in
+          <strong>Geospatial Analysis</strong> at WSU, but the labs overlapped with the core accounting
+          courses. I also became one of thirteen students selected for <strong>Cougs on Wall Street</strong>,
+          a trip to New York City for the Quinnipiac GAME Forum funded by Gary Brinson. I volunteered
+          with the Speakers Committee, too, which is how I got to meet Big Black from
+          <em>Rob &amp; Big</em>, one of my favorite shows.
+        </p>
+
+        <h2 id="two-billionaire-family-offices">Two billionaire family offices.</h2>
+        <p>
+          The McCaw chapter happened unusually early; Vulcan came later, after the WSU comeback. At
+          <strong>Vulcan Inc.</strong> — Paul Allen's family office — I worked as a staff accountant
           in Real Estate Finance in Seattle, managing monthly loan draws and portfolio variance
-          analysis across eight real-estate projects. Paul Allen co-founded Microsoft; at his passing
-          his net worth was estimated at $20 billion. A separate role was with
-          <strong>Craig McCaw's family office</strong> — McCaw, a pioneer of the American cellular
-          industry, is worth roughly $2 billion. Between the two I had a close-up view of how real
-          money does accounting.
+          analysis across eight real-estate projects. Vulcan also gave me an early personal-finance
+          education: the 401(k) match was 50% up to the IRS contribution limit, so I was maxing it
+          out in my 20s and learning what compounding actually does. Paul Allen co-founded Microsoft; at his passing
+          his net worth was estimated at $20 billion. Between McCaw and Vulcan, I had a close-up view
+          of how real money does accounting.
         </p>
         <p>
           Between and around them were the ordinary-sounding stops that do the bulk of actual craft
@@ -94,22 +193,43 @@ import Base from '../layouts/Base.astro';
           development projects), and aerospace accounting at <strong>Spaceflight Inc. / Firefly
           Aerospace</strong>.
         </p>
+        <p>
+          <strong>North Kai Capital</strong> was my first attempt to turn market curiosity into a
+          product. After reading the Value Investing Congress winning thesis on Jack in the Box, I
+          built an equity-index concept around publicly traded franchise companies. I worked with
+          EQM Indexes in San Diego to refine the methodology and eligibility criteria, then launched
+          it as a licensable index. EQM was later acquired, but the index methodology still exists as
+          part of that earlier work.
+        </p>
 
-        <h2>A brief entertainment career.</h2>
+        <h2 id="a-brief-entertainment-career">A brief entertainment career.</h2>
         <p>
           There are two IMDB credits in my name — <strong>nm5681118</strong>. The first is
           <em>7 Minutes</em> (2014), a crime-thriller directed by Jay Martin. The second is
           <strong><em>Twin Peaks: The Return</em></strong> — David Lynch's 2017 revival — where I was
-          an Accounting Clerk on the Washington state production team across ten episodes. I was also a
-          production assistant and the host's driver on a season finale of <em>The Amazing Race</em>.
+          an Accounting Clerk on the Washington state production team across ten episodes.
+        </p>
+        <p>
+          Separate from those IMDb credits, during one of the Hawaii stays with Steve I worked on the
+          season 20 finale of <em>The Amazing Race</em> as a production assistant and driver for host
+          Phil Keoghan. I also worked the 2011 APEC meeting for Showcall USA, setting up umbrellas
+          for Secret Service perimeter positions.
         </p>
         <p>
           None of it was strategic. I'd grown up adjacent to the industry through Steve and things
           happened to line up. It did teach me that production accounting is its own discipline — the
           logic is familiar but the pace and stakes are unlike anything in corporate finance.
         </p>
+        <p>
+          My twenties had a strange momentum to them. I kept finding myself in rooms I would not have
+          known how to ask for: backstage in Hawaii, a Wall Street forum, billionaire family offices,
+          film and television production. My thirties were different. The doors did not open as
+          easily, the legal fights started, and life got heavier. That chapter gave me a different
+          kind of education: endurance, documentation, and the need to build a direction instead of
+          waiting for one.
+        </p>
 
-        <h2>The pivot.</h2>
+        <h2 id="the-pivot">The pivot.</h2>
         <p>
           During the pandemic I started the <strong>Graduate Certificate in Digital Mapping at the
           University of Kentucky</strong> — remote, through their New Maps Plus program. 4.0 GPA, and
@@ -128,7 +248,7 @@ import Base from '../layouts/Base.astro';
           satellite company Paul Allen's Vulcan had backed years earlier. Some circles close quickly.
         </p>
 
-        <h2>Why this combination matters.</h2>
+        <h2 id="why-this-combination-matters">Why this combination matters.</h2>
         <p>
           There are roughly <strong>650,000 active CPAs</strong> in the United States. There are maybe
           <strong>20,000–35,000 living holders of a geospatial master's</strong> of any kind, and
@@ -169,7 +289,7 @@ import Base from '../layouts/Base.astro';
           TypeScript rebuild is underway.
         </p>
         <p>
-          The day job is accounting consulting. The side projects are the thesis. If any of this lands
+          I am currently a senior accountant. The side projects are the thesis. If any of this lands
           for you, <a href="mailto:alex.j.schulz@gmail.com">write</a>.
         </p>
       </div>

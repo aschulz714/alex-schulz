@@ -1,43 +1,33 @@
-# Astro Starter Kit: Minimal
+# Alex Schulz Portfolio
+
+Living resume and portfolio for work at the intersection of accounting discipline, geospatial intelligence, and physical-world financial signals.
+
+## Structure
+
+- `src/pages/index.astro`: homepage composition.
+- `src/pages/about.astro`: long-form biography and origin story.
+- `src/components`: visual sections and interactive project modal.
+- `src/content/projects`: project case studies managed through Astro content collections.
+- `src/data/profile.ts`: reusable profile data for hero places, proof pillars, and notes.
+- `src/data/timeline.ts`: career timeline data.
+- `public`: static assets including resume, OG image, and artifact images.
+
+## Commands
 
 ```sh
-npm create astro@latest -- --template minimal
+npm run dev
+npm run build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Content Model
 
-## 🚀 Project Structure
+Projects use frontmatter for the core portfolio proof layer:
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `blurb`: short card summary.
+- `caseStudy.question`: the research or product question.
+- `caseStudy.data`: source material or inputs.
+- `caseStudy.method`: how the work was done.
+- `caseStudy.signal`: what the work reveals.
+- `caseStudy.why`: why it matters.
+- `artifact`: the visible output or object visitors can inspect.

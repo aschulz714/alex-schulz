@@ -1,34 +1,42 @@
 ---
 import { milestones } from '../data/timeline';
+
+const chapterFor = (index: number) => {
+  if (index === 0) return 'Accounting foundation';
+  if (index <= 2) return 'Family office + production';
+  if (index <= 5) return 'Geospatial pivot';
+  return 'Spatial finance thesis';
+};
 ---
 
-<section id="timeline" class="relative border-y border-hairline bg-paper-soft/45 py-16 md:py-28">
+<section id="timeline" class="relative border-y border-hairline bg-paper-soft/45 py-14 md:py-24">
   <div class="section-shell">
-    <div class="mb-12 grid grid-cols-1 gap-7 md:mb-16 md:grid-cols-[180px_1fr] md:gap-14">
+    <div class="mb-10 grid grid-cols-1 gap-7 md:mb-14 md:grid-cols-[180px_1fr] md:gap-14">
       <p class="coord pt-1">01 / Journey</p>
       <div>
         <h2 class="section-heading max-w-2xl text-3xl md:text-5xl">
-          Four fields. One thread.
+          A career ledger, not a straight line.
         </h2>
         <p class="section-copy mt-5 max-w-xl text-base md:text-lg">
           Each chapter became the foundation for the next: accounting discipline, production pace,
-          geospatial craft, and product judgment layered into one working profile.
+          geospatial craft, and product judgment layered into one working profile, often built remotely
+          from Washington.
         </p>
       </div>
     </div>
 
     <ol class="timeline-list border-t border-hairline">
-      {milestones.map((m) => (
+      {milestones.map((m, index) => (
         <li
-          class="milestone reveal group grid grid-cols-[72px_1fr] gap-x-5 gap-y-3 border-b border-hairline py-6 transition-colors hover:bg-paper-soft/55 md:grid-cols-[150px_1fr_auto] md:gap-x-10 md:py-7"
-          data-lng={m.coords[0]}
-          data-lat={m.coords[1]}
-          data-zoom={m.zoom}
-          data-label={m.where}
+          class="milestone reveal group grid grid-cols-[3.5rem_1fr] gap-x-5 gap-y-3 border-b border-hairline py-6 transition-colors hover:bg-paper-soft/55 md:grid-cols-[5rem_1fr_auto] md:gap-x-8 md:py-7"
         >
-          <span class="coord text-accent md:self-start">{m.year}</span>
+          <div class="pt-1">
+            <span class="timeline-number">{String(index + 1).padStart(2, '0')}</span>
+            <span class="coord mt-3 block text-accent">{m.year}</span>
+          </div>
           <div class="relative pl-5 md:pr-4">
-            <span class="absolute left-0 top-2 h-2 w-2 rounded-full bg-signal shadow-[0_0_0_4px_var(--color-signal-soft)] transition-transform group-hover:scale-125" aria-hidden="true"></span>
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <p class="coord mb-3 text-signal">{chapterFor(index)}</p>
             <h3 class="font-sans text-xl font-semibold leading-snug md:text-2xl">
               {m.title}
             </h3>
@@ -62,33 +70,5 @@ import { milestones } from '../data/timeline';
     revealables.forEach((el) => observer.observe(el));
   } else {
     revealables.forEach((el) => el.classList.add('is-visible'));
-  }
-
-  // Pan the hero map as each milestone scrolls into view.
-  const milestoneEls = document.querySelectorAll<HTMLElement>('.milestone[data-lng][data-lat]');
-  if (milestoneEls.length && 'IntersectionObserver' in window) {
-    const mapObserver = new IntersectionObserver(
-      (entries) => {
-        // Pick the entry nearest the middle of the viewport.
-        const visible = entries.filter((e) => e.isIntersecting);
-        if (!visible.length) return;
-        const viewportCenter = window.innerHeight / 2;
-        visible.sort((a, b) => {
-          const distA = Math.abs(a.boundingClientRect.top + a.boundingClientRect.height / 2 - viewportCenter);
-          const distB = Math.abs(b.boundingClientRect.top + b.boundingClientRect.height / 2 - viewportCenter);
-          return distA - distB;
-        });
-        const top = visible[0]!.target as HTMLElement;
-        const lng = parseFloat(top.dataset.lng!);
-        const lat = parseFloat(top.dataset.lat!);
-        const zoom = parseFloat(top.dataset.zoom!);
-        const label = top.dataset.label!;
-        window.dispatchEvent(
-          new CustomEvent('pan-hero-map', { detail: { lng, lat, zoom, label } })
-        );
-      },
-      { rootMargin: '-35% 0px -35% 0px', threshold: 0 }
-    );
-    milestoneEls.forEach((el) => mapObserver.observe(el));
   }
 </script>

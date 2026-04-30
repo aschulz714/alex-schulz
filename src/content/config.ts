@@ -11,6 +11,20 @@ const projects = defineCollection({
     year: z.number(),
     cover: z.string().optional(),
     tech: z.array(z.string()).default([]),
+    status: z.string().optional(),
+    artifact: z
+      .object({
+        label: z.string(),
+        detail: z.string(),
+      })
+      .optional(),
+    caseStudy: z.object({
+      question: z.string(),
+      data: z.string(),
+      method: z.string(),
+      signal: z.string(),
+      why: z.string(),
+    }),
     links: z
       .object({
         repo: z.string().url().optional(),

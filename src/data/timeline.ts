@@ -3,7 +3,7 @@ export interface Milestone {
   title: string;
   blurb: string;
   where: string;
-  /** [lng, lat] — used to pan the hero map when this milestone scrolls into view. */
+  /** [lng, lat] — retained for future map/project atlas use. */
   coords: [number, number];
   zoom: number;
 }
@@ -39,26 +39,26 @@ export const milestones: Milestone[] = [
   {
     year: 2018,
     title: 'Founded North Kai Capital',
-    blurb: 'Built a thematic equity index with an industry-recognized provider; presented to ETF industry veterans pursuing a license.',
-    where: 'New York, NY',
-    coords: [-74.006, 40.7128],
+    blurb: 'Built a publicly traded franchise-company equity index after reading a Value Investing Congress thesis on Jack in the Box; worked with EQM Indexes to refine and launch the methodology.',
+    where: 'Seattle, WA',
+    coords: [-122.3321, 47.6062],
     zoom: 11,
   },
   {
     year: 2021,
     title: 'Digital Mapping certificate — U. Kentucky',
     blurb: '4.0 GPA, remote from Washington. First contact with HTML, CSS, JavaScript, Git, QGIS, Leaflet, Mapbox — the craft layer beneath the analysis.',
-    where: 'U. Kentucky · remote',
-    coords: [-84.5037, 38.0406],
-    zoom: 11,
+    where: 'Remote from WA',
+    coords: HOME_COORDS,
+    zoom: HOME_ZOOM,
   },
   {
     year: 2022,
     title: 'MS Geospatial Intelligence — UMD',
     blurb: '4.0 GPA, remote from Washington. USGIF-accredited. Capstone became rail_served. Attended the GEOINT Symposium in Denver and met the BlackSky team.',
-    where: 'UMD · remote',
-    coords: [-76.9429, 38.9897],
-    zoom: 12,
+    where: 'Remote from WA',
+    coords: HOME_COORDS,
+    zoom: HOME_ZOOM,
   },
   {
     year: 2024,

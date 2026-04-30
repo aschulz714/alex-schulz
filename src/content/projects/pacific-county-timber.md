@@ -10,6 +10,16 @@ tech:
   - MapBox GL JS
   - TopoJSON
   - HTML/CSS
+status: Early mapping project
+artifact:
+  label: Land map
+  detail: Parcel-level choropleth from county shapefile to web map.
+caseStudy:
+  question: What can county parcel data reveal about designated forest land at web-map scale?
+  data: Pacific County taxlot shapefiles and designated forest land classifications.
+  method: QGIS filtering, Mapshaper simplification, TopoJSON export, and MapBox styling.
+  signal: A visible layer for timber land patterns that are otherwise buried in local GIS files.
+  why: "It captures the early craft layer: source, clean, simplify, style, and ship the map."
 links:
   repo: https://github.com/aschulz714/Pacific-County-Timber
   demo: https://aschulz714.github.io/Pacific-County-Timber/

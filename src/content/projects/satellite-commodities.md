@@ -9,6 +9,16 @@ tech:
   - Sentinel-2
   - NDVI
   - Python
+status: Research prototype
+artifact:
+  label: Research site
+  detail: Public proof-of-concept for commodity activity signals.
+caseStudy:
+  question: Can free satellite imagery expose useful operating signals in under-covered commodity markets?
+  data: Sentinel-2 optical imagery, NDVI, sawmill locations, and USDA citrus report windows.
+  method: Google Earth Engine analysis, site-level time series, and report-window comparisons.
+  signal: Mill activity and crop-vigor patterns that traditional market coverage often misses.
+  why: The project became the practical bridge from mapping exercises to Item2.
 links:
   repo: https://github.com/aschulz714/satellite-commodities
   demo: https://aschulz714.github.io/satellite-commodities/

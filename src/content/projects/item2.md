@@ -10,6 +10,16 @@ tech:
   - PostgreSQL
   - Alembic
   - Satellite imagery
+status: Active build
+artifact:
+  label: Platform
+  detail: Live geospatial intelligence product at item2.io.
+caseStudy:
+  question: Can public physical-world data reveal operating changes before small-cap disclosures?
+  data: Satellite imagery, company facilities, filings, and public market context.
+  method: Python pipelines, spatial filtering, time-series checks, and accounting review.
+  signal: Operational movement around assets that may matter before it becomes reported financial news.
+  why: Small- and micro-cap coverage gaps create room for evidence-driven research.
 links:
   demo: https://item2.io
 featured: true

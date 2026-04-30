@@ -1,0 +1,61 @@
+---
+import { proofPillars } from '../data/profile';
+---
+
+<section id="thesis" class="relative border-b border-hairline bg-paper-soft/45 py-14 md:py-24">
+  <div class="section-shell">
+    <div class="grid grid-cols-1 gap-7 md:grid-cols-[180px_1fr] md:gap-14">
+      <p class="coord pt-1">00 / Thesis</p>
+      <div>
+        <h2 class="section-heading max-w-3xl text-3xl md:text-5xl">
+          Most financial analysis waits for reported numbers. I look for the operations that create them.
+        </h2>
+        <p class="section-copy mt-5 max-w-2xl text-base md:text-lg">
+          The edge is not only knowing accounting, maps, or software. It is being able to move between
+          all three until physical-world activity becomes financial intelligence.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 gap-4 md:mt-14 md:grid-cols-3">
+      {proofPillars.map((pillar) => (
+        <article class="surface-quiet rounded-md p-5 md:p-6">
+          <p class="coord text-accent">{pillar.label}</p>
+          <h3 class="mt-6 font-sans text-xl font-semibold leading-snug text-ink md:text-2xl">
+            {pillar.title}
+          </h3>
+          <p class="section-copy mt-4 text-sm md:text-base">
+            {pillar.body}
+          </p>
+          <p class="mt-6 border-t border-hairline pt-4 text-sm leading-relaxed text-ink-soft">
+            {pillar.proof}
+          </p>
+        </article>
+      ))}
+    </div>
+
+    <div class="dossier-panel mt-5 rounded-lg p-5 md:mt-6 md:p-6">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] md:items-center">
+        <div>
+          <p class="coord text-accent">Observe</p>
+          <p class="mt-2 text-sm leading-relaxed text-ink-soft">Plants, parcels, rail, crops, ships, sites.</p>
+        </div>
+        <span class="hidden h-px w-10 bg-hairline md:block" aria-hidden="true"></span>
+        <div>
+          <p class="coord text-signal">Structure</p>
+          <p class="mt-2 text-sm leading-relaxed text-ink-soft">Imagery, public records, filings, time series.</p>
+        </div>
+        <span class="hidden h-px w-10 bg-hairline md:block" aria-hidden="true"></span>
+        <div>
+          <p class="coord text-accent">Reconcile</p>
+          <p class="mt-2 text-sm leading-relaxed text-ink-soft">Does the operational evidence match the financial story?</p>
+        </div>
+        <span class="hidden h-px w-10 bg-hairline md:block" aria-hidden="true"></span>
+        <div>
+          <p class="coord text-signal">Ship</p>
+          <p class="mt-2 text-sm leading-relaxed text-ink-soft">Maps, pipelines, products, and decision-ready signals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
