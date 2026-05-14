@@ -7,11 +7,11 @@ export interface HeroPlace {
   zoom: number;
 }
 
-export interface ProofPillar {
+export interface Lens {
   label: string;
   title: string;
   body: string;
-  proof: string;
+  signals: string[];
 }
 
 export interface Note {
@@ -70,24 +70,36 @@ export const heroPlaces: HeroPlace[] = [
   },
 ];
 
-export const proofPillars: ProofPillar[] = [
+export const lenses: Lens[] = [
   {
-    label: '01 / Accounting',
-    title: 'Financial judgment with source discipline.',
-    body: 'CPA training means the signal has to reconcile: filings, ledgers, operational reality, and the story management tells all need to line up.',
-    proof: 'Vulcan, McCaw family office, development accounting, production accounting.',
+    label: '01 / Entertainment',
+    title: 'Behind the show.',
+    body: 'Story, production, access, logistics, and the machinery behind public moments. This is the world of backstage rooms, film sets, live events, and the people who make a finished thing look effortless.',
+    signals: [
+      'Steve Ozark and backstage Hawaii',
+      'The Amazing Race, APEC, Twin Peaks',
+      'Media, story, production, and access',
+    ],
   },
   {
     label: '02 / Geospatial',
-    title: 'A way to see operations before they are reported.',
-    body: 'Satellite imagery, parcel data, rail networks, and land-use records turn physical activity into analyzable evidence.',
-    proof: 'UMD GEOINT, UK Digital Mapping, rail_served, satellite commodities.',
+    title: 'Behind the place.',
+    body: 'Maps, land, infrastructure, boundaries, and physical evidence. This lens turns place into something that can be inspected: parcels, rail lines, facilities, ownership, and the records beneath them.',
+    signals: [
+      'Industrial Map of Washington',
+      'Adverse possession, parcel records, rail-served land',
+      'UK Digital Mapping and UMD GEOINT',
+    ],
   },
   {
-    label: '03 / Builder',
-    title: 'Enough product range to ship the idea.',
-    body: 'The work does not stop at analysis. It becomes databases, maps, interfaces, pipelines, and products other people can use.',
-    proof: 'Item2, Hodego, Mapbox/MapLibre work, Python and TypeScript pipelines.',
+    label: '03 / Finance / Investing',
+    title: 'Behind the numbers.',
+    body: 'Markets, ownership, incentives, compounding, filings, and tax architecture. The finance lens is not just stock picking; it is how structure shapes outcomes over time.',
+    signals: [
+      'CPA, family offices, North Kai Capital',
+      'Compounding, public-market themes, franchise index work',
+      'QSBS, Roth architecture, QOZ geography',
+    ],
   },
 ];
 

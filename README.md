@@ -8,7 +8,7 @@ Living resume and portfolio for work at the intersection of accounting disciplin
 - `src/pages/about.astro`: long-form biography and origin story.
 - `src/components`: visual sections and interactive project modal.
 - `src/content/projects`: project case studies managed through Astro content collections.
-- `src/data/profile.ts`: reusable profile data for hero places, proof pillars, and notes.
+- `src/data/profile.ts`: reusable profile data for hero places, three lenses, and notes.
 - `src/data/timeline.ts`: career timeline data.
 - `public`: static assets including resume, OG image, and artifact images.
 
