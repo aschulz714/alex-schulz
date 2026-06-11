@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import TopicPage from '../components/TopicPage.astro';
+import TaxArchitecture from '../components/TaxArchitecture.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import { topicBySlug } from '../data/topics';
+---
+
+<Base
+  title="Finance | Alex Schulz"
+  description="Alex Schulz's finance lens: CPA foundation, family offices, compounding, North Kai Capital, franchise indexing, tax structure, and financial data."
+>
+  <TopicPage topic={topicBySlug.finance} />
+  <TaxArchitecture />
+  <FinalCTA />
+</Base>

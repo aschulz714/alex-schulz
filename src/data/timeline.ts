@@ -39,7 +39,7 @@ export const milestones: Milestone[] = [
   {
     year: 2018,
     title: 'Founded North Kai Capital',
-    blurb: 'Built a publicly traded franchise-company equity index after reading a Value Investing Congress thesis on Jack in the Box; worked with EQM Indexes to refine and launch the methodology.',
+    blurb: 'Built a publicly traded franchise-company equity index after reading a Value Investing Congress thesis on Jack in the Box refranchising; worked with ETF and index insiders to refine the methodology with EQM Indexes.',
     where: 'Seattle, WA',
     coords: [-122.3321, 47.6062],
     zoom: 11,

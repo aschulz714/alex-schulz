@@ -1,0 +1,45 @@
+---
+import '../styles/v3.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'An Atlas of Alex Schulz — frontispiece preview',
+  description = 'A redesign exploration for the Alex Schulz portfolio, organized as a personal atlas.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+
+    <footer class="atlas-shell pb-16 pt-8">
+      <div class="atlas-rule mb-6">
+        <span class="ornament">✦</span>
+      </div>
+      <div class="flex flex-col items-center gap-2 text-center">
+        <p class="smallcaps text-sm">v3 frontispiece preview — atlas direction</p>
+        <p class="text-sm text-ink-muted">
+          <a href="/" class="display-script">Back to v1</a>
+          <span class="mx-2 text-rule">·</span>
+          <a href="/v2" class="display-script">v2 (rejected)</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

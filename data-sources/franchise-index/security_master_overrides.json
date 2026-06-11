@@ -1,0 +1,97 @@
+{
+  "AAN": {
+    "eodhd_symbol": "AAN_old.US",
+    "mapping_status": "manual_review_required",
+    "review_reason": "EODHD old-symbol mapping found for Aaron's Inc, but price history starts in 2009 and misses early 2007-2008 holdings snapshots.",
+    "corporate_action_treatment": "partial_price_history_external_data_needed"
+  },
+  "BAGL": {
+    "mapping_status": "manual_review_required",
+    "review_reason": "EODHD identifies Einstein Noah Restaurant Group as BAGL.US but returns zero rows; external data or provider support needed.",
+    "corporate_action_treatment": "external_price_history_needed"
+  },
+  "BH": {
+    "mapping_status": "approved_for_reconstruction",
+    "validation_grade": "manual_override_accepted",
+    "review_reason": "Bloomberg holdings prices are consistently 1.5x EODHD closes, likely due share-class or historical price scale convention. Daily returns remain usable; do not use provider close to recompute historical share counts.",
+    "corporate_action_treatment": "provider_adjusted_return_series_price_scale_mismatch_accepted"
+  },
+  "BLIAQ": {
+    "mapping_status": "manual_review_required",
+    "review_reason": "EODHD BLIAQ history begins after the 2007-2017 holdings snapshots. Bloomberg holdings prices show the security collapsing toward zero, but daily reconstruction needs external data or explicit zero-price treatment.",
+    "corporate_action_treatment": "bankruptcy_or_liquidation_external_data_needed"
+  },
+  "CKR": {
+    "mapping_status": "manual_review_required",
+    "review_reason": "EODHD CKR.US does not match Bloomberg holdings prices after 2007; no reliable alternate symbol found yet.",
+    "corporate_action_treatment": "external_price_history_needed"
+  },
+  "CSH": {
+    "eodhd_symbol": "CSH_old.US",
+    "mapping_status": "approved_for_reconstruction",
+    "review_reason": "Old Cash America maps to CSH_old.US, not current/reused CSH.US.",
+    "corporate_action_treatment": "price_series_stops_at_delisting_or_acquisition"
+  },
+  "DTGF": {
+    "mapping_status": "manual_review_required",
+    "review_reason": "Dollar Thrifty old listing not found in EODHD with correct 2007-2012 history. DTG/DTG_old are reused or unrelated later tickers.",
+    "corporate_action_treatment": "external_price_history_needed"
+  },
+  "FRS": {
+    "mapping_status": "manual_review_required",
+    "review_reason": "EODHD FRS.US does not match Bloomberg holdings prices; no reliable alternate symbol found yet.",
+    "corporate_action_treatment": "external_price_history_needed"
+  },
+  "FRSH": {
+    "eodhd_symbol": "FRSH_old.US",
+    "mapping_status": "approved_for_reconstruction",
+    "review_reason": "Old Papa Murphy's maps to FRSH_old.US, not current Freshworks FRSH.US.",
+    "corporate_action_treatment": "price_series_stops_at_delisting_or_acquisition"
+  },
+  "HTZ": {
+    "eodhd_symbol": "HTZ_old.US",
+    "mapping_status": "approved_for_reconstruction",
+    "review_reason": "Use old Hertz pre-bankruptcy history. Do not splice into current post-bankruptcy HTZ.",
+    "corporate_action_treatment": "bankruptcy_do_not_splice_old_and_new_series"
+  },
+  "MDS": {
+    "mapping_status": "manual_review_required",
+    "review_reason": "EODHD MDS.US does not consistently match Bloomberg holdings prices; no reliable alternate symbol found yet.",
+    "corporate_action_treatment": "external_price_history_needed"
+  },
+  "MTY CN": {
+    "eodhd_symbol": "MTY.TO",
+    "mapping_status": "approved_for_reconstruction",
+    "review_reason": "Canadian MTY listing maps to EODHD Toronto symbol MTY.TO.",
+    "corporate_action_treatment": "provider_adjusted_price_series"
+  },
+  "RSHCQ": {
+    "eodhd_symbol": "RSH.US",
+    "mapping_status": "approved_for_reconstruction",
+    "review_reason": "RS Legacy / RadioShack history maps to pre-bankruptcy RSH.US for the 2007-2015 holdings period.",
+    "corporate_action_treatment": "bankruptcy_price_series_stops_at_delisting"
+  },
+  "SERV": {
+    "eodhd_symbol": "SERV_old.US",
+    "mapping_status": "approved_for_reconstruction",
+    "review_reason": "Old ServiceMaster maps to SERV_old.US, not current Serve Robotics SERV.US.",
+    "corporate_action_treatment": "price_series_stops_at_delisting_or_acquisition"
+  },
+  "TAX": {
+    "eodhd_symbol": "TAXA.US",
+    "mapping_status": "approved_for_reconstruction",
+    "review_reason": "Old Liberty Tax maps to TAXA.US, not current Cambria Tax Aware ETF TAX.US.",
+    "corporate_action_treatment": "complex_corporate_action_review_after_historical_period"
+  },
+  "THI CN": {
+    "eodhd_symbol": "THI.TO",
+    "mapping_status": "approved_for_reconstruction",
+    "review_reason": "Canadian Tim Hortons listing maps to EODHD Toronto symbol THI.TO.",
+    "corporate_action_treatment": "price_series_stops_at_delisting_or_acquisition"
+  },
+  "WTW": {
+    "mapping_status": "manual_review_required",
+    "review_reason": "Old Weight Watchers WTW conflicts with current Willis Towers Watson WTW in EODHD. WW/WGHTQ symbols do not provide the required 2007-2017 history.",
+    "corporate_action_treatment": "external_price_history_needed"
+  }
+}

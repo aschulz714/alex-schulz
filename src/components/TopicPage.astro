@@ -1,0 +1,100 @@
+---
+import type { Topic } from '../data/topics';
+import { topics } from '../data/topics';
+
+interface Props {
+  topic: Topic;
+}
+
+const { topic } = Astro.props;
+const otherTopics = topics.filter((item) => item.slug !== topic.slug);
+---
+
+<section class="relative py-14 md:py-24">
+  <div class="section-shell">
+    <div class="grid grid-cols-1 gap-7 md:grid-cols-[180px_1fr] md:gap-14">
+      <p class="coord pt-1">{topic.label}</p>
+      <div>
+        <h1 class="section-heading max-w-3xl text-4xl md:text-6xl">
+          {topic.title}
+        </h1>
+        <p class="section-copy mt-5 max-w-2xl text-base md:text-lg">
+          {topic.dek}
+        </p>
+      </div>
+    </div>
+
+    <div class="dossier-panel mt-10 overflow-hidden rounded-lg md:mt-14">
+      <div class="grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr]">
+        <aside class="border-b border-hairline p-5 md:border-b-0 md:border-r md:p-6 lg:p-7">
+          <p class="coord text-accent">Working thesis</p>
+          <p class="mt-5 text-xl font-semibold leading-snug text-ink md:text-2xl">
+            {topic.signal}
+          </p>
+          <p class="section-copy mt-4 text-sm md:text-base">
+            {topic.thesis}
+          </p>
+
+          <div class="mt-7 border-t border-hairline pt-5">
+            <p class="coord text-signal">How it connects</p>
+            <p class="section-copy mt-3 text-sm md:text-base">
+              {topic.bridge}
+            </p>
+          </div>
+
+          <div class="mt-8 border-t border-hairline pt-5">
+            <p class="coord text-accent">Evidence</p>
+            <ul class="mt-4 space-y-3">
+              {topic.evidence.map((item) => (
+                <li class="grid grid-cols-[1.2rem_1fr] gap-2 text-sm leading-relaxed text-ink-soft">
+                  <span class="mono text-accent" aria-hidden="true">+</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+
+        <div>
+          <ol class="divide-y divide-hairline">
+            {topic.chapters.map((chapter, index) => (
+              <li class="grid grid-cols-[3rem_1fr] gap-4 p-5 md:grid-cols-[4rem_1fr] md:p-6 lg:p-7">
+                <span class="timeline-number self-start">{String(index + 1).padStart(2, '0')}</span>
+                <div>
+                  <p class="coord text-signal">{chapter.eyebrow}</p>
+                  <h2 class="mt-3 font-sans text-2xl font-semibold leading-tight text-ink md:text-3xl">
+                    {chapter.title}
+                  </h2>
+                  <p class="section-copy mt-4 text-sm md:text-base">
+                    {chapter.body}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div class="surface-quiet rounded-md p-5 md:p-6">
+        <p class="coord text-accent">Related pages</p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          {topic.related.map((link) => (
+            <a href={link.href} class="button-secondary">{link.label}</a>
+          ))}
+        </div>
+      </div>
+
+      <div class="surface-quiet rounded-md p-5 md:p-6">
+        <p class="coord text-accent">Other lenses</p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          {otherTopics.map((item) => (
+            <a href={`/${item.slug}`} class="button-secondary">{item.nav}</a>
+          ))}
+          <a href="/lenses" class="button-primary">All lenses</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

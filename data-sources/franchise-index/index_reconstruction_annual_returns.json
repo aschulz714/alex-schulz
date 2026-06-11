@@ -1,0 +1,122 @@
+[
+  {
+    "year": "2008",
+    "start_date": "2008-01-02",
+    "end_date": "2008-12-31",
+    "franchise_start_level": 98.0702708161021,
+    "franchise_end_level": 56.45624422044095,
+    "franchise_return": -0.4243286599431778,
+    "benchmark_start_level": 99.12456467685519,
+    "benchmark_end_level": 63.20528096301716,
+    "benchmark_return": -0.3623651093039796,
+    "excess_return": -0.06196355063919823
+  },
+  {
+    "year": "2009",
+    "start_date": "2009-01-02",
+    "end_date": "2009-12-31",
+    "franchise_start_level": 58.840642825610416,
+    "franchise_end_level": 105.84000008117349,
+    "franchise_return": 0.7987566926292413,
+    "benchmark_start_level": 65.11045426856134,
+    "benchmark_end_level": 79.86201836690127,
+    "benchmark_return": 0.22656214373031536,
+    "excess_return": 0.572194548898926
+  },
+  {
+    "year": "2010",
+    "start_date": "2010-01-04",
+    "end_date": "2010-12-31",
+    "franchise_start_level": 105.12453352724829,
+    "franchise_end_level": 144.10921727801897,
+    "franchise_return": 0.370842870286467,
+    "benchmark_start_level": 81.2164528203576,
+    "benchmark_end_level": 91.88661101171206,
+    "benchmark_return": 0.13137926886508766,
+    "excess_return": 0.23946360142137935
+  },
+  {
+    "year": "2011",
+    "start_date": "2011-01-03",
+    "end_date": "2011-12-30",
+    "franchise_start_level": 146.13296280436575,
+    "franchise_end_level": 172.97873027840228,
+    "franchise_return": 0.18370781621649646,
+    "benchmark_start_level": 92.8364679153912,
+    "benchmark_end_level": 93.62780781033896,
+    "benchmark_return": 0.00852401984604767,
+    "excess_return": 0.17518379637044879
+  },
+  {
+    "year": "2012",
+    "start_date": "2012-01-03",
+    "end_date": "2012-12-31",
+    "franchise_start_level": 170.91240905200047,
+    "franchise_end_level": 200.67008017606554,
+    "franchise_return": 0.17411065287255556,
+    "benchmark_start_level": 95.1198790864823,
+    "benchmark_end_level": 108.59957166884409,
+    "benchmark_return": 0.14171267574999913,
+    "excess_return": 0.03239797712255643
+  },
+  {
+    "year": "2013",
+    "start_date": "2013-01-02",
+    "end_date": "2013-12-31",
+    "franchise_start_level": 206.31976850094256,
+    "franchise_end_level": 299.71734077126877,
+    "franchise_return": 0.45268358407400755,
+    "benchmark_start_level": 111.38305371763093,
+    "benchmark_end_level": 143.68565933497567,
+    "benchmark_return": 0.29001364695239573,
+    "excess_return": 0.16266993712161182
+  },
+  {
+    "year": "2014",
+    "start_date": "2014-01-02",
+    "end_date": "2014-12-31",
+    "franchise_start_level": 297.45356407145215,
+    "franchise_end_level": 337.70963540642646,
+    "franchise_return": 0.1353356496522069,
+    "benchmark_start_level": 142.30862064341622,
+    "benchmark_end_level": 163.0307685824078,
+    "benchmark_return": 0.1456141437201841,
+    "excess_return": -0.010278494067977206
+  },
+  {
+    "year": "2015",
+    "start_date": "2015-01-02",
+    "end_date": "2015-12-31",
+    "franchise_start_level": 335.67050935969837,
+    "franchise_end_level": 304.395895182403,
+    "franchise_return": -0.09317057443310295,
+    "benchmark_start_level": 162.94351239210306,
+    "benchmark_end_level": 165.04292889626188,
+    "benchmark_return": 0.012884320911819014,
+    "excess_return": -0.10605489534492196
+  },
+  {
+    "year": "2016",
+    "start_date": "2016-01-04",
+    "end_date": "2016-12-30",
+    "franchise_start_level": 299.46014265263324,
+    "franchise_end_level": 329.217513525964,
+    "franchise_return": 0.0993700550922687,
+    "benchmark_start_level": 162.73566833835864,
+    "benchmark_end_level": 184.8446245972423,
+    "benchmark_return": 0.13585808498303464,
+    "excess_return": -0.03648802989076594
+  },
+  {
+    "year": "2017",
+    "start_date": "2017-01-03",
+    "end_date": "2017-12-29",
+    "franchise_start_level": 329.22042071842117,
+    "franchise_end_level": 373.12218857233023,
+    "franchise_return": 0.13335068267669148,
+    "benchmark_start_level": 186.25863462739406,
+    "benchmark_end_level": 224.96599786217547,
+    "benchmark_return": 0.20781513464980872,
+    "excess_return": -0.07446445197311724
+  }
+]

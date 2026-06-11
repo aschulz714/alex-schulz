@@ -1,0 +1,135 @@
+---
+import { taxPrinciples, taxProgramGroups, taxSourceLinks } from '../data/taxPrograms';
+---
+
+<section id="tax-architecture" class="relative scroll-mt-32 border-y border-hairline bg-paper-soft/45 py-14 md:py-24">
+  <div class="section-shell">
+    <div class="grid grid-cols-1 gap-7 md:grid-cols-[180px_1fr] md:gap-14">
+      <p class="coord pt-1">04 / Tax architecture</p>
+      <div>
+        <h2 class="section-heading max-w-3xl text-3xl md:text-5xl">
+          The hidden layer is after-tax structure.
+        </h2>
+        <p class="section-copy mt-5 max-w-3xl text-base md:text-lg">
+          This is not loophole chasing. It is structural literacy: entity choice, holding period,
+          basis, account wrapper, income year, and geography can decide how much of an idea
+          actually compounds.
+        </p>
+      </div>
+    </div>
+
+    <div class="dossier-panel mt-10 overflow-hidden rounded-lg md:mt-14">
+      <div class="grid grid-cols-1 md:grid-cols-[0.88fr_1.12fr]">
+        <div class="border-b border-hairline p-5 md:border-b-0 md:border-r md:p-7">
+          <p class="coord text-accent">Why it belongs</p>
+          <h3 class="mt-4 max-w-lg font-sans text-3xl font-semibold leading-tight text-ink md:text-4xl">
+            Tax is the finance lens turned into architecture.
+          </h3>
+          <p class="section-copy mt-5 text-base md:text-lg">
+            Alex already thinks in systems: entertainment has production structure, geospatial work
+            has physical structure, and finance has ownership structure. Tax-aware planning is the
+            same instinct applied to the final outcome: who owns the upside, when it is realized,
+            where it sits, and what wrapper lets it compound.
+          </p>
+
+          <div class="mt-7 border-t border-hairline pt-5">
+            <p class="coord text-signal">Portfolio framing</p>
+            <p class="mt-3 text-sm leading-relaxed text-ink-soft md:text-base">
+              The public site should present this as a research and planning map, not personal tax
+              advice. The signal is that Alex knows where structure can matter and knows when the
+              answer needs a specialist.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-5 md:p-7">
+          <p class="coord text-accent">Four levers</p>
+          <div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {taxPrinciples.map((principle) => (
+              <div class="border-t border-hairline pt-4">
+                <h4 class="font-sans text-xl font-semibold leading-snug text-ink">
+                  {principle.title}
+                </h4>
+                <p class="section-copy mt-3 text-sm">
+                  {principle.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
+      {taxProgramGroups.map((group) => (
+        <section class="surface-quiet rounded-md p-5 md:p-6">
+          <div class="flex flex-col gap-3 border-b border-hairline pb-5">
+            <p class="coord text-accent">{group.title}</p>
+            <p class="section-copy text-sm md:text-base">
+              {group.angle}
+            </p>
+          </div>
+
+          <ul class="divide-y divide-hairline">
+            {group.programs.map((program) => (
+              <li class="py-5">
+                <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <h3 class="font-sans text-xl font-semibold leading-snug text-ink">
+                      {program.name}
+                    </h3>
+                    <p class="mono mt-2 text-xs uppercase text-ink-muted">
+                      {program.code}
+                    </p>
+                  </div>
+                  <span class="mono inline-flex w-fit rounded-sm border border-hairline bg-paper-soft px-2 py-1 text-xs text-signal">
+                    {program.status}
+                  </span>
+                </div>
+
+                <p class="section-copy mt-4 text-sm">
+                  {program.fit}
+                </p>
+                <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+                  <span class="font-semibold text-ink">Best fit:</span> {program.use}
+                </p>
+                <a
+                  href={program.sourceHref}
+                  class="mt-4 inline-flex text-sm font-medium text-accent underline decoration-accent/35 underline-offset-4 transition-colors hover:text-ink"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {program.sourceLabel}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+
+    <div class="ledger-rule mt-6 rounded-md p-5 md:p-6">
+      <div class="grid grid-cols-1 gap-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+        <div>
+          <p class="coord text-signal">Current as a research map</p>
+          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+            Tax law changes, state conformity matters, and implementation details are everything.
+            This section is a planning lens, not tax advice.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          {taxSourceLinks.map((source) => (
+            <a
+              href={source.href}
+              class="button-secondary"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {source.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

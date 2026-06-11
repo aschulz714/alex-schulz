@@ -1,0 +1,109 @@
+---
+import { artifacts } from '../data/artifacts';
+---
+
+<section id="artifacts" class="relative scroll-mt-32 border-y border-hairline bg-paper-soft/45 py-14 md:py-24">
+  <div class="section-shell">
+    <div class="mb-10 grid grid-cols-1 gap-7 md:mb-14 md:grid-cols-[180px_1fr] md:gap-14">
+      <p class="coord pt-1">01 / Source materials</p>
+      <div>
+        <h2 class="section-heading max-w-3xl text-3xl md:text-5xl">
+          The proof is in the objects.
+        </h2>
+        <p class="section-copy mt-5 max-w-2xl text-base md:text-lg">
+          The site gets more interesting when it stops explaining Alex in abstract terms and starts
+          showing the artifacts: maps, credits, index work, records, trips, and builds that keep
+          pointing to the same instinct.
+        </p>
+      </div>
+    </div>
+
+    <div class="dossier-panel overflow-hidden rounded-lg">
+      <div class="grid grid-cols-1 md:grid-cols-[1.08fr_0.92fr]">
+        <figure class="relative min-h-[28rem] border-b border-hairline md:border-b-0 md:border-r">
+          <img
+            src="/industrial-map.jpg"
+            alt="Framed Industrial Map of Washington"
+            class="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(14,23,20,0.08),rgba(14,23,20,0.46))]"></div>
+          <figcaption class="absolute bottom-0 left-0 right-0 p-5 text-paper-soft md:p-7">
+            <p class="coord text-paper-soft/80">Origin object / Custer, WA</p>
+            <h3 class="mt-3 max-w-xl font-sans text-3xl font-semibold leading-tight md:text-4xl">
+              An old industrial map from a dairy-farm porch.
+            </h3>
+            <p class="mt-4 max-w-xl text-sm leading-relaxed text-paper-soft/88 md:text-base">
+              Industry, land, inheritance, and place in one object. This is the kind of overlooked
+              source material the whole site should feel built from.
+            </p>
+          </figcaption>
+        </figure>
+
+        <div class="p-5 md:p-7">
+          <p class="coord text-accent">Signature move</p>
+          <h3 class="mt-4 font-sans text-3xl font-semibold leading-tight text-ink md:text-4xl">
+            Look past the surface. Find the system. Make it legible.
+          </h3>
+          <p class="section-copy mt-5 text-base md:text-lg">
+            The artifacts are not random resume trivia. They are clues: backstage production,
+            parcel boundaries, public-market structure, tax rules, index methodology, and AI tools
+            all reward the same habit of attention.
+          </p>
+
+          <dl class="mt-8 grid grid-cols-2 gap-x-4 gap-y-5 border-t border-hairline pt-5">
+            <div class="dossier-stat">
+              <dt class="coord text-accent">Entertainment</dt>
+              <dd class="mt-2 text-lg font-semibold leading-snug text-ink">
+                production systems
+              </dd>
+            </div>
+            <div class="dossier-stat">
+              <dt class="coord text-accent">Geospatial</dt>
+              <dd class="mt-2 text-lg font-semibold leading-snug text-ink">
+                physical evidence
+              </dd>
+            </div>
+            <div class="dossier-stat">
+              <dt class="coord text-accent">Finance</dt>
+              <dd class="mt-2 text-lg font-semibold leading-snug text-ink">
+                after-tax structure
+              </dd>
+            </div>
+            <div class="dossier-stat">
+              <dt class="coord text-accent">AI</dt>
+              <dd class="mt-2 text-lg font-semibold leading-snug text-ink">
+                tool layer
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 border-t border-hairline md:grid-cols-2 lg:grid-cols-4">
+        {artifacts.map((artifact) => (
+          <a
+            href={artifact.href}
+            class="group min-h-[17rem] border-b border-hairline p-5 transition-colors hover:bg-paper-soft md:border-r md:p-6 lg:[&:nth-child(4n)]:border-r-0"
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="coord text-accent">{artifact.label}</p>
+                <p class="coord mt-2 text-signal">{artifact.lens}</p>
+              </div>
+              <span class="mono rounded-sm border border-hairline bg-paper-soft px-2 py-1 text-xs text-ink-muted transition-colors group-hover:border-accent group-hover:text-accent" aria-hidden="true">
+                -&gt;
+              </span>
+            </div>
+            <h3 class="mt-9 font-sans text-xl font-semibold leading-snug text-ink md:text-2xl">
+              {artifact.title}
+            </h3>
+            <p class="section-copy mt-4 text-sm">
+              {artifact.body}
+            </p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

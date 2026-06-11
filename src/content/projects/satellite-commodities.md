@@ -34,7 +34,7 @@ A public-facing research project that takes freely available satellite imagery �
 
 ## Why it matters
 
-The commodities world runs on expensive, subscription-only intelligence. But much of the same information — mill activity, crop vigor, shipment cycles — is visible from space for free, if you know what you're looking at. This is the proof-of-concept that spun into [Item2](/#project-item2).
+The commodities world runs on expensive, subscription-only intelligence. But much of the same information — mill activity, crop vigor, shipment cycles — is visible from space for free, if you know what you're looking at. This is the proof-of-concept that spun into [Item2](/work#project-item2).
 
 ## What I learned
 

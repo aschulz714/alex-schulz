@@ -1,0 +1,102 @@
+---
+import BaseV3 from '../layouts/BaseV3.astro';
+
+const regions = [
+  { roman: 'I', title: 'Hawaii', note: 'Birthplace. Backstage catering with Steve Ozark. The road that closed.' },
+  { roman: 'II', title: 'The Industrial Map', note: 'Custer, the family farmhouse, the Belle Reeves source.' },
+  { roman: 'III', title: 'The Set', note: 'Twin Peaks: The Return, 7 Minutes, production accounting.' },
+  { roman: 'IV', title: 'The Books', note: 'WSU summa, CPA, McCaw, Vulcan — accounting as one region of a life.' },
+  { roman: 'V', title: 'The Maps', note: 'UK Digital Mapping, UMD GEOINT, rail-served, satellite work.' },
+  { roman: 'VI', title: 'The Ledger', note: 'North Kai franchise index, Item2, Hodego — finance as build.' },
+  { roman: 'VII', title: 'The Court', note: 'Tennis, golf, Lake Stevens life — present-tense.' },
+  { roman: 'VIII', title: 'Working Notes', note: 'What is being built now. The living margin.' },
+];
+---
+
+<BaseV3 title="An Atlas of Alex Schulz">
+  {/* ---- Title plate ---- */}
+  <section class="atlas-shell pt-24 pb-16 text-center md:pt-32 md:pb-20">
+    <p class="smallcaps text-sm md:text-base">Compiled at Lake Stevens · 47.979° N · 122.202° W</p>
+
+    <p class="display-script mt-12 text-2xl md:text-3xl">An Atlas of</p>
+
+    <h1 class="display-title mt-3 text-6xl md:text-8xl lg:text-9xl">
+      Alex Schulz
+    </h1>
+
+    <div class="atlas-rule mt-14 mx-auto">
+      <span class="ornament">✦</span>
+    </div>
+
+    <p class="smallcaps mt-8 text-sm tracking-[0.24em]">
+      Edition I · Two Thousand Twenty-Six
+    </p>
+  </section>
+
+  {/* ---- Frame plate (the map itself) ---- */}
+  <section class="atlas-shell">
+    <div class="map-frame mx-auto max-w-3xl">
+      <img
+        src="/industrial-map.jpg"
+        alt="Industrial Map of the State of Washington, Belle Reeves Secretary of State, circa 1940. The framed family copy from Custer, WA."
+        loading="eager"
+      />
+    </div>
+
+    <p class="display-script mx-auto mt-10 max-w-2xl text-center text-lg leading-relaxed text-ink-soft md:text-xl">
+      The frame plate of this atlas is reproduced from the
+      <span class="not-italic">Industrial Map of the State of Washington</span>,
+      published by the Secretary of State's office under
+      <span class="not-italic">Belle Reeves</span> circa 1940 and retrieved from a
+      family farmhouse in Custer, Whatcom County. It is the document this atlas takes after.
+    </p>
+  </section>
+
+  {/* ---- Contents ---- */}
+  <section class="atlas-shell pt-24 pb-16 md:pt-32">
+    <div class="atlas-rule">
+      <span class="ornament">Contents</span>
+    </div>
+
+    <div class="mx-auto mt-12 max-w-3xl">
+      <ol class="divide-y divide-rule">
+        {regions.map((r) => (
+          <li class="grid grid-cols-[3rem_1fr] gap-4 py-5 md:grid-cols-[4rem_1fr_minmax(14rem,18rem)] md:gap-8 md:py-6">
+            <span class="region-roman text-xl md:text-2xl">{r.roman}.</span>
+            <span class="region-title text-2xl md:text-3xl">{r.title}</span>
+            <span class="hidden text-base leading-snug text-ink-muted md:block md:text-right md:italic md:font-[var(--font-display)]">
+              {r.note}
+            </span>
+          </li>
+        ))}
+      </ol>
+
+      {/* mobile-only notes, kept after the list for clarity */}
+      <ul class="mt-8 space-y-2 text-sm italic leading-relaxed text-ink-muted md:hidden">
+        {regions.map((r) => (
+          <li><span class="region-roman not-italic mr-2">{r.roman}.</span>{r.note}</li>
+        ))}
+      </ul>
+    </div>
+
+    <p class="mt-16 text-center text-sm italic text-ink-muted">
+      Region names and order are draft. Edit me.
+    </p>
+  </section>
+
+  {/* ---- Colophon ---- */}
+  <section class="atlas-shell pt-12 pb-24 md:pt-16">
+    <div class="atlas-rule mb-10">
+      <span class="ornament">Colophon</span>
+    </div>
+
+    <div class="mx-auto max-w-2xl space-y-5 text-center">
+      <p class="display-script text-lg leading-relaxed md:text-xl">
+        This is a frontispiece-only preview. No region pages have been built yet.
+        Tell me which region to open first, whether the regions and titles are right,
+        and whether the parchment, the type, and the framed map are the direction.
+      </p>
+      <p class="smallcaps text-sm">Reaction wanted · not approval</p>
+    </div>
+  </section>
+</BaseV3>

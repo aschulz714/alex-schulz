@@ -1,0 +1,23 @@
+---
+import BaseV2 from '../layouts/BaseV2.astro';
+import HeroV2 from '../components/HeroV2.astro';
+import ThreeLensesV2 from '../components/ThreeLensesV2.astro';
+---
+
+<BaseV2 title="Alex Schulz — redesign preview">
+  <HeroV2 />
+  <ThreeLensesV2 />
+
+  <section class="border-t border-hairline py-20 md:py-28">
+    <div class="section-shell-v2 text-center">
+      <p class="eyebrow-v2 mb-4">This is just a preview</p>
+      <h2 class="mx-auto max-w-3xl text-balance text-3xl font-medium leading-tight tracking-tight text-ink md:text-4xl">
+        Reaction-driven redesign — only the hero and the three-lenses section have been rebuilt so far.
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-ink-muted">
+        Click "Back to v1" in the top nav to compare against the current site. Tell Alex (or Claude) what feels closer, hotter, or colder — and we'll iterate from here.
+      </p>
+      <a href="/" class="button-v2-secondary mt-8">← Back to v1</a>
+    </div>
+  </section>
+</BaseV2>

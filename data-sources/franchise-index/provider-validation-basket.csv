@@ -1,0 +1,11 @@
+symbol,category,why
+MCD,active,Large active franchise constituent and easy price-history sanity check.
+YUM,active,Large active franchise constituent with long public history.
+WEN,active,Recurring constituent with long public history.
+MAR,active,Hotel franchise exposure and large active constituent.
+DNKN,acquired_private,Tests whether provider can retrieve old ticker through 2020 Inspire Brands acquisition.
+SONC,acquired_private,Tests whether provider can retrieve old ticker through 2018 Inspire Brands acquisition.
+BWLD,acquired_private,Tests whether provider can retrieve old ticker through 2018 Roark/Inspire transaction.
+TACO,acquired_public,Tests whether provider can retrieve old ticker through 2022 Jack in the Box acquisition.
+GNC,bankruptcy_acquired_private,Tests bankruptcy/delisting handling.
+BLIAQ,bankruptcy_or_liquidation,Tests difficult inactive/liquidating security handling from early holdings snapshots.

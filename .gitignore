@@ -14,8 +14,14 @@ pnpm-debug.log*
 
 
 # environment variables
-.env
-.env.production
+.env*
+!.env.example
+
+# pulled market data
+data-sources/franchise-index/market-data/
+
+# local dev scratch
+tmp/
 
 # macOS-specific files
 .DS_Store

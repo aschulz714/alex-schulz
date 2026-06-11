@@ -12,7 +12,7 @@ const chapterFor = (index: number) => {
 <section id="timeline" class="relative border-y border-hairline bg-paper-soft/45 py-14 md:py-24">
   <div class="section-shell">
     <div class="mb-10 grid grid-cols-1 gap-7 md:mb-14 md:grid-cols-[180px_1fr] md:gap-14">
-      <p class="coord pt-1">01 / Journey</p>
+      <p class="coord pt-1">02 / Journey</p>
       <div>
         <h2 class="section-heading max-w-2xl text-3xl md:text-5xl">
           A career ledger, not a straight line.
@@ -52,23 +52,3 @@ const chapterFor = (index: number) => {
     </ol>
   </div>
 </section>
-
-<script>
-  const revealables = document.querySelectorAll<HTMLElement>('.reveal');
-  if (revealables.length && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: '-10% 0px -10% 0px', threshold: 0 }
-    );
-    revealables.forEach((el) => observer.observe(el));
-  } else {
-    revealables.forEach((el) => el.classList.add('is-visible'));
-  }
-</script>

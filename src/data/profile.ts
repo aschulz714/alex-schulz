@@ -11,7 +11,9 @@ export interface Lens {
   label: string;
   title: string;
   body: string;
+  thread: string;
   signals: string[];
+  href: string;
 }
 
 export interface Note {
@@ -75,31 +77,37 @@ export const lenses: Lens[] = [
     label: '01 / Entertainment',
     title: 'Behind the show.',
     body: 'Story, production, access, logistics, and the machinery behind public moments. This is the world of backstage rooms, film sets, live events, and the people who make a finished thing look effortless.',
+    thread: 'The lesson: polished surfaces come from hidden systems.',
     signals: [
       'Steve Ozark and backstage Hawaii',
       'The Amazing Race, APEC, Twin Peaks',
       'Media, story, production, and access',
     ],
+    href: '/entertainment',
   },
   {
     label: '02 / Geospatial',
     title: 'Behind the place.',
     body: 'Maps, land, infrastructure, boundaries, and physical evidence. This lens turns place into something that can be inspected: parcels, rail lines, facilities, ownership, and the records beneath them.',
+    thread: 'The lesson: place leaves evidence if you know how to inspect it.',
     signals: [
       'Industrial Map of Washington',
       'Adverse possession, parcel records, rail-served land',
       'UK Digital Mapping and UMD GEOINT',
     ],
+    href: '/geospatial',
   },
   {
     label: '03 / Finance / Investing',
     title: 'Behind the numbers.',
     body: 'Markets, ownership, incentives, compounding, filings, and tax architecture. The finance lens is not just stock picking; it is how structure shapes outcomes over time.',
+    thread: 'The lesson: numbers matter most when they reveal structure.',
     signals: [
       'CPA, family offices, North Kai Capital',
       'Compounding, public-market themes, franchise index work',
-      'QSBS, Roth architecture, QOZ geography',
+      'QSBS, Roth wrappers, depreciation, 1031, QOZ geography',
     ],
+    href: '/finance',
   },
 ];
 

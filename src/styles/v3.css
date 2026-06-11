@@ -1,0 +1,177 @@
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/eb-garamond";
+
+@theme {
+  --color-parchment: #e9dab8;
+  --color-parchment-soft: #f1e6c9;
+  --color-parchment-deep: #d8c596;
+  --color-ink: #1c2a3a;
+  --color-ink-soft: #3d4d5e;
+  --color-ink-muted: #6c7986;
+  --color-ink-faint: #9aa4ae;
+  --color-rule: #b9a982;
+  --color-cadmium: #be3e2c;
+  --color-sage: #6e7e58;
+  --color-rose: #c8908b;
+
+  --font-display: "EB Garamond Variable", Garamond, "Times New Roman", serif;
+  --font-sans: "Geist Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+html {
+  background-color: var(--color-parchment);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-color: var(--color-parchment);
+  background-image:
+    radial-gradient(ellipse 90% 60% at 50% 30%, color-mix(in srgb, var(--color-parchment-soft) 70%, transparent), transparent),
+    radial-gradient(ellipse 80% 50% at 50% 90%, color-mix(in srgb, var(--color-parchment-deep) 40%, transparent), transparent);
+}
+
+::selection {
+  background-color: var(--color-cadmium);
+  color: var(--color-parchment-soft);
+}
+
+.atlas-shell {
+  width: 100%;
+  max-width: 64rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .atlas-shell {
+    padding-inline: 3rem;
+  }
+}
+
+.display {
+  font-family: var(--font-display);
+  font-feature-settings: "lnum", "kern";
+  letter-spacing: 0;
+}
+
+.display-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--color-ink);
+}
+
+.display-script {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-ink-soft);
+}
+
+.smallcaps {
+  font-family: var(--font-display);
+  font-variant: small-caps;
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+  color: var(--color-ink-soft);
+}
+
+.allcaps {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  font-size: 0.875rem;
+}
+
+.atlas-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  color: var(--color-rule);
+}
+
+.atlas-rule::before,
+.atlas-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  max-width: 9rem;
+}
+
+.atlas-rule .ornament {
+  color: var(--color-cadmium);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.map-frame {
+  position: relative;
+  margin-inline: auto;
+  padding: 1rem;
+  background: color-mix(in srgb, var(--color-parchment-soft) 60%, transparent);
+  border: 1px solid var(--color-rule);
+  box-shadow:
+    0 1px 0 var(--color-parchment-soft) inset,
+    0 20px 60px -20px rgba(28, 42, 58, 0.25);
+}
+
+.map-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.map-frame::before,
+.map-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--color-rule) 60%, transparent);
+  pointer-events: none;
+}
+
+.region-roman {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--color-cadmium);
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
+}
+
+.region-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--color-ink);
+  letter-spacing: 0.02em;
+}
+
+a {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--color-rule);
+  text-underline-offset: 0.2em;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+a:hover {
+  color: var(--color-cadmium);
+  text-decoration-color: var(--color-cadmium);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-cadmium);
+  outline-offset: 3px;
+}

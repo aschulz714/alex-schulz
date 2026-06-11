@@ -1,0 +1,81 @@
+---
+const pathways = [
+  {
+    label: 'Topic hub',
+    title: 'The Three Lenses',
+    body:
+      'Entertainment, geospatial intelligence, and finance as the recurring ways Alex reads the world.',
+    href: '/lenses',
+    meta: 'Identity / thesis',
+  },
+  {
+    label: 'Finance case study',
+    title: 'Franchise Index',
+    body:
+      'From a Jack in the Box refranchising thesis to a licensable public-company franchise index built with EQM Indexes.',
+    href: '/franchise-index',
+    meta: 'Finance / investing',
+  },
+  {
+    label: 'Project gallery',
+    title: 'Selected Work',
+    body:
+      'Geospatial tools, parcel and rail workflows, satellite-derived market signals, and the working pieces behind Item2.',
+    href: '/work',
+    meta: 'Geospatial / software',
+  },
+  {
+    label: 'Long version',
+    title: 'About Alex',
+    body:
+      'The fuller background: Hawaii, entertainment production, family offices, accounting, maps, litigation, and the resilience thread.',
+    href: '/about',
+    meta: 'Story / context',
+  },
+];
+---
+
+<section class="relative border-y border-hairline bg-paper-soft/45 py-14 md:py-20">
+  <div class="section-shell">
+    <div class="mb-10 grid grid-cols-1 gap-7 md:grid-cols-[180px_1fr] md:gap-14">
+      <p class="coord pt-1">04 / Explore</p>
+      <div>
+        <h2 class="section-heading max-w-3xl text-3xl md:text-5xl">
+          Pick the level of detail.
+        </h2>
+        <p class="section-copy mt-5 max-w-2xl text-base md:text-lg">
+          The homepage orients quickly. The deeper pages separate the topics, projects, and long-form
+          background so the site feels like a portfolio you can navigate instead of one endless scroll.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {pathways.map((path, index) => (
+        <a
+          href={path.href}
+          class="group surface-quiet block rounded-md p-5 transition-all duration-200 hover:-translate-y-1 hover:border-accent/55 hover:bg-paper-soft md:p-6"
+        >
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="coord text-accent">{path.label}</p>
+              <p class="coord mt-2">{path.meta}</p>
+            </div>
+            <span class="mono rounded-sm border border-hairline bg-paper-soft px-2 py-1 text-xs text-ink-muted transition-colors group-hover:border-accent group-hover:text-accent" aria-hidden="true">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+          </div>
+          <h3 class="mt-10 font-sans text-2xl font-semibold leading-tight text-ink md:text-3xl">
+            {path.title}
+          </h3>
+          <p class="section-copy mt-4 text-sm md:text-base">
+            {path.body}
+          </p>
+          <span class="mt-7 inline-flex items-center gap-2 text-sm font-medium text-accent">
+            Open page <span class="mono text-xs transition-transform group-hover:translate-x-1" aria-hidden="true">-&gt;</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

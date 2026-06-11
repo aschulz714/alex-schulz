@@ -1,0 +1,1746 @@
+[
+  {
+    "seed_ticker": "AAN",
+    "seed_name": "AARON'S INC",
+    "suggested_eodhd_symbol": "AAN.US",
+    "suggested_list": "delisted",
+    "suggested_name": "The Aaron's Company Inc.",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 2,
+    "matches": [
+      {
+        "code": "AAN",
+        "name": "The Aaron's Company Inc.",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 0
+      },
+      {
+        "code": "AAN_old",
+        "name": "AAN",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "AMP",
+    "seed_name": "AMERIPRISE FINANCIAL INC",
+    "suggested_eodhd_symbol": "AMP.US",
+    "suggested_list": "active",
+    "suggested_name": "Ameriprise Financial Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 2,
+    "matches": [
+      {
+        "code": "AMP",
+        "name": "Ameriprise Financial Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      },
+      {
+        "code": "AMP_old",
+        "name": "Amp Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "BAGL",
+    "seed_name": "EINSTEIN NOAH RESTAURANT GRO",
+    "suggested_eodhd_symbol": "BAGL.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Einstein Noah Restaurant Group Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "BAGL",
+        "name": "Einstein Noah Restaurant Group Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "BH",
+    "seed_name": "BIGLARI HOLDINGS INC",
+    "suggested_eodhd_symbol": "BH.US",
+    "suggested_list": "active",
+    "suggested_name": "Biglari Holdings Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 2,
+    "matches": [
+      {
+        "code": "BH",
+        "name": "Biglari Holdings Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      },
+      {
+        "code": "BH_old",
+        "name": "Bristol Hotels & Resorts",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "BKC",
+    "seed_name": "BURGER KING HOLDINGS INC",
+    "suggested_eodhd_symbol": "BKC_old.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Burger King Holdings Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 2,
+    "matches": [
+      {
+        "code": "BKC_old",
+        "name": "Burger King Holdings Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      },
+      {
+        "code": "BKC",
+        "name": "REX BKCM ETF",
+        "exchange": "NYSE ARCA",
+        "type": "ETF",
+        "list": "delisted",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "BLIAQ",
+    "seed_name": "BB LIQUIDATING INC",
+    "suggested_eodhd_symbol": "BLIAQ.US",
+    "suggested_list": "active",
+    "suggested_name": "BB Liquidating Inc.",
+    "suggested_exchange": "OTCCE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "BLIAQ",
+        "name": "BB Liquidating Inc.",
+        "exchange": "OTCCE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "BLMN",
+    "seed_name": "BLOOMIN' BRANDS INC",
+    "suggested_eodhd_symbol": "BLMN.US",
+    "suggested_list": "active",
+    "suggested_name": "Bloomin Brands Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "BLMN",
+        "name": "Bloomin Brands Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "BNHN",
+    "seed_name": "BENIHANA INC",
+    "suggested_eodhd_symbol": "BNHN.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Benihana Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "BNHN",
+        "name": "Benihana Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "BOJA",
+    "seed_name": "BOJANGLES' INC",
+    "suggested_eodhd_symbol": "BOJA.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Bojangles' Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "BOJA",
+        "name": "Bojangles' Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "BWLD",
+    "seed_name": "BUFFALO WILD WINGS INC",
+    "suggested_eodhd_symbol": "BWLD.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Buffalo Wild Wings",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "BWLD",
+        "name": "Buffalo Wild Wings",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "CAR",
+    "seed_name": "AVIS BUDGET GROUP INC",
+    "suggested_eodhd_symbol": "CAR.US",
+    "suggested_list": "active",
+    "suggested_name": "Avis Budget Group Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 2,
+    "matches": [
+      {
+        "code": "CAR",
+        "name": "Avis Budget Group Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      },
+      {
+        "code": "CAR_old",
+        "name": "Carter Wallace Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "CASY",
+    "seed_name": "CASEY'S GENERAL STORES INC",
+    "suggested_eodhd_symbol": "CASY.US",
+    "suggested_list": "active",
+    "suggested_name": "Caseys General Stores Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "CASY",
+        "name": "Caseys General Stores Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "CEC",
+    "seed_name": "CEC ENTERTAINMENT INC",
+    "suggested_eodhd_symbol": "CEC.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Cec Entertainment Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "CEC",
+        "name": "Cec Entertainment Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "CHE",
+    "seed_name": "CHEMED CORP",
+    "suggested_eodhd_symbol": "CHE.US",
+    "suggested_list": "active",
+    "suggested_name": "Chemed Corp",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "CHE",
+        "name": "Chemed Corp",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "CHH",
+    "seed_name": "CHOICE HOTELS INTL INC",
+    "suggested_eodhd_symbol": "CHH.US",
+    "suggested_list": "active",
+    "suggested_name": "Choice Hotels International Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "CHH",
+        "name": "Choice Hotels International Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "CHUX",
+    "seed_name": "O'CHARLEYS INC",
+    "suggested_eodhd_symbol": "CHUX.US",
+    "suggested_list": "delisted",
+    "suggested_name": "O'Charley's LLC",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "CHUX",
+        "name": "O'Charley's LLC",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "CKR",
+    "seed_name": "CKE RESTAURANTS INC",
+    "suggested_eodhd_symbol": "CKR.US",
+    "suggested_list": "delisted",
+    "suggested_name": "CKE RESTAURANTS INC",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "CKR",
+        "name": "CKE RESTAURANTS INC",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "CSH",
+    "seed_name": "CASH AMERICA INTL INC",
+    "suggested_eodhd_symbol": "CSH.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Listed Funds Trust",
+    "suggested_exchange": "NYSE ARCA",
+    "suggested_type": "ETF",
+    "match_count": 2,
+    "matches": [
+      {
+        "code": "CSH",
+        "name": "Listed Funds Trust",
+        "exchange": "NYSE ARCA",
+        "type": "ETF",
+        "list": "delisted",
+        "name_score": 0
+      },
+      {
+        "code": "CSH_old",
+        "name": "CSH",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "DAVE",
+    "seed_name": "FAMOUS DAVE'S OF AMERICA",
+    "suggested_eodhd_symbol": "DAVE_old.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Famous Daves of America",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 2,
+    "matches": [
+      {
+        "code": "DAVE_old",
+        "name": "Famous Daves of America",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      },
+      {
+        "code": "DAVE",
+        "name": "Dave Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "DENN",
+    "seed_name": "DENNY'S CORP",
+    "suggested_eodhd_symbol": "DENN.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Dennys Corp",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "DENN",
+        "name": "Dennys Corp",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "DIN",
+    "seed_name": "DINEEQUITY INC",
+    "suggested_eodhd_symbol": "DIN.US",
+    "suggested_list": "active",
+    "suggested_name": "Dine Brands Global Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "DIN",
+        "name": "Dine Brands Global Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "DNKN",
+    "seed_name": "DUNKIN' BRANDS GROUP INC",
+    "suggested_eodhd_symbol": "DNKN.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Dunkin' Brands Group Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "DNKN",
+        "name": "Dunkin' Brands Group Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "DPZ",
+    "seed_name": "DOMINO'S PIZZA INC",
+    "suggested_eodhd_symbol": "DPZ.US",
+    "suggested_list": "active",
+    "suggested_name": "Domino's Pizza Inc Common Stock",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "DPZ",
+        "name": "Domino's Pizza Inc Common Stock",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "DTGF",
+    "seed_name": "DOLLAR THRIFTY AUTOMOTIVE GP",
+    "suggested_eodhd_symbol": "",
+    "suggested_list": "",
+    "suggested_name": "",
+    "suggested_exchange": "",
+    "suggested_type": "",
+    "match_count": 0,
+    "matches": []
+  },
+  {
+    "seed_ticker": "EAT",
+    "seed_name": "BRINKER INTERNATIONAL INC",
+    "suggested_eodhd_symbol": "EAT.US",
+    "suggested_list": "active",
+    "suggested_name": "Brinker International Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "EAT",
+        "name": "Brinker International Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "FLWS",
+    "seed_name": "1-800-FLOWERS.COM INC-CL A",
+    "suggested_eodhd_symbol": "FLWS.US",
+    "suggested_list": "active",
+    "suggested_name": "1-800 FLOWERS.COM Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "FLWS",
+        "name": "1-800 FLOWERS.COM Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "FRGI",
+    "seed_name": "FIESTA RESTAURANT GROUP",
+    "suggested_eodhd_symbol": "FRGI.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Fiesta Restaurant Group Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "FRGI",
+        "name": "Fiesta Restaurant Group Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "FRS",
+    "seed_name": "FRISCH'S RESTAURANTS INC",
+    "suggested_eodhd_symbol": "FRS.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Frisch's Restaurants Inc",
+    "suggested_exchange": "AMEX",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "FRS",
+        "name": "Frisch's Restaurants Inc",
+        "exchange": "AMEX",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "FRSH",
+    "seed_name": "PAPA MURPHY'S HOLDINGS INC",
+    "suggested_eodhd_symbol": "FRSH.US",
+    "suggested_list": "active",
+    "suggested_name": "Freshworks Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 3,
+    "matches": [
+      {
+        "code": "FRSH",
+        "name": "Freshworks Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 0
+      },
+      {
+        "code": "FRSH_old",
+        "name": "FRSH",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 0
+      },
+      {
+        "code": "FRSH_oldoldold",
+        "name": "Freshworks Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "GNC",
+    "seed_name": "GNC HOLDINGS INC-CL A",
+    "suggested_eodhd_symbol": "GNC.US",
+    "suggested_list": "delisted",
+    "suggested_name": "GNC Holdings Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "GNC",
+        "name": "GNC Holdings Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "H",
+    "seed_name": "HYATT HOTELS CORP - CL A",
+    "suggested_eodhd_symbol": "H.US",
+    "suggested_list": "active",
+    "suggested_name": "Hyatt Hotels Corporation",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "H",
+        "name": "Hyatt Hotels Corporation",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "HLT",
+    "seed_name": "HILTON WORLDWIDE HOLDINGS IN",
+    "suggested_eodhd_symbol": "HLT.US",
+    "suggested_list": "active",
+    "suggested_name": "Hilton Worldwide Holdings Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "HLT",
+        "name": "Hilton Worldwide Holdings Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "HOT",
+    "seed_name": "STARWOOD HOTELS & RESORTS WO",
+    "suggested_eodhd_symbol": "HOT.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Starwood Hotels & Resorts Worldwide Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "HOT",
+        "name": "Starwood Hotels & Resorts Worldwide Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "HRB",
+    "seed_name": "H&R BLOCK INC",
+    "suggested_eodhd_symbol": "HRB.US",
+    "suggested_list": "active",
+    "suggested_name": "H&R Block Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "HRB",
+        "name": "H&R Block Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "HTZ",
+    "seed_name": "HERTZ GLOBAL HOLDINGS INC",
+    "suggested_eodhd_symbol": "HTZ.US",
+    "suggested_list": "active",
+    "suggested_name": "Hertz Global Holdings Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 2,
+    "matches": [
+      {
+        "code": "HTZ",
+        "name": "Hertz Global Holdings Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      },
+      {
+        "code": "HTZ_old",
+        "name": "Hertz Global Holdings Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "IHG",
+    "seed_name": "INTERCONTINENTAL HOTELS-ADR",
+    "suggested_eodhd_symbol": "IHG.US",
+    "suggested_list": "active",
+    "suggested_name": "InterContinental Hotels Group PLC ADR",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "IHG",
+        "name": "InterContinental Hotels Group PLC ADR",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "JACK",
+    "seed_name": "JACK IN THE BOX INC",
+    "suggested_eodhd_symbol": "JACK.US",
+    "suggested_list": "active",
+    "suggested_name": "Jacktel AS",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "JACK",
+        "name": "Jacktel AS",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "JMBA",
+    "seed_name": "JAMBA INC",
+    "suggested_eodhd_symbol": "JMBA.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Jamba Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "JMBA",
+        "name": "Jamba Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "KKD",
+    "seed_name": "KRISPY KREME DOUGHNUTS INC",
+    "suggested_eodhd_symbol": "KKD.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Krispy Kreme Doughnuts Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "KKD",
+        "name": "Krispy Kreme Doughnuts Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "LOCO",
+    "seed_name": "EL POLLO LOCO HOLDINGS INC",
+    "suggested_eodhd_symbol": "LOCO.US",
+    "suggested_list": "active",
+    "suggested_name": "El Pollo Loco Holdings Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "LOCO",
+        "name": "El Pollo Loco Holdings Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "LQ",
+    "seed_name": "LA QUINTA HOLDINGS INC",
+    "suggested_eodhd_symbol": "LQ.US",
+    "suggested_list": "delisted",
+    "suggested_name": "La Quinta Holdings Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "LQ",
+        "name": "La Quinta Holdings Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "LUB",
+    "seed_name": "LUBY'S INC",
+    "suggested_eodhd_symbol": "LUB.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Lubys Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "LUB",
+        "name": "Lubys Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "LZB",
+    "seed_name": "LA-Z-BOY INC",
+    "suggested_eodhd_symbol": "LZB.US",
+    "suggested_list": "active",
+    "suggested_name": "La-Z-Boy Incorporated",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "LZB",
+        "name": "La-Z-Boy Incorporated",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "MAR",
+    "seed_name": "MARRIOTT INTERNATIONAL -CL A",
+    "suggested_eodhd_symbol": "MAR.US",
+    "suggested_list": "active",
+    "suggested_name": "Marriott International Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "MAR",
+        "name": "Marriott International Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "MCD",
+    "seed_name": "MCDONALD'S CORP",
+    "suggested_eodhd_symbol": "MCD.US",
+    "suggested_list": "active",
+    "suggested_name": "McDonald’s Corporation",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "MCD",
+        "name": "McDonald’s Corporation",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "MDS",
+    "seed_name": "MIDAS INC",
+    "suggested_eodhd_symbol": "MDS.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Midas Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "MDS",
+        "name": "Midas Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "MTY CN",
+    "seed_name": "MTY FOOD GROUP INC",
+    "suggested_eodhd_symbol": "",
+    "suggested_list": "",
+    "suggested_name": "",
+    "suggested_exchange": "",
+    "suggested_type": "",
+    "match_count": 0,
+    "matches": []
+  },
+  {
+    "seed_ticker": "MTYFF",
+    "seed_name": "MTY FOOD GROUP INC",
+    "suggested_eodhd_symbol": "MTYFF.US",
+    "suggested_list": "active",
+    "suggested_name": "MTY Food Group Inc",
+    "suggested_exchange": "PINK",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "MTYFF",
+        "name": "MTY Food Group Inc",
+        "exchange": "PINK",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "NATH",
+    "seed_name": "NATHAN'S FAMOUS INC",
+    "suggested_eodhd_symbol": "NATH.US",
+    "suggested_list": "active",
+    "suggested_name": "Nathans Famous Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "NATH",
+        "name": "Nathans Famous Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "NDLS",
+    "seed_name": "NOODLES & CO",
+    "suggested_eodhd_symbol": "NDLS.US",
+    "suggested_list": "active",
+    "suggested_name": "Noodles & Company",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "NDLS",
+        "name": "Noodles & Company",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "PBPB",
+    "seed_name": "POTBELLY CORP",
+    "suggested_eodhd_symbol": "PBPB.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Potbelly Co",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "PBPB",
+        "name": "Potbelly Co",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "PLKI",
+    "seed_name": "POPEYES LOUISIANA KITCHEN IN",
+    "suggested_eodhd_symbol": "PLKI.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Popeyes Louisiana Kitchen Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "PLKI",
+        "name": "Popeyes Louisiana Kitchen Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "PLNT",
+    "seed_name": "PLANET FITNESS INC - CL A",
+    "suggested_eodhd_symbol": "PLNT.US",
+    "suggested_list": "active",
+    "suggested_name": "Planet Fitness Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "PLNT",
+        "name": "Planet Fitness Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "PNRA",
+    "seed_name": "PANERA BREAD COMPANY-CLASS A",
+    "suggested_eodhd_symbol": "PNRA.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Panera Bread Company",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "PNRA",
+        "name": "Panera Bread Company",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "PZZA",
+    "seed_name": "PAPA JOHN'S INTL INC",
+    "suggested_eodhd_symbol": "PZZA.US",
+    "suggested_list": "active",
+    "suggested_name": "Papa John's International Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "PZZA",
+        "name": "Papa John's International Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "QSR",
+    "seed_name": "RESTAURANT BRANDS INTERN",
+    "suggested_eodhd_symbol": "QSR.US",
+    "suggested_list": "active",
+    "suggested_name": "Restaurant Brands International Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "QSR",
+        "name": "Restaurant Brands International Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "RCII",
+    "seed_name": "RENT-A-CENTER INC",
+    "suggested_eodhd_symbol": "RCII.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Rent-A-Center Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "RCII",
+        "name": "Rent-A-Center Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "RGS",
+    "seed_name": "REGIS CORP",
+    "suggested_eodhd_symbol": "RGS.US",
+    "suggested_list": "active",
+    "suggested_name": "Regis Corporation Common Stock",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "RGS",
+        "name": "Regis Corporation Common Stock",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "RLH",
+    "seed_name": "RED LION HOTELS CORP",
+    "suggested_eodhd_symbol": "RLH.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Red Lion Hotels Corporation",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "RLH",
+        "name": "Red Lion Hotels Corporation",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "RMAX",
+    "seed_name": "RE/MAX HOLDINGS INC-CL A",
+    "suggested_eodhd_symbol": "RMAX.US",
+    "suggested_list": "active",
+    "suggested_name": "Re Max Holding",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "RMAX",
+        "name": "Re Max Holding",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "RMCF",
+    "seed_name": "ROCKY MOUNTAIN CHOC FACT INC",
+    "suggested_eodhd_symbol": "RMCF.US",
+    "suggested_list": "active",
+    "suggested_name": "Rocky Mountain Chocolate Factory",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "RMCF",
+        "name": "Rocky Mountain Chocolate Factory",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "ROL",
+    "seed_name": "ROLLINS INC",
+    "suggested_eodhd_symbol": "ROL.US",
+    "suggested_list": "active",
+    "suggested_name": "Rollins Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "ROL",
+        "name": "Rollins Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "RRGB",
+    "seed_name": "RED ROBIN GOURMET BURGERS",
+    "suggested_eodhd_symbol": "RRGB.US",
+    "suggested_list": "active",
+    "suggested_name": "Red Robin Gourmet Burgers Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "RRGB",
+        "name": "Red Robin Gourmet Burgers Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "RSHCQ",
+    "seed_name": "RS LEGACY CORP",
+    "suggested_eodhd_symbol": "",
+    "suggested_list": "",
+    "suggested_name": "",
+    "suggested_exchange": "",
+    "suggested_type": "",
+    "match_count": 0,
+    "matches": []
+  },
+  {
+    "seed_ticker": "RT",
+    "seed_name": "RUBY TUESDAY INC",
+    "suggested_eodhd_symbol": "RT.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Ruby Tuesday Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "RT",
+        "name": "Ruby Tuesday Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "RUTH",
+    "seed_name": "RUTH'S HOSPITALITY GROUP INC",
+    "suggested_eodhd_symbol": "RUTH.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Ruth's Hospitality Group Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "RUTH",
+        "name": "Ruth's Hospitality Group Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "SBH",
+    "seed_name": "SALLY BEAUTY HOLDINGS INC",
+    "suggested_eodhd_symbol": "SBH.US",
+    "suggested_list": "active",
+    "suggested_name": "Sally Beauty Holdings Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "SBH",
+        "name": "Sally Beauty Holdings Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "SERV",
+    "seed_name": "SERVICEMASTER GLOBAL HOLDING",
+    "suggested_eodhd_symbol": "SERV.US",
+    "suggested_list": "active",
+    "suggested_name": "Serve Robotics Inc. Common Stock",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 2,
+    "matches": [
+      {
+        "code": "SERV",
+        "name": "Serve Robotics Inc. Common Stock",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 0
+      },
+      {
+        "code": "SERV_old",
+        "name": "Serve Robotics Inc. Common Stock",
+        "exchange": "OTCQB",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "SHAK",
+    "seed_name": "SHAKE SHACK INC - CLASS A",
+    "suggested_eodhd_symbol": "SHAK.US",
+    "suggested_list": "active",
+    "suggested_name": "Shake Shack Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "SHAK",
+        "name": "Shake Shack Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "SNA",
+    "seed_name": "SNAP-ON INC",
+    "suggested_eodhd_symbol": "SNA.US",
+    "suggested_list": "active",
+    "suggested_name": "Snap-On Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "SNA",
+        "name": "Snap-On Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "SONC",
+    "seed_name": "SONIC CORP",
+    "suggested_eodhd_symbol": "SONC.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Sonic Corp",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "SONC",
+        "name": "Sonic Corp",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "TACO",
+    "seed_name": "DEL TACO RESTAURANTS INC",
+    "suggested_eodhd_symbol": "TACO_old2.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Del Taco Restaurants, Inc.",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 3,
+    "matches": [
+      {
+        "code": "TACO_old2",
+        "name": "Del Taco Restaurants, Inc.",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 100
+      },
+      {
+        "code": "TACO",
+        "name": "Berto Acquisition Corp. Ordinary Shares",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 0
+      },
+      {
+        "code": "TACO_old1",
+        "name": "Taco Cabana Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "TAX",
+    "seed_name": "LIBERTY TAX INC",
+    "suggested_eodhd_symbol": "TAX.US",
+    "suggested_list": "active",
+    "suggested_name": "Cambria Tax Aware ETF",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "ETF",
+    "match_count": 2,
+    "matches": [
+      {
+        "code": "TAX",
+        "name": "Cambria Tax Aware ETF",
+        "exchange": "NASDAQ",
+        "type": "ETF",
+        "list": "active",
+        "name_score": 0
+      },
+      {
+        "code": "TAX_old",
+        "name": "Cambria Tax Aware ETF",
+        "exchange": "NASDAQ",
+        "type": "ETF",
+        "list": "delisted",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "THI",
+    "seed_name": "TIM HORTONS INC",
+    "suggested_eodhd_symbol": "THI.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Tim Hortons Inc. (USA)",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "THI",
+        "name": "Tim Hortons Inc. (USA)",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "THI CN",
+    "seed_name": "TIM HORTONS ULC",
+    "suggested_eodhd_symbol": "",
+    "suggested_list": "",
+    "suggested_name": "",
+    "suggested_exchange": "",
+    "suggested_type": "",
+    "match_count": 0,
+    "matches": []
+  },
+  {
+    "seed_ticker": "TXRH",
+    "seed_name": "TEXAS ROADHOUSE INC",
+    "suggested_eodhd_symbol": "TXRH.US",
+    "suggested_list": "active",
+    "suggested_name": "Texas Roadhouse Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "TXRH",
+        "name": "Texas Roadhouse Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "VVV",
+    "seed_name": "VALVOLINE INC",
+    "suggested_eodhd_symbol": "VVV.US",
+    "suggested_list": "active",
+    "suggested_name": "Valvoline Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "VVV",
+        "name": "Valvoline Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "WEN",
+    "seed_name": "WENDY'S CO/THE",
+    "suggested_eodhd_symbol": "WEN.US",
+    "suggested_list": "active",
+    "suggested_name": "The Wendy’s Co",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 2,
+    "matches": [
+      {
+        "code": "WEN",
+        "name": "The Wendy’s Co",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 0
+      },
+      {
+        "code": "WEN_old",
+        "name": "Wendys International Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "WINA",
+    "seed_name": "WINMARK CORP",
+    "suggested_eodhd_symbol": "WINA.US",
+    "suggested_list": "active",
+    "suggested_name": "Winmark Corporation",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "WINA",
+        "name": "Winmark Corporation",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "WING",
+    "seed_name": "WINGSTOP INC",
+    "suggested_eodhd_symbol": "WING.US",
+    "suggested_list": "active",
+    "suggested_name": "Wingstop Inc",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "WING",
+        "name": "Wingstop Inc",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  },
+  {
+    "seed_ticker": "WTW",
+    "seed_name": "WEIGHT WATCHERS INTL INC",
+    "suggested_eodhd_symbol": "WTW.US",
+    "suggested_list": "active",
+    "suggested_name": "Willis Towers Watson PLC",
+    "suggested_exchange": "NASDAQ",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "WTW",
+        "name": "Willis Towers Watson PLC",
+        "exchange": "NASDAQ",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 0
+      }
+    ]
+  },
+  {
+    "seed_ticker": "WYN",
+    "seed_name": "WYNDHAM WORLDWIDE CORP",
+    "suggested_eodhd_symbol": "WYN.US",
+    "suggested_list": "delisted",
+    "suggested_name": "Wyndham Worldwide Corporation",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "WYN",
+        "name": "Wyndham Worldwide Corporation",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "delisted",
+        "name_score": 80
+      }
+    ]
+  },
+  {
+    "seed_ticker": "YUM",
+    "seed_name": "YUM! BRANDS INC",
+    "suggested_eodhd_symbol": "YUM.US",
+    "suggested_list": "active",
+    "suggested_name": "Yum! Brands Inc",
+    "suggested_exchange": "NYSE",
+    "suggested_type": "Common Stock",
+    "match_count": 1,
+    "matches": [
+      {
+        "code": "YUM",
+        "name": "Yum! Brands Inc",
+        "exchange": "NYSE",
+        "type": "Common Stock",
+        "list": "active",
+        "name_score": 100
+      }
+    ]
+  }
+]

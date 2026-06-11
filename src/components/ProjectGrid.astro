@@ -21,7 +21,7 @@ const categoryLabel: Record<string, string> = {
 <section id="work" class="relative py-14 md:py-24">
   <div class="section-shell">
     <div class="mb-10 grid grid-cols-1 gap-7 md:mb-14 md:grid-cols-[180px_1fr] md:gap-14">
-      <p class="coord pt-1">02 / Work</p>
+      <p class="coord pt-1">01 / Work</p>
       <div>
         <h2 class="section-heading max-w-2xl text-3xl md:text-5xl">
           Selected projects.
@@ -35,7 +35,7 @@ const categoryLabel: Record<string, string> = {
 
     <ol class="project-list grid grid-cols-1 gap-5 md:grid-cols-2">
       {sorted.map((entry, index) => (
-        <li class={`reveal ${index === 0 ? 'md:col-span-2' : ''}`}>
+        <li id={`project-${entry.id}`} class={`reveal scroll-mt-24 ${index === 0 ? 'md:col-span-2' : ''}`}>
           <button
             type="button"
             class={`project-card group h-full w-full overflow-hidden rounded-lg border bg-paper-soft text-left transition-all duration-200 hover:-translate-y-1 hover:border-accent/45 ${index === 0 ? 'border-accent/35 shadow-[0_24px_70px_rgba(16,30,26,0.14)] md:grid md:grid-cols-[0.9fr_1.1fr]' : 'border-hairline shadow-[0_14px_34px_rgba(16,30,26,0.06)] flex flex-col'}`}

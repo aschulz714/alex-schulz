@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import TopicPage from '../components/TopicPage.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import { topicBySlug } from '../data/topics';
+---
+
+<Base
+  title="Entertainment | Alex Schulz"
+  description="Alex Schulz's entertainment lens: backstage Hawaii, production accounting, live events, The Amazing Race, APEC, 7 Minutes, and Twin Peaks."
+>
+  <TopicPage topic={topicBySlug.entertainment} />
+  <FinalCTA />
+</Base>

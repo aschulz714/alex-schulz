@@ -8,24 +8,36 @@ import { lenses } from '../data/profile';
       <p class="coord pt-1">00 / Three lenses</p>
       <div>
         <h2 class="section-heading max-w-3xl text-3xl md:text-5xl">
-          Maps, markets, and media are the three lenses I keep coming back to.
+          One instinct, three lenses.
         </h2>
         <p class="section-copy mt-5 max-w-2xl text-base md:text-lg">
-          Entertainment, geospatial intelligence, and finance are not separate compartments for me.
-          They are recurring ways of understanding what is happening behind the visible surface.
+          Entertainment, geospatial intelligence, and finance are not separate compartments. They
+          are three versions of the same move: look behind the surface, find the operating system,
+          document what others miss, and build from there.
         </p>
       </div>
     </div>
 
     <div class="mt-10 grid grid-cols-1 gap-4 md:mt-14 md:grid-cols-3">
       {lenses.map((lens) => (
-        <article class="surface-quiet rounded-md p-5 md:p-6">
+        <a
+          href={lens.href}
+          class="surface-quiet group block rounded-md p-5 transition-all duration-200 hover:-translate-y-1 hover:border-accent/55 hover:bg-paper-soft md:p-6"
+        >
           <p class="coord text-accent">{lens.label}</p>
-          <h3 class="mt-6 font-sans text-xl font-semibold leading-snug text-ink md:text-2xl">
-            {lens.title}
-          </h3>
+          <div class="mt-6 flex items-start justify-between gap-4">
+            <h3 class="font-sans text-xl font-semibold leading-snug text-ink md:text-2xl">
+              {lens.title}
+            </h3>
+            <span class="mono rounded-sm border border-hairline bg-paper-soft px-2 py-1 text-xs text-ink-muted transition-colors group-hover:border-accent group-hover:text-accent" aria-hidden="true">
+              -&gt;
+            </span>
+          </div>
           <p class="section-copy mt-4 text-sm md:text-base">
             {lens.body}
+          </p>
+          <p class="mt-5 border-l-2 border-accent pl-3 text-sm font-medium leading-relaxed text-ink-soft">
+            {lens.thread}
           </p>
           <ul class="mt-6 space-y-3 border-t border-hairline pt-4">
             {lens.signals.map((signal) => (
@@ -35,7 +47,7 @@ import { lenses } from '../data/profile';
               </li>
             ))}
           </ul>
-        </article>
+        </a>
       ))}
     </div>
 

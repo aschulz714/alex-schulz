@@ -1,53 +1,113 @@
 ---
 import { heroPlaces as places } from '../data/profile';
+
+const blocks = [
+  {
+    label: 'Credentials',
+    body: 'CPA · MS GEOINT',
+    note: 'USGIF-accredited (UMD). Combination held by ~10–20 in the U.S.',
+  },
+  {
+    label: 'Family offices',
+    body: 'Vulcan Inc. · McCaw family office',
+    note: 'Real-estate finance and operations, Seattle.',
+  },
+  {
+    label: 'Productions',
+    body: 'Twin Peaks: The Return · 7 Minutes · The Amazing Race',
+    note: 'Production accounting. Two IMDB credits (nm5681118); Race off-credit.',
+  },
+  {
+    label: 'Active builds',
+    body: 'Item2 · Hodego · North Kai Capital',
+    note: 'Satellite signals on micro-caps. AWS logistics. ETF-licensable franchise-company index, developed with EQM Indexes.',
+  },
+  {
+    label: 'Tool layer',
+    body: 'AI across the work',
+    note: 'Geospatial analysis, finance research, copy, and the building of this site.',
+  },
+];
+
+const heroHighlights = [
+  {
+    label: 'Unusual overlap',
+    body: 'CPA + MS GEOINT',
+    note: 'Accounting discipline crossed with geospatial intelligence and physical-world evidence.',
+  },
+  {
+    label: 'Source worlds',
+    body: 'Sets + maps + markets',
+    note: 'Production accounting, family offices, parcel records, public markets, and backstage logistics.',
+  },
+  {
+    label: 'Current direction',
+    body: 'AI as the tool layer',
+    note: 'Turning overlooked signals into maps, market research, product experiments, and better questions.',
+  },
+];
+
+const today = new Date('2026-05-13');
+const stamp = today.toISOString().slice(0, 10);
 ---
 
 <section class="relative overflow-hidden">
   <div class="section-shell pt-10 pb-14 md:pt-16 md:pb-20">
     <div class="dossier-panel rounded-lg">
+      {/* Dossier header strip */}
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-hairline px-5 py-3 md:px-8">
+        <p class="coord text-accent">Issue 01 / Subject profile</p>
+        <p class="coord rev-stamp">
+          <span class="rev-dot" aria-hidden="true">●</span>
+          Rev. {stamp} · Lake Stevens field office
+        </p>
+      </div>
+
       <div class="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr]">
         <div class="border-b border-hairline p-5 md:border-b-0 md:border-r md:p-8 lg:p-10">
-          <div class="mb-8 flex flex-wrap items-center gap-3">
+          <div class="mb-6 flex flex-wrap items-center gap-3">
             <p class="coord text-accent">Alex Schulz / 2026</p>
             <span class="coord rounded-sm border border-signal/30 bg-signal-soft px-2 py-1 text-signal">
-              CPA + GEOINT
+              Working dossier
             </span>
           </div>
 
-          <h1 class="section-heading max-w-3xl text-5xl leading-[0.96] text-balance sm:text-6xl md:text-7xl">
-            Alex Schulz works at the overlap of maps, markets, and media.
+          <h1 class="section-heading text-5xl leading-[0.96] sm:text-6xl md:text-6xl lg:text-7xl">
+            Alex Schulz
           </h1>
+          <p class="mono mt-3 text-sm uppercase tracking-[0.18em] text-ink-muted md:text-base">
+            Lake Stevens, WA · 47.979°N 122.202°W
+          </p>
+          <p class="mt-6 max-w-2xl text-xl font-semibold leading-snug text-ink-soft md:text-2xl">
+            I look for the overlooked operating layer behind shows, places, and numbers, then turn
+            what I find into maps, market research, and working products.
+          </p>
+          <p class="section-copy mt-4 max-w-2xl text-base md:text-lg">
+            Entertainment taught me to see the production system. Geospatial work taught me to read
+            physical evidence. Finance taught me to ask who owns the upside. AI is the tool layer
+            that lets those instincts compound.
+          </p>
 
-          <div class="annotation mt-8">
-            <p class="min-h-[1.35em] text-2xl font-semibold leading-snug text-ink md:text-3xl">
-              <span id="role-cycler" class="inline-block">CPA.</span>
-            </p>
-            <p class="section-copy mt-4 max-w-xl text-base md:text-lg">
-              A living resume and portfolio for the three lenses I keep returning to:
-              entertainment, geospatial intelligence, and finance, with AI as the tool layer.
-            </p>
+          {/* Intelligence blocks */}
+          <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+            {heroHighlights.map((block) => (
+              <article class="surface-quiet rounded-md p-4 md:p-5">
+                <p class="coord text-accent">{block.label}</p>
+                <p class="mt-3 font-sans text-base font-semibold leading-snug text-ink md:text-lg">
+                  {block.body}
+                </p>
+                <p class="mt-2 text-xs leading-relaxed text-ink-muted md:text-sm">
+                  {block.note}
+                </p>
+              </article>
+            ))}
           </div>
 
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#work" class="button-primary">View work <span class="mono text-xs" aria-hidden="true">↓</span></a>
-            <a href="/resume.pdf" class="button-secondary">Resume <span class="mono text-xs" aria-hidden="true">↓</span></a>
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a href="#artifacts" class="button-primary">Source materials <span class="mono text-xs" aria-hidden="true">-&gt;</span></a>
+            <a href="/lenses" class="button-secondary">Explore lenses <span class="mono text-xs" aria-hidden="true">-&gt;</span></a>
             <a href="mailto:alex.j.schulz@gmail.com" class="button-secondary">Contact</a>
           </div>
-
-          <dl class="ledger-rule mt-9 grid grid-cols-1 divide-y divide-hairline sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-            <div class="p-4 sm:pl-0">
-              <dt class="coord text-accent">Credential</dt>
-              <dd class="mt-2 text-lg font-semibold text-ink">CPA + MS GEOINT</dd>
-            </div>
-            <div class="p-4">
-              <dt class="coord text-signal">Estimated overlap</dt>
-              <dd class="mt-2 text-lg font-semibold text-ink">10-20 in the US</dd>
-            </div>
-            <div class="p-4 sm:pr-0">
-              <dt class="coord">Current thesis</dt>
-              <dd class="mt-2 text-lg font-semibold text-ink">Spatial finance</dd>
-            </div>
-          </dl>
         </div>
 
         <div class="flex min-h-[34rem] flex-col p-3 md:min-h-0 md:p-4">
@@ -91,6 +151,34 @@ import { heroPlaces as places } from '../data/profile';
   <script type="application/json" id="hero-places-data" set:html={JSON.stringify(places)}></script>
 </section>
 
+<style>
+  @keyframes rev-pulse {
+    0%, 100% { opacity: 0.7; }
+    50%      { opacity: 1; }
+  }
+  @keyframes rev-dot-pulse {
+    0%, 100% { opacity: 0.35; transform: scale(0.9); }
+    50%      { opacity: 1;    transform: scale(1.05); }
+  }
+  .rev-stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    animation: rev-pulse 7s ease-in-out infinite;
+  }
+  .rev-dot {
+    color: var(--color-signal);
+    font-size: 0.55rem;
+    line-height: 1;
+    display: inline-block;
+    animation: rev-dot-pulse 2.6s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rev-stamp { animation: none; opacity: 0.9; }
+    .rev-dot   { animation: none; opacity: 0.6; transform: none; }
+  }
+</style>
+
 <script>
   type Place = {
     label: string;
@@ -112,16 +200,42 @@ import { heroPlaces as places } from '../data/profile';
   if (mapContainer && places.length) {
     const markerEls: HTMLElement[] = [];
     let map: import('maplibre-gl').Map | null = null;
+    let currentIdx = 0;
+    let driftTimer: number | null = null;
+    let driftPauseUntil = 0;
+
+    function paintCoord(lat: number, lng: number) {
+      if (coordEl) coordEl.textContent = `${lat.toFixed(3)}, ${lng.toFixed(3)}`;
+    }
+
+    function driftTick() {
+      if (prefersReducedMotion) return;
+      if (Date.now() < driftPauseUntil) return;
+      const place = places[currentIdx];
+      if (!place) return;
+      // Subtle GPS-style settle. ±0.0015 lat/lng, well below visible precision shift.
+      const lat = place.coords[1] + (Math.random() - 0.5) * 0.003;
+      const lng = place.coords[0] + (Math.random() - 0.5) * 0.003;
+      paintCoord(lat, lng);
+    }
+
+    function startDrift() {
+      if (prefersReducedMotion || driftTimer !== null) return;
+      driftTimer = window.setInterval(driftTick, 1800);
+    }
 
     function setPlace(index: number, fly = true) {
       const place = places[index];
       if (!place) return;
 
+      currentIdx = index;
+      driftPauseUntil = Date.now() + 1600; // brief settle on the precise coord
+
       placeButtons.forEach((button, i) => button.classList.toggle('is-active', i === index));
       markerEls.forEach((marker, i) => marker.classList.toggle('is-active', i === index));
       if (labelEl) labelEl.textContent = place.label;
       if (noteEl) noteEl.textContent = place.note;
-      if (coordEl) coordEl.textContent = `${place.coords[1].toFixed(3)}, ${place.coords[0].toFixed(3)}`;
+      paintCoord(place.coords[1], place.coords[0]);
 
       if (fly && map) {
         map.flyTo({
@@ -168,6 +282,8 @@ import { heroPlaces as places } from '../data/profile';
         markerEls.push(marker);
         new maplibregl.Marker({ element: marker, anchor: 'center' }).setLngLat(place.coords).addTo(map!);
       });
+
+      startDrift();
     });
     }
 
@@ -191,21 +307,5 @@ import { heroPlaces as places } from '../data/profile';
         setPlace(Number(button.dataset.placeIndex ?? 0));
       });
     });
-  }
-
-  // Role cycler — quiet and slow. Each entry is a complete noun phrase so grammar holds.
-  const roles = ['Entertainment.', 'Geospatial.', 'Finance.', 'AI connects them.'];
-  const cycler = document.getElementById('role-cycler');
-  if (cycler && !prefersReducedMotion) {
-    let i = 0;
-    cycler.style.transition = 'opacity 400ms ease';
-    setInterval(() => {
-      cycler.style.opacity = '0';
-      setTimeout(() => {
-        i = (i + 1) % roles.length;
-        cycler.textContent = roles[i]!;
-        cycler.style.opacity = '1';
-      }, 400);
-    }, 2800);
   }
 </script>
