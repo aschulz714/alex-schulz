@@ -86,9 +86,9 @@ export const lenses: Lens[] = [
     title: 'Behind the place.',
     body: 'Maps, land, infrastructure, boundaries, and physical evidence. This lens turns place into something that can be inspected: parcels, rail lines, facilities, ownership, and the records beneath them.',
     signals: [
-      'Industrial Map of Washington',
+      'National parcel coverage: owner resolution recorded for all 3,221 US counties',
+      'The Wealth Atlas: six counties, 1,749 homes, sources of wealth traced',
       'Adverse possession, parcel records, rail-served land',
-      'UK Digital Mapping and UMD GEOINT',
     ],
   },
   {
@@ -125,7 +125,7 @@ export const notes: Note[] = [
     body: 'Born in Honolulu. Summers with uncle Steve Ozark, who ran backstage catering in Hawaii for 30+ years.',
   },
   {
-    lead: 'Spatial finance',
-    body: 'Before Item2, North Kai Capital explored public-market themes through a licensable franchise-company equity index.',
+    lead: 'Rare pairing',
+    body: 'Active CPA plus a graduate geospatial-intelligence credential: two career pipelines that essentially never cross. A 2026 LinkedIn census across 30+ searches surfaced exactly one other person in the country with both.',
   },
 ];
