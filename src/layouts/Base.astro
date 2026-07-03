@@ -16,8 +16,9 @@ const {
 } = Astro.props;
 
 const siteUrl = Astro.site?.toString() ?? 'https://aschulz714.github.io/';
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
-const ogImageUrl = `${siteUrl}${ogImage}?v=${OG_IMAGE_VERSION}`;
+const ogImageUrl = `${new URL(`${base}/${ogImage}`, siteUrl).toString()}?v=${OG_IMAGE_VERSION}`;
 ---
 
 <!doctype html>
@@ -25,7 +26,7 @@ const ogImageUrl = `${siteUrl}${ogImage}?v=${OG_IMAGE_VERSION}`;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
@@ -54,7 +55,7 @@ const ogImageUrl = `${siteUrl}${ogImage}?v=${OG_IMAGE_VERSION}`;
 
     <header class="fixed top-0 left-0 right-0 z-40 border-b border-hairline bg-paper/90 backdrop-blur-xl">
       <nav class="section-shell py-3 flex items-center justify-between gap-5">
-        <a href="/" class="group min-w-0">
+        <a href={`${base}/`} class="group min-w-0">
           <span class="block text-sm font-semibold leading-none">
             <span class="sm:hidden">AS</span>
             <span class="hidden sm:inline">Alex Schulz</span>
@@ -62,9 +63,9 @@ const ogImageUrl = `${siteUrl}${ogImage}?v=${OG_IMAGE_VERSION}`;
           <span class="mt-1 hidden text-xs text-ink-muted sm:block">CPA / GEOINT / builder</span>
         </a>
         <div class="flex items-center gap-1 rounded-md border border-hairline bg-paper-soft/70 p-1 text-sm text-ink-soft">
-          <a href="/#work" class="rounded-sm px-3 py-2 hover:bg-accent-soft hover:text-accent transition-colors">Work</a>
-          <a href="/about" class="rounded-sm px-3 py-2 hover:bg-accent-soft hover:text-accent transition-colors">About</a>
-          <a href="/resume.pdf" class="hidden rounded-sm px-3 py-2 hover:bg-accent-soft hover:text-accent transition-colors sm:inline-block">Resume</a>
+          <a href={`${base}/#work`} class="rounded-sm px-3 py-2 hover:bg-accent-soft hover:text-accent transition-colors">Work</a>
+          <a href={`${base}/about`} class="rounded-sm px-3 py-2 hover:bg-accent-soft hover:text-accent transition-colors">About</a>
+          <a href={`${base}/resume.pdf`} class="hidden rounded-sm px-3 py-2 hover:bg-accent-soft hover:text-accent transition-colors sm:inline-block">Resume</a>
           <a href="mailto:alex.j.schulz@gmail.com" class="rounded-sm bg-ink px-3 py-2 text-paper-soft hover:bg-accent transition-colors">Contact</a>
         </div>
       </nav>
@@ -83,7 +84,7 @@ const ogImageUrl = `${siteUrl}${ogImage}?v=${OG_IMAGE_VERSION}`;
           </p>
         </div>
         <div class="flex flex-wrap gap-3 text-sm">
-          <a href="/resume.pdf" class="button-secondary">Resume</a>
+          <a href={`${base}/resume.pdf`} class="button-secondary">Resume</a>
           <a href="mailto:alex.j.schulz@gmail.com" class="button-primary">Email</a>
         </div>
       </div>

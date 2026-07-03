@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+
 const chapters = [
   ['01', 'Origin', '#honolulu-to-everett'],
   ['02', 'Map', '#the-map-on-the-porch'],
@@ -116,7 +118,7 @@ const chapters = [
         <h2 id="the-map-on-the-porch">The map on the porch.</h2>
         <figure class="not-prose my-10 overflow-hidden rounded-md border border-hairline bg-paper-soft">
           <img
-            src="/images/industrial-map-of-washington.jpeg"
+            src={`${base}/images/industrial-map-of-washington.jpeg`}
             alt="Framed Industrial Map of Washington from the family collection"
             class="block w-full"
             loading="lazy"
@@ -272,19 +274,19 @@ const chapters = [
 
         <h2>What I'm building now.</h2>
         <p>
-          <strong><a href="/#project-item2">Item2</a></strong> is my own bet on that thesis — a
+          <strong><a href={`${base}/#project-item2`}>Item2</a></strong> is my own bet on that thesis — a
           geospatial intelligence platform that surfaces operational signals from satellite imagery
           and physical-world data around micro- and small-cap public companies. You can see a live
           version at <a href="https://item2.io" target="_blank" rel="noopener noreferrer">item2.io</a>.
         </p>
         <p>
-          <strong><a href="/#project-hodego">Hodego</a></strong> is a startup I co-founded — a
+          <strong><a href={`${base}/#project-hodego`}>Hodego</a></strong> is a startup I co-founded — a
           platform connecting athletes with world-class coaches for personalized training and
           in-competition advice. Oversaw a team of three developers for eighteen months, made the
           architectural calls, shipped an MVP on AWS.
         </p>
         <p>
-          <strong><a href="/#project-wa-rail-properties">rail_served</a></strong> continues to evolve — the
+          <strong><a href={`${base}/#project-wa-rail-properties`}>rail_served</a></strong> continues to evolve — the
           UMD capstone has expanded to cover Western US rail-served industrial property, and a
           TypeScript rebuild is underway.
         </p>
@@ -296,7 +298,7 @@ const chapters = [
 
       <div class="mt-14 flex flex-wrap gap-3">
         <a
-          href="/resume.pdf"
+          href={`${base}/resume.pdf`}
           class="button-primary"
         >
           Resume <span class="mono text-xs">↓</span>
