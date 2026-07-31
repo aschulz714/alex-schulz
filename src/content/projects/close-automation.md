@@ -1,7 +1,7 @@
 ---
 title: Controlled Close Automation
-blurb: A working finance-operations cockpit that turns recurring close tasks into validated, reviewable, and auditable workflows.
-description: A clean-room demonstration of how recurring journal-entry and close processes can be prepared, validated, approved, posted, and logged without removing human control.
+blurb: An internal finance-operations cockpit, built in my current role, that turns recurring close tasks into validated, reviewable, and auditable workflows.
+description: An internal system I designed and built in my current role — recurring journal-entry and close processes prepared, validated, approved, posted, and logged without removing human control. Described here in generalized form.
 category: ai-automation
 projectType: automation
 year: 2026
@@ -12,7 +12,7 @@ tech:
   - SQLite
   - Schema contracts
   - API integration design
-status: Working demonstration
+status: Internal prototype, built in my current role
 role: Workflow designer, product architect, and builder
 scale:
   - 20 close tasks organized across a six-day close
@@ -23,13 +23,13 @@ proof:
   - Deterministic journal-entry preparation and balanced-line review
   - Idempotency prevents duplicate posting
   - Every preparation, posting, approval, and completion event enters an audit log
-confidentiality: This public case study describes a clean-room demonstration with synthetic data and generic roles. It does not publish employer data, credentials, or proprietary production code.
+confidentiality: This system was built in my role at my current employer and belongs to them. This case study describes it in generalized form only — no employer data, code, screenshots, integrations, or process specifics are published, and the underlying system is not publicly available.
 artifact:
-  label: Workflow demonstration
+  label: Internal workflow system
   detail: A four-view Streamlit application with a close checklist, journal-entry runner, period dashboard, and audit log.
 caseStudy:
   question: How can a finance team automate recurring close work without sacrificing review, approvals, or auditability?
-  data: Synthetic source exports, a registry of recurring close tasks, versioned schema contracts, and generic journal-entry rules.
+  data: A registry of recurring close tasks, source-system exports, versioned schema contracts, and journal-entry preparation rules.
   method: Separate deterministic preparation from posting, validate every input, preview entries before release, route approvals by policy, reject duplicate batches, and log the full lifecycle.
   signal: The valuable automation is not a single script; it is the control plane that makes many scripts safe, visible, and reusable.
   why: It shows how domain knowledge, software design, and automation controls combine in a system that a real operations team could adopt.
@@ -45,7 +45,7 @@ The project asks what happens when those isolated scripts are treated as compone
 
 ## The system
 
-The demonstration presents twenty recurring tasks in one close cockpit. A preparer can open an eligible task, validate a source export, generate the proposed journal entry, inspect totals and line detail, and then send the approved payload to a modeled ERP endpoint. The close checklist updates from the same state rather than from a second manual process.
+The system presents twenty recurring tasks in one close cockpit. A preparer can open an eligible task, validate a source export, generate the proposed journal entry, inspect totals and line detail, and then send the approved payload to a modeled ERP endpoint. The close checklist updates from the same state rather than from a second manual process.
 
 Four views make the lifecycle visible:
 
@@ -72,7 +72,7 @@ Idempotent ERP posting adapter
 Close-platform update + audit log
 ```
 
-The working demo uses local mocks for the ERP and close-management APIs, allowing the contracts, failure behavior, and user journey to be tested without production credentials.
+The prototype uses local mocks for the ERP and close-management APIs, allowing the contracts, failure behavior, and user journey to be tested without production credentials.
 
 ## Controls designed into the workflow
 
