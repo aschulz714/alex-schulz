@@ -1,0 +1,54 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+
+const environments = [
+  ['Live production', 'Film, television, concerts, and deadline-driven logistics.'],
+  ['Family offices', 'Bespoke processes, discretion, complex entities, and owner-level expectations.'],
+  ['Real estate', 'Development draws, asset-level reporting, capital partners, and long project cycles.'],
+  ['Aerospace', 'Launch services, technical programs, vendors, systems, and precision.'],
+  ['Marketplace operations', 'Revenue flows, close processes, multi-jurisdiction activity, and recurring exceptions.'],
+  ['Software products', 'Requirements, architecture choices, distributed teams, QA, Git, and iteration.'],
+];
+---
+
+<section id="perspective" class="relative py-14 md:py-24">
+  <div class="section-shell">
+    <div class="grid grid-cols-1 gap-7 md:grid-cols-[180px_1fr] md:gap-14">
+      <p class="coord pt-1">05 / Operating perspective</p>
+      <div>
+        <h2 class="section-heading max-w-3xl text-3xl md:text-5xl">
+          Different industries. Recurring system problems.
+        </h2>
+        <p class="section-copy mt-5 max-w-3xl text-base md:text-lg">
+          My career has crossed environments with very different customers, assets, constraints,
+          and definitions of success. That range makes it easier to see the patterns that repeat:
+          fragmented data, manual handoffs, undocumented rules, approval bottlenecks, and valuable
+          knowledge trapped in people rather than systems.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-hairline bg-hairline md:mt-14 sm:grid-cols-2 lg:grid-cols-3">
+      {environments.map(([title, body], index) => (
+        <article class="bg-paper-soft/90 p-5 md:p-6">
+          <div class="flex items-center justify-between gap-4">
+            <p class="coord text-accent">{String(index + 1).padStart(2, '0')}</p>
+            <span class="h-2 w-2 rounded-full bg-signal" aria-hidden="true"></span>
+          </div>
+          <h3 class="mt-8 text-xl font-semibold text-ink">{title}</h3>
+          <p class="section-copy mt-3 text-sm">{body}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-6 flex flex-col gap-5 rounded-lg border border-hairline bg-paper-soft/60 p-5 md:flex-row md:items-center md:justify-between md:p-7">
+      <p class="max-w-3xl text-lg font-semibold leading-relaxed text-ink">
+        The industries changed. The work kept returning to how people move money, information,
+        assets, and decisions.
+      </p>
+      <a href={`${base}/about`} class="button-secondary shrink-0">
+        Read the full story
+      </a>
+    </div>
+  </div>
+</section>

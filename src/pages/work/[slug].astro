@@ -1,0 +1,159 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+
+const categoryLabel: Record<string, string> = {
+  'ai-automation': 'AI + automation',
+  'data-systems': 'Data system',
+  geospatial: 'Geospatial',
+  product: 'Product',
+  python: 'Python / data',
+  web: 'Web product',
+};
+
+const caseFields = [
+  ['Question', project.data.caseStudy.question],
+  ['Inputs', project.data.caseStudy.data],
+  ['Method', project.data.caseStudy.method],
+  ['Signal', project.data.caseStudy.signal],
+  ['Why it matters', project.data.caseStudy.why],
+  ['Artifact', project.data.artifact?.detail ?? project.data.description],
+];
+---
+
+<Base
+  title={`${project.data.title} | Alex Schulz`}
+  description={project.data.description}
+>
+  <section class="relative border-b border-hairline bg-paper-soft/45">
+    <div class="section-shell pb-12 pt-14 md:pb-16 md:pt-20">
+      <a href={`${base}/#work`} class="coord inline-flex items-center gap-2 text-accent hover:underline">
+        <span aria-hidden="true">&lt;-</span> Selected work
+      </a>
+
+      <div class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_19rem] lg:items-end">
+        <div>
+          <div class="flex flex-wrap items-center gap-3">
+            <p class="coord text-accent">{categoryLabel[project.data.category] ?? project.data.category}</p>
+            <span class="coord rounded-sm border border-signal/30 bg-signal-soft px-2 py-1 text-signal">
+              {project.data.status ?? 'Case study'}
+            </span>
+          </div>
+          <h1 class="section-heading mt-6 max-w-4xl text-balance text-5xl md:text-7xl">
+            {project.data.title}
+          </h1>
+          <p class="mt-6 max-w-3xl text-xl leading-relaxed text-ink-soft md:text-2xl">
+            {project.data.blurb}
+          </p>
+        </div>
+
+        <dl class="surface-quiet rounded-md p-5">
+          <div>
+            <dt class="coord text-accent">My role</dt>
+            <dd class="mt-2 text-base font-semibold leading-snug text-ink">
+              {project.data.role ?? 'Builder and researcher'}
+            </dd>
+          </div>
+          <div class="mt-5 border-t border-hairline pt-5">
+            <dt class="coord">Year</dt>
+            <dd class="mt-2 text-base font-semibold text-ink">{project.data.year}</dd>
+          </div>
+        </dl>
+      </div>
+
+      {project.data.scale.length > 0 && (
+        <dl class="ledger-rule mt-10 grid grid-cols-1 sm:grid-cols-3">
+          {project.data.scale.slice(0, 3).map((item, index) => (
+            <div class="border-b border-hairline p-4 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0">
+              <dt class="coord text-accent">{index === 0 ? 'Scale' : 'Evidence'}</dt>
+              <dd class="mt-2 text-sm font-semibold leading-relaxed text-ink">{item}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+    </div>
+  </section>
+
+  <section class="relative py-14 md:py-20">
+    <div class="section-shell">
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-[1.35fr_0.65fr]">
+        <div class="dossier-panel rounded-lg p-5 md:p-8">
+          <p class="coord text-accent">Case file / system summary</p>
+          <div class="mt-7 grid grid-cols-1 gap-3 md:grid-cols-2">
+            {caseFields.map(([label, value]) => (
+              <div class="surface-quiet rounded-md p-4">
+                <p class="coord text-accent">{label}</p>
+                <p class="mt-3 text-sm leading-relaxed text-ink-soft">{value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <aside class="space-y-5">
+          {project.data.proof.length > 0 && (
+            <div class="surface-quiet rounded-md p-5">
+              <p class="coord text-accent">Inspectable proof</p>
+              <ul class="mt-5 space-y-3">
+                {project.data.proof.map((item) => (
+                  <li class="grid grid-cols-[1rem_1fr] gap-2 text-sm leading-relaxed text-ink-soft">
+                    <span class="mono text-signal" aria-hidden="true">+</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div class="surface-quiet rounded-md p-5">
+            <p class="coord text-accent">Technology</p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              {project.data.tech.map((technology) => (
+                <span class="mono rounded-sm border border-hairline bg-paper-soft px-2.5 py-1 text-xs text-ink-muted">
+                  {technology}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {project.data.confidentiality && (
+            <div class="rounded-md border border-signal/25 bg-signal-soft/45 p-5">
+              <p class="coord text-signal">Disclosure note</p>
+              <p class="mt-3 text-sm leading-relaxed text-ink-soft">{project.data.confidentiality}</p>
+            </div>
+          )}
+        </aside>
+      </div>
+
+      <article class="prose prose-lg mt-12 max-w-3xl prose-headings:font-sans prose-headings:font-semibold prose-headings:tracking-normal prose-headings:text-ink prose-p:text-ink-soft prose-p:leading-relaxed prose-strong:text-ink prose-a:text-accent">
+        <Content />
+      </article>
+
+      {(project.data.links.repo || project.data.links.demo) && (
+        <div class="mt-12 flex flex-wrap gap-3 border-t border-hairline pt-8">
+          {project.data.links.demo && (
+            <a href={project.data.links.demo} target="_blank" rel="noopener noreferrer" class="button-primary">
+              View live project <span class="mono text-xs" aria-hidden="true">-&gt;</span>
+            </a>
+          )}
+          {project.data.links.repo && (
+            <a href={project.data.links.repo} target="_blank" rel="noopener noreferrer" class="button-secondary">
+              View repository <span class="mono text-xs" aria-hidden="true">-&gt;</span>
+            </a>
+          )}
+        </div>
+      )}
+    </div>
+  </section>
+</Base>

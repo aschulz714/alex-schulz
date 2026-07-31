@@ -1,33 +1,50 @@
 ---
 title: National Parcel Coverage
-blurb: A free owner-resolution atlas for all 3,221 US county-equivalents — the layer commercial parcel vendors charge for, rebuilt from public endpoints.
-description: County-by-county research into whether "who owns this land?" can be answered anywhere in America using only free, public government endpoints — with an honest method recorded for every county, including the ones where the answer is no.
-category: geospatial
+blurb: A normalized national parcel store assembled from free public sources—122 million records, one schema, explicit provenance, and regression QA.
+description: A national data system that acquires, normalizes, validates, and maintains parcel records from fragmented county and state government sources.
+category: data-systems
+projectType: data-system
 year: 2026
 tech:
   - Python
+  - GeoParquet
   - ArcGIS REST
-  - WFS
-  - QGIS
+  - DuckDB
+  - Cloudflare R2
   - AI-agent orchestration
-status: 'Complete — 3,221 of 3,221 counties recorded'
+status: Active national data system
+role: Product architect, AI-directed developer, and final verifier
+scale:
+  - 122,097,430 parcel records
+  - 2,298 counties across 51 jurisdictions
+  - Approximately 95% owner and 99.6% geometry coverage
+proof:
+  - Normalized county GeoParquet files with a shared schema
+  - Per-county manifest, provenance, and populated-field metrics
+  - Regression QA for row loss, owner wipes, duplicate APNs, and geometry sanity
+  - Endpoint health checks and hash-verified cold-storage backups
 artifact:
-  label: Coverage atlas
-  detail: A per-county resolver, a methods table covering every US county-equivalent, and an interactive coverage map.
+  label: National data system
+  detail: A normalized parcel store, live owner resolver, QA suite, coverage catalog, map tiles, and maintenance tooling.
 caseStudy:
-  question: Can location → parcel → owner be resolved for free, everywhere in the United States?
-  data: County assessor and GIS endpoints — ArcGIS REST, WFS, statewide cadastres, regional planning-district servers — across 50 states, DC, and Puerto Rico.
-  method: Probe every county for a public owner endpoint, route each to its best source, and independently re-verify every route with a live point query before recording it. No scraping, no bot-defeating — free public endpoints only.
-  signal: 72.8% of US county-equivalents (2,344 of 3,221) resolve to a named owner for free. The remaining ~27% sit behind commercial web-app vendors — and that gated tail, not the data itself, is the moat the paid products are built on.
-  why: Parcel ownership is the ground truth beneath real-asset finance, and knowing exactly where the free frontier ends is worth as much as the coverage itself.
+  question: How much of a commercial national parcel layer can be rebuilt from free public government sources?
+  data: County assessors, statewide cadastres, ArcGIS REST services, WFS endpoints, tax rolls, and regional GIS servers.
+  method: Route each county to its best source, acquire in bulk, normalize to one schema, reconcile counts and coverage, standardize owners and land use, then preserve provenance and test for regressions.
+  signal: More than 122 million parcels can be assembled across 2,298 counties, while the remaining gaps reveal where access, licensing, and vendor portals create the commercial moat.
+  why: The system converts thousands of inconsistent local sources into reusable infrastructure for property, ownership, industrial, and geospatial research.
 featured: true
+featuredRank: 2
 ---
 
-## What it is
+## The system
 
-Type a coordinate anywhere in America; get back the parcel and the name of who owns it. Commercial vendors sell this as a national dataset. This project asked how much of it could be reassembled from what counties already publish for free — and recorded an honest answer for every single one of the 3,221 county-equivalents in the country, including the ones where the answer is "you can't."
+The current build is a local, normalized national parcel store: one GeoParquet per county, one shared schema, standardized owner and land-use fields, explicit source provenance, a regression suite, map tiles, and hash-verified backup. It contains more than 122 million records across 2,298 counties.
 
-## What the map says
+The live resolver remains a second layer. Give it a coordinate or address and it routes the request to the best available public endpoint for that county. The project records an honest method for every US county-equivalent, including the places where a free owner answer is not available.
+
+The two layers reinforce each other: the bulk store supports national analysis, while the live resolver exposes the boundary between public coverage and vendor-gated access.
+
+## What the resolver says
 
 - **100% recorded.** Every county-equivalent in all 50 states, DC, and Puerto Rico has a documented resolution method or a documented reason there isn't one.
 - **72.8% resolvable.** 2,344 counties expose a free, public owner endpoint — each one independently re-verified with a live point query, not taken on faith from a directory listing.
@@ -39,4 +56,4 @@ Fleets of directed AI agents probed states in parallel; every promising endpoint
 
 ## The footnote
 
-A few years ago I applied — cover letter and all — to the company that leads this market, and never heard back. This atlas was built on nights and weekends for roughly the cost of an AI subscription. I keep the cover letter around as a calibration artifact: the distance between "no reply" and "rebuilt the core layer" is shorter than it has ever been, for anyone willing to verify their own work.
+This atlas was built on nights and weekends for roughly the cost of an AI subscription. A few years ago I applied to the company that leads this market and never heard back — which turned out to be useful calibration, not a grievance: the distance between "no reply" and "rebuilt the core layer" is shorter than it has ever been, for anyone willing to verify their own work.

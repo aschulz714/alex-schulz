@@ -1,0 +1,128 @@
+---
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+const projects = (await getCollection('projects'))
+  .filter((entry) => entry.data.featured)
+  .sort((a, b) => (a.data.featuredRank ?? 99) - (b.data.featuredRank ?? 99))
+  .slice(0, 4);
+
+const categoryLabel: Record<string, string> = {
+  'ai-automation': 'AI + automation',
+  'data-systems': 'Data system',
+  geospatial: 'Geospatial',
+  product: 'Product',
+  python: 'Python / data',
+  web: 'Web product',
+};
+---
+
+<section id="work" class="relative py-14 md:py-24">
+  <div class="section-shell">
+    <div class="mb-10 grid grid-cols-1 gap-7 md:mb-14 md:grid-cols-[180px_1fr] md:gap-14">
+      <p class="coord pt-1">01 / Selected systems</p>
+      <div>
+        <h2 class="section-heading max-w-3xl text-3xl md:text-5xl">
+          Evidence before biography.
+        </h2>
+        <p class="section-copy mt-5 max-w-2xl text-base md:text-lg">
+          Four systems chosen for range and rigor — what was built, at what scale, and how it was
+          verified. The rest of the casebook is one click away.
+        </p>
+      </div>
+    </div>
+
+    <ol class="grid grid-cols-1 gap-5 lg:grid-cols-2">
+      {projects.map((entry, index) => (
+        <li class={`reveal ${index === 0 ? 'lg:col-span-2' : ''}`}>
+          <a
+            href={`${base}/work/${entry.id}`}
+            class={`project-card group grid h-full overflow-hidden rounded-lg border border-hairline bg-paper-soft/75 text-left shadow-[0_14px_34px_rgba(16,30,26,0.06)] transition-all duration-200 hover:-translate-y-1 hover:border-accent/45 ${index === 0 ? 'md:grid-cols-[0.9fr_1.1fr]' : 'grid-cols-1'}`}
+          >
+            <div class={`evidence-panel ${index === 0 ? 'md:border-b-0 md:border-r' : ''}`}>
+              <div class="flex items-center justify-between gap-3">
+                <p class="coord text-accent">{entry.data.artifact?.label ?? 'Case file'}</p>
+                <p class="coord">{String(index + 1).padStart(2, '0')}</p>
+              </div>
+
+              <dl class="mt-7 space-y-4">
+                <div class="evidence-row">
+                  <dt class="coord">Role</dt>
+                  <dd>{entry.data.role ?? 'Builder and researcher'}</dd>
+                </div>
+                {(entry.data.scale.length ? entry.data.scale : [entry.data.caseStudy.signal])
+                  .slice(0, index === 0 ? 3 : 2)
+                  .map((item, itemIndex) => (
+                    <div class="evidence-row">
+                      <dt class="coord">{itemIndex === 0 ? 'Scale' : 'Proof'}</dt>
+                      <dd>{item}</dd>
+                    </div>
+                  ))}
+              </dl>
+
+              <div class="signal-strip mt-7" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="flex flex-1 flex-col p-5 md:p-7">
+              <div class="mb-7 flex items-start justify-between gap-4">
+                <div>
+                  <p class="coord">{categoryLabel[entry.data.category] ?? entry.data.category} / {entry.data.year}</p>
+                  {entry.data.status && <p class="coord mt-2 text-signal">{entry.data.status}</p>}
+                </div>
+                <span class="mono rounded-sm border border-hairline bg-paper-soft px-2 py-1 text-xs text-ink-muted transition-colors group-hover:border-accent group-hover:text-accent" aria-hidden="true">
+                  -&gt;
+                </span>
+              </div>
+
+              <h3 class={`font-sans font-semibold leading-tight text-ink ${index === 0 ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'}`}>
+                {entry.data.title}
+              </h3>
+              <p class="section-copy mt-4 flex-1 text-sm md:text-base">{entry.data.blurb}</p>
+
+              <div class="mt-7 flex flex-wrap gap-2">
+                {entry.data.tech.slice(0, index === 0 ? 6 : 4).map((technology) => (
+                  <span class="mono rounded-sm border border-hairline bg-paper/70 px-2.5 py-1 text-xs text-ink-muted">
+                    {technology}
+                  </span>
+                ))}
+              </div>
+
+              <span class="mt-7 inline-flex items-center gap-2 text-sm font-medium text-accent">
+                Open case study
+                <span class="mono text-xs transition-transform group-hover:translate-x-1" aria-hidden="true">-&gt;</span>
+              </span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-8 flex justify-center md:mt-10">
+      <a href={`${base}/work`} class="button-secondary">
+        Browse the full casebook <span class="mono text-xs" aria-hidden="true">-&gt;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const revealables = document.querySelectorAll<HTMLElement>('.reveal');
+  if (revealables.length && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '-8% 0px -8% 0px', threshold: 0 }
+    );
+    revealables.forEach((element) => observer.observe(element));
+  } else {
+    revealables.forEach((element) => element.classList.add('is-visible'));
+  }
+</script>

@@ -1,0 +1,83 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+
+const projects = (await getCollection('projects')).sort((a, b) => {
+  const rankA = a.data.featuredRank ?? 99;
+  const rankB = b.data.featuredRank ?? 99;
+  if (rankA !== rankB) return rankA - rankB;
+  return b.data.year - a.data.year;
+});
+
+const categoryLabel: Record<string, string> = {
+  'ai-automation': 'AI + automation',
+  'data-systems': 'Data system',
+  geospatial: 'Geospatial',
+  product: 'Product',
+  python: 'Python / data',
+  web: 'Web product',
+};
+---
+
+<Base
+  title="Casebook | Alex Schulz"
+  description="The full casebook: AI automation, data systems, geospatial research, and product work by Alex Schulz — every project, labeled by its actual maturity."
+>
+  <section class="relative border-b border-hairline bg-paper-soft/45">
+    <div class="section-shell pb-12 pt-14 md:pb-16 md:pt-20">
+      <a href={`${base}/`} class="coord inline-flex items-center gap-2 text-accent hover:underline">
+        <span aria-hidden="true">&lt;-</span> Home
+      </a>
+      <h1 class="section-heading mt-8 max-w-4xl text-5xl md:text-6xl">
+        The full casebook.
+      </h1>
+      <p class="section-copy mt-6 max-w-2xl text-base md:text-lg">
+        Every project — automation, data systems, geospatial research, and product work — labeled
+        by its actual maturity, from active national systems to early craft exercises.
+      </p>
+    </div>
+  </section>
+
+  <section class="relative py-14 md:py-20">
+    <div class="section-shell">
+      <ol class="grid grid-cols-1 gap-5 md:grid-cols-2">
+        {projects.map((entry, index) => (
+          <li>
+            <a
+              href={`${base}/work/${entry.id}`}
+              class="project-card group flex h-full flex-col overflow-hidden rounded-lg border border-hairline bg-paper-soft/75 p-5 text-left transition-all duration-200 hover:-translate-y-1 hover:border-accent/45 md:p-7"
+            >
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="coord">{categoryLabel[entry.data.category] ?? entry.data.category} / {entry.data.year}</p>
+                  {entry.data.status && <p class="coord mt-2 text-signal">{entry.data.status}</p>}
+                </div>
+                <span class="coord">{String(index + 1).padStart(2, '0')}</span>
+              </div>
+
+              <h2 class="mt-7 text-2xl font-semibold leading-tight text-ink md:text-3xl">
+                {entry.data.title}
+              </h2>
+              <p class="section-copy mt-4 flex-1 text-sm md:text-base">{entry.data.blurb}</p>
+
+              <div class="mt-6 flex flex-wrap gap-2">
+                {entry.data.tech.slice(0, 4).map((technology) => (
+                  <span class="mono rounded-sm border border-hairline bg-paper/70 px-2.5 py-1 text-xs text-ink-muted">
+                    {technology}
+                  </span>
+                ))}
+              </div>
+
+              <span class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent">
+                Open case study
+                <span class="mono text-xs transition-transform group-hover:translate-x-1" aria-hidden="true">-&gt;</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+</Base>

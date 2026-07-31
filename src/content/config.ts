@@ -7,11 +7,25 @@ const projects = defineCollection({
     title: z.string(),
     blurb: z.string(),
     description: z.string(),
-    category: z.enum(['geospatial', 'python', 'web']),
+    category: z.enum([
+      'ai-automation',
+      'data-systems',
+      'geospatial',
+      'product',
+      'python',
+      'web',
+    ]),
+    projectType: z
+      .enum(['automation', 'data-system', 'product', 'research', 'venture'])
+      .default('research'),
     year: z.number(),
     cover: z.string().optional(),
     tech: z.array(z.string()).default([]),
     status: z.string().optional(),
+    role: z.string().optional(),
+    scale: z.array(z.string()).default([]),
+    proof: z.array(z.string()).default([]),
+    confidentiality: z.string().optional(),
     artifact: z
       .object({
         label: z.string(),
@@ -32,6 +46,7 @@ const projects = defineCollection({
       })
       .default({}),
     featured: z.boolean().default(false),
+    featuredRank: z.number().int().positive().optional(),
   }),
 });
 

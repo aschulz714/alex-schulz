@@ -10,10 +10,13 @@ export interface Props {
 const OG_IMAGE_VERSION = 3;
 
 const {
-  title = 'Alex Schulz | CPA, Geospatial, Developer',
-  description = 'A living resume and portfolio from Alex Schulz: CPA, geospatial intelligence graduate, and builder at the intersection of finance and physical-world data.',
+  title = 'Alex Schulz | CPA · AI Automation · Data Systems',
+  description = 'Alex Schulz is a CPA with ten years in finance operations who builds AI automations, data platforms, and software products — held to an accountant\'s standard of evidence.',
   ogImage = 'og-image.png',
 } = Astro.props;
+
+const linkedInUrl = 'https://www.linkedin.com/in/alex-schulz13/';
+const githubUrl = 'https://github.com/aschulz714';
 
 const siteUrl = Astro.site?.toString() ?? 'https://aschulz714.github.io/';
 const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
@@ -60,11 +63,12 @@ const ogImageUrl = `${new URL(`${base}/${ogImage}`, siteUrl).toString()}?v=${OG_
             <span class="sm:hidden">AS</span>
             <span class="hidden sm:inline">Alex Schulz</span>
           </span>
-          <span class="mt-1 hidden text-xs text-ink-muted sm:block">CPA / GEOINT / builder</span>
+          <span class="mt-1 hidden text-xs text-ink-muted sm:block">CPA / AI automation / data systems</span>
         </a>
         <div class="flex items-center gap-1 rounded-md border border-hairline bg-paper-soft/70 p-1 text-sm text-ink-soft">
           <a href={`${base}/#work`} class="rounded-sm px-3 py-2 hover:bg-accent-soft hover:text-accent transition-colors">Work</a>
-          <a href={`${base}/about`} class="rounded-sm px-3 py-2 hover:bg-accent-soft hover:text-accent transition-colors">About</a>
+          <a href={`${base}/#lab`} class="hidden rounded-sm px-3 py-2 hover:bg-accent-soft hover:text-accent transition-colors md:inline-block">Lab</a>
+          <a href={`${base}/about`} class="rounded-sm px-3 py-2 hover:bg-accent-soft hover:text-accent transition-colors">Story</a>
           <a href={`${base}/resume.pdf`} class="hidden rounded-sm px-3 py-2 hover:bg-accent-soft hover:text-accent transition-colors sm:inline-block">Resume</a>
           <a href="mailto:alex.j.schulz@gmail.com" class="rounded-sm bg-ink px-3 py-2 text-paper-soft hover:bg-accent transition-colors">Contact</a>
         </div>
@@ -78,13 +82,16 @@ const ogImageUrl = `${new URL(`${base}/${ogImage}`, siteUrl).toString()}?v=${OG_
     <footer class="border-t border-hairline bg-paper-soft/55">
       <div class="section-shell py-10 md:py-12 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div>
-          <p class="coord">47.9790 N / 122.2021 W / Lake Stevens, WA</p>
+          <p class="coord">Alex Schulz / Systems casebook / Lake Stevens, WA</p>
           <p class="mt-2 max-w-lg text-sm text-ink-muted">
-            Living resume, portfolio, and working notebook for finance, geospatial data, and product experiments.
+            AI automation, data systems, and product work — from a CPA with ten years in finance
+            operations.
           </p>
         </div>
         <div class="flex flex-wrap gap-3 text-sm">
           <a href={`${base}/resume.pdf`} class="button-secondary">Resume</a>
+          <a href={linkedInUrl} target="_blank" rel="noopener noreferrer" class="button-secondary">LinkedIn</a>
+          <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="button-secondary">GitHub</a>
           <a href="mailto:alex.j.schulz@gmail.com" class="button-primary">Email</a>
         </div>
       </div>

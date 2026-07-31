@@ -19,9 +19,6 @@ caseStudy:
   method: Google Earth Engine analysis, site-level time series, and report-window comparisons.
   signal: Mill activity and crop-vigor patterns that traditional market coverage often misses.
   why: The project became the practical bridge from mapping exercises to Item2.
-links:
-  repo: https://github.com/aschulz714/satellite-commodities
-  demo: https://aschulz714.github.io/satellite-commodities/
 featured: true
 ---
 
@@ -34,7 +31,7 @@ A public-facing research project that takes freely available satellite imagery �
 
 ## Why it matters
 
-The commodities world runs on expensive, subscription-only intelligence. But much of the same information — mill activity, crop vigor, shipment cycles — is visible from space for free, if you know what you're looking at. This is the proof-of-concept that spun into [Item2](/#project-item2).
+The commodities world runs on expensive, subscription-only intelligence. But much of the same information — mill activity, crop vigor, shipment cycles — is visible from space for free, if you know what you're looking at. This is the proof-of-concept that spun into [Item2](../item2).
 
 ## What I learned
 

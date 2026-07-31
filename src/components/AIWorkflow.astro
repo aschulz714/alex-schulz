@@ -1,0 +1,66 @@
+---
+const stages = [
+  {
+    number: '01',
+    title: 'Frame',
+    body: 'Define the user, outcome, constraints, source of truth, and the decisions the system must support.',
+  },
+  {
+    number: '02',
+    title: 'Direct',
+    body: 'Give coding agents bounded tasks, repository context, acceptance criteria, and an explicit blast radius.',
+  },
+  {
+    number: '03',
+    title: 'Inspect',
+    body: 'Review diffs, architecture, data transformations, security assumptions, and failure behavior.',
+  },
+  {
+    number: '04',
+    title: 'Verify',
+    body: 'Run tests, reconcile outputs to source evidence, reproduce edge cases, and document what remains uncertain.',
+  },
+];
+---
+
+<section id="method" class="relative py-14 md:py-24">
+  <div class="section-shell">
+    <div class="dossier-panel overflow-hidden rounded-lg">
+      <div class="grid grid-cols-1 lg:grid-cols-[0.82fr_1.18fr]">
+        <div class="border-b border-hairline p-5 md:p-8 lg:border-b-0 lg:border-r lg:p-10">
+          <p class="coord text-accent">03 / AI-native development</p>
+          <h2 class="section-heading mt-6 max-w-xl text-3xl md:text-5xl">
+            The leverage comes from direction and verification.
+          </h2>
+          <p class="section-copy mt-6 max-w-xl text-base md:text-lg">
+            I work with Codex and Claude from the terminal across real repositories. The operating
+            loop is product judgment, precise context, small changes, Git review, tests, and
+            reconciliation; not prompt-and-pray development.
+          </p>
+
+          <div class="mt-8 rounded-md border border-signal/25 bg-signal-soft/55 p-5">
+            <p class="coord text-signal">The standard</p>
+            <p class="mt-3 text-lg font-semibold leading-snug text-ink">
+              A generated answer is a hypothesis. A tested, source-reconciled result is evidence.
+            </p>
+          </div>
+        </div>
+
+        <ol class="grid grid-cols-1 sm:grid-cols-2">
+          {stages.map((stage, index) => (
+            <li class={`p-5 md:p-7 ${index % 2 === 0 ? 'sm:border-r' : ''} ${index < 2 ? 'border-b' : index === 2 ? 'border-b sm:border-b-0' : ''} border-hairline`}>
+              <div class="flex items-center justify-between gap-4">
+                <span class="timeline-number">{stage.number}</span>
+                <span class="signal-strip w-20" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </div>
+              <h3 class="mt-8 text-2xl font-semibold text-ink">{stage.title}</h3>
+              <p class="section-copy mt-3 text-sm md:text-base">{stage.body}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>

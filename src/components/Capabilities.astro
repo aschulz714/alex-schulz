@@ -1,0 +1,63 @@
+---
+const capabilities = [
+  {
+    number: '01',
+    label: 'AI + automation',
+    title: 'Turn recurring work into controlled systems.',
+    body: 'Map the real process, separate deterministic rules from judgment, connect the tools, and design for exceptions, approvals, and auditability.',
+    signals: ['Workflow design', 'AI-assisted development', 'APIs and integrations', 'Human-in-the-loop controls'],
+  },
+  {
+    number: '02',
+    label: 'Data systems',
+    title: 'Make messy, fragmented data usable.',
+    body: 'Acquire, normalize, reconcile, and maintain complex public and operational datasets, especially when location and physical assets matter.',
+    signals: ['Python pipelines', 'Geospatial processing', 'Entity and owner resolution', 'QA and provenance'],
+  },
+  {
+    number: '03',
+    label: 'Products + ventures',
+    title: 'Move from overlooked problem to working product.',
+    body: 'Shape the thesis, choose the architecture, coordinate delivery, test the experience, and decide what deserves the next investment of time.',
+    signals: ['Zero-to-one product thinking', 'Technical product leadership', 'Architecture tradeoffs', 'Validation and iteration'],
+  },
+];
+---
+
+<section id="capabilities" class="relative border-y border-hairline bg-paper-soft/45 py-14 md:py-24">
+  <div class="section-shell">
+    <div class="grid grid-cols-1 gap-7 md:grid-cols-[180px_1fr] md:gap-14">
+      <p class="coord pt-1">02 / What I build</p>
+      <div>
+        <h2 class="section-heading max-w-3xl text-3xl md:text-5xl">
+          Three forms of the same work.
+        </h2>
+        <p class="section-copy mt-5 max-w-2xl text-base md:text-lg">
+          Find the important structure hiding inside a process, dataset, or market, and make it
+          legible enough to act on.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 gap-4 md:mt-14 lg:grid-cols-3">
+      {capabilities.map((capability) => (
+        <article class="surface-quiet rounded-md p-5 md:p-6">
+          <div class="flex items-center justify-between gap-4">
+            <p class="coord text-accent">{capability.label}</p>
+            <span class="timeline-number">{capability.number}</span>
+          </div>
+          <h3 class="mt-8 text-2xl font-semibold leading-tight text-ink">{capability.title}</h3>
+          <p class="section-copy mt-4 text-sm md:text-base">{capability.body}</p>
+          <ul class="mt-7 space-y-3 border-t border-hairline pt-5">
+            {capability.signals.map((signal) => (
+              <li class="grid grid-cols-[1rem_1fr] gap-2 text-sm text-ink-soft">
+                <span class="mono text-signal" aria-hidden="true">+</span>
+                <span>{signal}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

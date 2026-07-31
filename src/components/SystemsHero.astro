@@ -1,0 +1,95 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+
+const proof = [
+  ['10 yrs', 'finance operations as a CPA'],
+  ['122M+', 'parcel records normalized'],
+  ['2,298', 'counties in the national store'],
+  ['3', 'developers led on Hodego'],
+];
+
+const method = [
+  ['01', 'Learn the operation', 'Understand the people, constraints, data, and decisions behind the visible task.'],
+  ['02', 'Find the leverage point', 'Identify the handoff, bottleneck, or overlooked dataset that changes the outcome.'],
+  ['03', 'Build the system', 'Use AI agents, code, APIs, and product judgment to turn the thesis into something usable.'],
+  ['04', 'Verify the result', 'Reconcile against source evidence, test failure paths, and keep human judgment in control.'],
+];
+---
+
+<section class="relative overflow-hidden">
+  <div class="section-shell pb-14 pt-10 md:pb-20 md:pt-16">
+    <div class="dossier-panel overflow-hidden rounded-lg">
+      <div class="grid grid-cols-1 lg:grid-cols-[1.08fr_0.92fr]">
+        <div class="border-b border-hairline p-5 md:p-8 lg:border-b-0 lg:border-r lg:p-10">
+          <div class="mb-8 flex flex-wrap items-center gap-3">
+            <p class="coord text-accent">Alex Schulz / Systems casebook</p>
+            <span class="coord rounded-sm border border-signal/30 bg-signal-soft px-2 py-1 text-signal">
+              CPA who builds AI automation
+            </span>
+          </div>
+
+          <h1 class="section-heading max-w-4xl text-balance text-5xl leading-[0.96] sm:text-6xl lg:text-7xl">
+            I find overlooked opportunities and build systems around them.
+          </h1>
+
+          <div class="annotation mt-8 max-w-2xl">
+            <p class="text-xl font-semibold leading-snug text-ink md:text-2xl">
+              A CPA with ten years inside real operations — building automations, data platforms,
+              and software products grounded in how the work actually happens.
+            </p>
+            <p class="section-copy mt-4 text-base md:text-lg">
+              I've done the accounting inside film production, family offices, real-estate
+              development, aerospace, and marketplace operations. I combine that domain judgment
+              with Python, APIs, geospatial data, product leadership, and AI-assisted development
+              to move from ambiguous problem to tested system.
+            </p>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#work" class="button-primary">
+              Explore selected work <span class="mono text-xs" aria-hidden="true">-&gt;</span>
+            </a>
+            <a href="#method" class="button-secondary">How I build</a>
+            <a href={`${base}/resume.pdf`} class="button-secondary">Resume</a>
+          </div>
+
+          <dl class="ledger-rule mt-9 grid grid-cols-2 sm:grid-cols-4">
+            {proof.map(([value, label], index) => (
+              <div class={`p-4 ${index % 2 === 0 ? 'border-r' : ''} border-hairline sm:border-r sm:last:border-r-0`}>
+                <dt class="text-xl font-semibold text-ink md:text-2xl">{value}</dt>
+                <dd class="coord mt-2 normal-case leading-relaxed">{label}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div class="flex flex-col bg-paper-soft/35 p-5 md:p-8 lg:p-9">
+          <div class="flex items-center justify-between gap-4">
+            <p class="coord text-accent">Working method</p>
+            <p class="coord">Opportunity -&gt; evidence</p>
+          </div>
+
+          <ol class="mt-8 flex-1 border-t border-hairline">
+            {method.map(([number, title, body]) => (
+              <li class="grid grid-cols-[2.6rem_1fr] gap-4 border-b border-hairline py-5">
+                <span class="timeline-number">{number}</span>
+                <div>
+                  <p class="text-lg font-semibold text-ink">{title}</p>
+                  <p class="section-copy mt-2 text-sm">{body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <div class="mt-6 rounded-md border border-accent/25 bg-accent-soft/55 p-4">
+            <p class="coord text-accent">Current operating model</p>
+            <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+              One human with domain judgment, AI agents for implementation leverage, Git as the
+              audit trail, and verification before a result is trusted.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

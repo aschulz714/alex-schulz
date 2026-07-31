@@ -1,0 +1,59 @@
+---
+const entries = [
+  {
+    type: 'Launched index / 2018',
+    title: 'North Kai Franchise Index',
+    body: 'A rules-based equity index built around publicly traded franchise businesses, refined with EQM Indexes and launched as a licensable methodology.',
+    status: 'Launched as a licensable index methodology',
+  },
+  {
+    type: 'Private product / 2026',
+    title: 'Hawaii Trip PWA',
+    body: 'A React and Firebase trip-planning and photo-sharing app with maps, EXIF geolocation, offline uploads, comments, push notifications, and mobile share-target support.',
+    status: 'Built for real users',
+  },
+  {
+    type: 'Active data build',
+    title: 'Rail-Served Properties',
+    body: 'A national effort to identify scarce industrial parcels with direct freight-rail access by combining rail networks, parcel fabrics, owner data, and image verification.',
+    status: 'Validated across multiple states',
+  },
+  {
+    type: 'Early fintech thesis',
+    title: 'ESPP Cash',
+    body: 'An early concept for giving employees greater liquidity and flexibility around employee stock purchase plans, developed years before similar models became visible.',
+    status: 'Shelved concept, ahead of its market',
+  },
+];
+---
+
+<section id="lab" class="relative border-y border-hairline bg-paper-soft/45 py-14 md:py-24">
+  <div class="section-shell">
+    <div class="grid grid-cols-1 gap-7 md:grid-cols-[180px_1fr] md:gap-14">
+      <p class="coord pt-1">04 / Product lab</p>
+      <div>
+        <h2 class="section-heading max-w-3xl text-3xl md:text-5xl">
+          Opportunity discovery is part of the work.
+        </h2>
+        <p class="section-copy mt-5 max-w-2xl text-base md:text-lg">
+          Launched products, private tools, active experiments, and earlier theses, labeled by their
+          actual maturity rather than presented as if every idea became a company.
+        </p>
+      </div>
+    </div>
+
+    <ol class="mt-10 grid grid-cols-1 border-l border-t border-hairline md:mt-14 md:grid-cols-2">
+      {entries.map((entry, index) => (
+        <li class="group border-b border-r border-hairline bg-paper-soft/35 p-5 transition-colors hover:bg-accent-soft/35 md:p-7">
+          <div class="flex items-center justify-between gap-4">
+            <p class="coord text-accent">{entry.type}</p>
+            <span class="coord">{String(index + 1).padStart(2, '0')}</span>
+          </div>
+          <h3 class="mt-8 text-2xl font-semibold leading-tight text-ink">{entry.title}</h3>
+          <p class="section-copy mt-4 text-sm md:text-base">{entry.body}</p>
+          <p class="coord mt-7 border-t border-hairline pt-4 text-signal">{entry.status}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
