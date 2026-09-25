@@ -5,6 +5,13 @@ description: Item2 turns public-company filings into a verified, geocoded databa
 category: ai-automation
 projectType: data-system
 year: 2026
+plate: 5
+figure:
+  src: figures/item2-footprint.jpg
+  alt: North America map with geocoded facility candidates from SEC filings as sage dots and verified assets as red markers
+  caption: Geocoded facility candidates (sage, sized by count) and verified assets (red), North America.
+  ratio: '2086/1300'
+  source: item2 database, Sep 2026
 tech:
   - Python
   - FastAPI
@@ -15,9 +22,9 @@ tech:
 status: Active build
 role: Founder, product architect, and AI-directed developer
 scale:
-  - SEC filings to a versioned physical-asset graph
-  - Multi-provider geocoding and authority-record matching
-  - Human review, provenance, and change detection
+  - 485 companies and 1,058 SEC filings ingested
+  - 11,714 facility candidates extracted and geocoded
+  - 152 assets through the full verification gate
 proof:
   - Tested Python package with CLI and FastAPI review interface
   - Alembic migration chain and fresh-database verification
@@ -32,8 +39,6 @@ caseStudy:
   method: Parse filings, use LLMs for structured extraction, geocode through a provider waterfall, match authority records, enforce review guards, and record provenance at every stage.
   signal: The difficult product is not extraction alone—it is preserving evidence, resolving ambiguity, and preventing automated stages from overwriting reviewed truth.
   why: It demonstrates applied AI inside a controlled data pipeline rather than AI as a standalone interface.
-links:
-  demo: https://item2.io
 featured: true
 featuredRank: 3
 ---

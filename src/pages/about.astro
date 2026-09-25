@@ -1,9 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
+import LifeTimeline from '../components/LifeTimeline.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
 
 const chapters = [
+  ['00', 'Timeline', '#timeline'],
   ['01', 'Origin', '#honolulu-to-everett'],
   ['02', 'Map', '#the-map-on-the-porch'],
   ['03', 'Comeback', '#valedictorian-trinity-dropout-comeback'],
@@ -15,6 +17,7 @@ const chapters = [
 ---
 
 <Base
+  current="about"
   title="Story — Alex Schulz"
   description="An unconventional path through live production, family offices, real estate, aerospace, geospatial data, and software—and what it taught Alex Schulz about systems."
 >
@@ -85,11 +88,13 @@ const chapters = [
     </div>
   </section>
 
+  <LifeTimeline />
+
   <!-- Article body, rendered with typography plugin -->
   <section class="relative">
     <div class="section-shell py-14 md:py-20">
       <nav
-        class="mb-12 grid max-w-5xl grid-cols-2 border-y border-hairline bg-paper-soft/40 sm:grid-cols-4 lg:grid-cols-7"
+        class="mb-12 grid max-w-5xl grid-cols-2 border-y border-hairline bg-paper-soft/40 sm:grid-cols-4 lg:grid-cols-8"
         aria-label="About page chapters"
       >
         {chapters.map(([number, label, href]) => (
@@ -219,7 +224,7 @@ const chapters = [
         <p>
           There are two IMDB credits in my name — <strong>nm5681118</strong>. The first is
           <em>7 Minutes</em> (2014), a crime-thriller directed by Jay Martin. The second is
-          <strong><em>Twin Peaks: The Return</em></strong> — David Lynch's 2017 revival — where I was
+          <strong><em>Twin Peaks: The Return</em></strong> — David Lynch's 2017 revival, filmed in the fall of 2015 — where I was
           an Accounting Clerk on the Washington state production team across ten episodes.
         </p>
         <p>

@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" font-family="Geist Variable, Segoe UI, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#17222e"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b8402c"/>
+    </marker>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 H0 V40" fill="none" stroke="#17222e" stroke-opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="760" fill="url(#grid)"/>
+
+  <text x="60" y="64" font-size="16" fill="#66717c" font-family="Geist Mono Variable, Consolas, monospace" letter-spacing="2">HAWAII 2026 · TRIP APP · ARCHITECTURE</text>
+  <text x="60" y="108" font-size="32" fill="#17222e" font-weight="600">One shared trip, three views, two PINs, no accounts.</text>
+
+  <!-- Phones -->
+  <g font-size="15" fill="#17222e">
+    <g transform="translate(60,170)">
+      <rect width="180" height="330" rx="22" fill="#faf7ee" stroke="#cfc6ad" stroke-width="2"/>
+      <rect x="14" y="26" width="152" height="250" fill="#dbe5dc"/>
+      <circle cx="60" cy="90" r="9" fill="#b8402c"/><circle cx="110" cy="130" r="9" fill="#b8402c"/><circle cx="85" cy="200" r="9" fill="#4f6f5a"/><circle cx="130" cy="230" r="9" fill="#4f6f5a"/>
+      <circle cx="120" cy="80" r="14" fill="#17222e"/><text x="120" y="85" font-size="12" fill="#faf7ee" text-anchor="middle" font-weight="600">7</text>
+      <text x="90" y="305" text-anchor="middle" font-weight="600">Map</text>
+      <text x="90" y="324" text-anchor="middle" font-size="12" fill="#66717c">stops + photo clusters</text>
+    </g>
+    <g transform="translate(270,170)">
+      <rect width="180" height="330" rx="22" fill="#faf7ee" stroke="#cfc6ad" stroke-width="2"/>
+      <rect x="14" y="26" width="152" height="52" fill="#ece6d6"/><rect x="14" y="88" width="152" height="52" fill="#ece6d6"/><rect x="14" y="150" width="152" height="52" fill="#ece6d6"/><rect x="14" y="212" width="152" height="52" fill="#ece6d6"/>
+      <text x="26" y="58" font-size="12">🏖️ beach · Sat</text><text x="26" y="120" font-size="12">🍹 food · Sat</text><text x="26" y="182" font-size="12">🤿 snorkeling · Sun</text><text x="26" y="244" font-size="12">🥾 hiking · Mon ✓</text>
+      <text x="90" y="305" text-anchor="middle" font-weight="600">List</text>
+      <text x="90" y="324" text-anchor="middle" font-size="12" fill="#66717c">itinerary cards, sortable</text>
+    </g>
+    <g transform="translate(480,170)">
+      <rect width="180" height="330" rx="22" fill="#faf7ee" stroke="#cfc6ad" stroke-width="2"/>
+      <g fill="#cfc6ad">
+        <rect x="14" y="26" width="72" height="72"/><rect x="94" y="26" width="72" height="72"/><rect x="14" y="106" width="72" height="72"/><rect x="94" y="106" width="72" height="72"/><rect x="14" y="186" width="72" height="72"/><rect x="94" y="186" width="72" height="72"/>
+      </g>
+      <text x="90" y="305" text-anchor="middle" font-weight="600">Photos</text>
+      <text x="90" y="324" text-anchor="middle" font-size="12" fill="#66717c">EXIF · captions · comments</text>
+    </g>
+  </g>
+
+  <!-- device-side services -->
+  <g transform="translate(60,540)" font-size="13" fill="#33414f">
+    <rect width="600" height="118" fill="#faf7ee" stroke="#cfc6ad"/>
+    <text x="16" y="26" font-family="Geist Mono Variable, Consolas, monospace" font-size="12" fill="#b8402c" letter-spacing="1">ON THE PHONE · SERVICE WORKER</text>
+    <text x="16" y="54">Installable PWA · Web Share Target receives a photo from the OS share sheet</text>
+    <text x="16" y="78">Client-side compression · EXIF coordinates and timestamp · offline upload queue in IndexedDB</text>
+    <text x="16" y="102">Anonymous sign-in on load · guest PIN unlock remembered on the device</text>
+  </g>
+
+  <!-- arrows phones -> firebase -->
+  <g stroke="#17222e" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M660,335 H760"/>
+  </g>
+  <text x="710" y="322" font-size="12" fill="#66717c" text-anchor="middle">reads · writes</text>
+
+  <!-- Firebase -->
+  <g transform="translate(770,170)" font-size="15" fill="#17222e">
+    <rect width="380" height="330" fill="#faf7ee" stroke="#cfc6ad"/>
+    <text x="20" y="34" font-family="Geist Mono Variable, Consolas, monospace" font-size="12" fill="#b8402c" letter-spacing="1">FIREBASE</text>
+    <rect x="20" y="54" width="340" height="66" fill="#dbe5dc" stroke="#4f6f5a"/>
+    <text x="34" y="80" font-weight="600">Firestore</text>
+    <text x="34" y="104" font-size="12" fill="#33414f">trips/{trip}/itinerary · photos · photos/{id}/comments · config</text>
+    <rect x="20" y="132" width="340" height="56" fill="#faf7ee" stroke="#cfc6ad"/>
+    <text x="34" y="158" font-weight="600">Cloud Storage</text>
+    <text x="34" y="178" font-size="12" fill="#33414f">trips/{trip}/photos · images only · 5 MB cap · editor-only writes</text>
+    <rect x="20" y="200" width="340" height="110" fill="#faf7ee" stroke="#cfc6ad"/>
+    <text x="34" y="226" font-weight="600">Cloud Functions</text>
+    <text x="34" y="248" font-size="12" fill="#33414f">notifyNewPhoto · notifyNewComment → push fan-out</text>
+    <text x="34" y="268" font-size="12" fill="#33414f">cleanupPhotoComments on delete</text>
+    <text x="34" y="288" font-size="12" fill="#33414f">claimEditor: verify PIN hash, whitelist the device</text>
+  </g>
+
+  <!-- push out -->
+  <g stroke="#b8402c" stroke-width="2" fill="none" marker-end="url(#arrowRed)">
+    <path d="M1150,430 H1250"/>
+  </g>
+  <text x="1200" y="418" font-size="12" fill="#b8402c" text-anchor="middle">FCM push</text>
+  <g transform="translate(1260,380)" font-size="13" fill="#33414f">
+    <rect width="280" height="100" fill="#faf7ee" stroke="#cfc6ad"/>
+    <text x="16" y="28" font-weight="600" fill="#17222e" font-size="15">Every subscribed phone</text>
+    <text x="16" y="54">new photo · new comment</text>
+    <text x="16" y="76">sender skipped · dead tokens pruned</text>
+  </g>
+
+  <!-- access model -->
+  <g transform="translate(770,540)" font-size="13" fill="#33414f">
+    <rect width="770" height="118" fill="#17222e"/>
+    <text x="20" y="30" font-family="Geist Mono Variable, Consolas, monospace" font-size="12" fill="#cfc6ad" letter-spacing="2">ACCESS MODEL</text>
+    <text x="20" y="60" fill="#faf7ee" font-size="15"><tspan font-weight="600">Guest PIN</tspan> gates viewing, checked on the device.   <tspan font-weight="600">Editor PIN</tspan> gates writing, checked by claimEditor on the server.</text>
+    <text x="20" y="88" fill="#cfc6ad">Firestore and Storage rules enforce the same split: editor-only writes, constrained comments, capped images. No accounts.</text>
+  </g>
+
+  <!-- deploy -->
+  <g transform="translate(1260,170)" font-size="13" fill="#33414f">
+    <rect width="280" height="180" fill="#faf7ee" stroke="#cfc6ad"/>
+    <text x="16" y="30" font-family="Geist Mono Variable, Consolas, monospace" font-size="12" fill="#b8402c" letter-spacing="1">STACK · DEPLOY</text>
+    <text x="16" y="60">React 19 · TypeScript · Vite 7 · Tailwind v4</text>
+    <text x="16" y="84">Leaflet + clustering · Google Places v1</text>
+    <text x="16" y="108">GitHub Actions → Firebase Hosting on push</text>
+    <text x="16" y="132">Build stamp injected at build time</text>
+    <text x="16" y="156">Firebase and Leaflet split into own chunks</text>
+  </g>
+
+  <text x="60" y="720" font-size="14" fill="#66717c">Photos and places belong to the trip and stay in the app. This figure is the system, not the content.</text>
+</svg>

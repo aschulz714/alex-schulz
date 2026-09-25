@@ -4,13 +4,20 @@ blurb: Six Washington counties, 1,749 high-value homes, and one question — how
 description: An academic study of wealth formation grounded in property records instead of surveys — every mansion above a threshold in six counties, resolved to an owner, traced to a source of wealth.
 category: geospatial
 year: 2026
+plate: 2
+figure:
+  src: figures/wealth-atlas.jpg
+  alt: Map of the six Washington study counties shaded by the number of high-value homes swept, King County darkest
+  caption: The six study counties and the homes swept in each. No owner is identified on this site.
+  ratio: '1468/1451'
+  source: County assessor rolls, 2026
 tech:
   - Python
   - County parcel APIs
   - Deed records
   - Leaflet
   - AI-agent orchestration
-status: 'Six counties complete; pipeline now portable to any US county'
+status: Six counties complete
 artifact:
   label: Interactive maps
   detail: A county-by-county atlas of high-value homes with owner identification rates of 81–93%, plus a portable pipeline validated in ten enclaves across six states.

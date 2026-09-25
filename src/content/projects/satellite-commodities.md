@@ -4,12 +4,19 @@ blurb: Satellite-derived signals for under-covered commodity markets — sawmill
 description: A research site built on free public imagery and Google Earth Engine, analyzing operational activity at 18 PNW/BC sawmills and 8 Florida citrus counties using Sentinel-2 optical and NDVI data.
 category: geospatial
 year: 2026
+plate: 10
+figure:
+  src: figures/satellite-commodities.jpg
+  alt: Four small charts, sawmill activity index and lumber futures, citrus canopy stress and orange juice futures
+  caption: The two pilots as monthly series. Concluded June 2026 with no tradeable signal, which is the finding.
+  ratio: '2400/1200'
+  source: Sentinel-2 via Google Earth Engine, futures settlements
 tech:
   - Google Earth Engine
   - Sentinel-2
   - NDVI
   - Python
-status: Research prototype
+status: Concluded, no tradeable signal
 artifact:
   label: Research site
   detail: Public proof-of-concept for commodity activity signals.

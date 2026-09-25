@@ -1,0 +1,192 @@
+---
+import { life, categoryLabel } from '../data/life';
+
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+const catCount = life.reduce<Record<string, number>>((acc, e) => {
+  acc[e.category] = (acc[e.category] ?? 0) + 1;
+  return acc;
+}, {});
+---
+
+<section id="timeline" class="shell scroll-mt-20 py-14 md:py-20">
+  <div class="atlas-rule"><span>Timeline</span></div>
+  <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-[1fr_auto] md:items-end">
+    <div>
+      <h2 class="display max-w-2xl text-3xl md:text-5xl">One life, in order.</h2>
+      <p class="copy mt-4 max-w-2xl text-base">
+        Twenty-one stops. Years are shown where the record is dated; the rest carry the place or
+        the era instead, because the point is the sequence, not the precision.
+      </p>
+    </div>
+    <ul class="flex flex-wrap gap-x-4 gap-y-2 text-xs text-ink-soft" aria-label="Legend">
+      {(Object.keys(categoryLabel) as (keyof typeof categoryLabel)[]).map((key) => (
+        <li class="inline-flex items-center gap-2">
+          <span class={`tl-dot tl-dot-${key} is-past`} aria-hidden="true"></span>
+          {categoryLabel[key]} · {catCount[key] ?? 0}
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <ol class="tl mt-12" id="life-timeline">
+    <div class="tl-rail" aria-hidden="true"><div class="tl-progress" id="tl-progress"></div></div>
+    {life.map((entry, index) => (
+      <li class={`tl-item reveal ${index % 2 === 0 ? 'tl-left' : 'tl-right'}`}>
+        <div class="tl-marker" aria-hidden="true">
+          <span class={`tl-dot tl-dot-${entry.category}`}></span>
+        </div>
+        <p class="tl-when display">{entry.when}</p>
+        <article class="tl-card plate">
+          <p class="eyebrow">{entry.place} · {categoryLabel[entry.category]}</p>
+          <h3 class="display mt-2 text-2xl">
+            {entry.href ? (
+              <a href={`${base}${entry.href}`} class="hover:text-signal">{entry.title}</a>
+            ) : (
+              entry.title
+            )}
+          </h3>
+          <p class="copy mt-3 text-sm">{entry.body}</p>
+          {entry.href && (
+            <a href={`${base}${entry.href}`} class="link-arrow mt-4 text-xs">See the project <span class="arrow" aria-hidden="true">-&gt;</span></a>
+          )}
+        </article>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<script>
+  const tl = document.getElementById('life-timeline');
+  const progress = document.getElementById('tl-progress');
+  const items = tl ? Array.from(tl.querySelectorAll<HTMLElement>('.tl-item')) : [];
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function update() {
+    if (!tl || !progress) return;
+    const rect = tl.getBoundingClientRect();
+    const line = window.innerHeight * 0.55;
+    const seen = Math.min(Math.max(line - rect.top, 0), rect.height);
+    progress.style.height = `${seen}px`;
+    for (const item of items) {
+      const top = item.getBoundingClientRect().top;
+      item.classList.toggle('is-past', top < line + 8);
+    }
+  }
+
+  if (tl && progress) {
+    if (reduce) {
+      progress.style.height = '100%';
+      items.forEach((i) => i.classList.add('is-past'));
+    } else {
+      let ticking = false;
+      const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          update();
+          ticking = false;
+        });
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      update();
+    }
+  }
+</script>
+
+<style>
+  .tl {
+    position: relative;
+    --tl-rail-x: 1.1rem;
+  }
+  .tl-rail {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--tl-rail-x);
+    width: 1px;
+    background: var(--color-rule);
+  }
+  .tl-progress {
+    width: 100%;
+    height: 0;
+    background: var(--color-signal);
+    transition: height 120ms linear;
+  }
+  .tl-item {
+    position: relative;
+    padding-left: calc(var(--tl-rail-x) + 1.75rem);
+    padding-bottom: 2.25rem;
+  }
+  .tl-marker {
+    position: absolute;
+    left: var(--tl-rail-x);
+    top: 0.55rem;
+    transform: translateX(-50%);
+  }
+  .tl-dot {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--color-ink);
+    background: var(--color-paper);
+    transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  }
+  .tl-item.is-past .tl-dot,
+  .tl-dot.is-past {
+    background: var(--tl-color, var(--color-ink));
+    border-color: var(--tl-color, var(--color-ink));
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--tl-color, var(--color-ink)) 18%, transparent);
+  }
+  .tl-item.is-past .tl-dot {
+    transform: scale(1.15);
+  }
+  .tl-dot-origin { --tl-color: #66717c; }
+  .tl-dot-entertainment { --tl-color: #b8402c; }
+  .tl-dot-finance { --tl-color: #17222e; }
+  .tl-dot-geospatial { --tl-color: #4f6f5a; }
+  .tl-dot-build { --tl-color: #8a6d3b; }
+  .tl-when {
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--color-signal);
+    margin-bottom: 0.6rem;
+  }
+  .tl-card {
+    padding: 1.1rem 1.2rem 1.2rem;
+  }
+
+  @media (min-width: 900px) {
+    .tl {
+      --tl-rail-x: 50%;
+    }
+    .tl-item {
+      width: 50%;
+      padding-left: 0;
+      padding-bottom: 1.25rem;
+    }
+    .tl-left {
+      padding-right: 3.25rem;
+    }
+    .tl-right {
+      margin-left: 50%;
+      padding-left: 3.25rem;
+    }
+    .tl-left .tl-marker {
+      left: auto;
+      right: 0;
+      transform: translateX(50%);
+    }
+    .tl-right .tl-marker {
+      left: 0;
+      transform: translateX(-50%);
+    }
+    .tl-left .tl-when {
+      text-align: right;
+    }
+    .tl-when {
+      font-size: 2rem;
+    }
+  }
+</style>

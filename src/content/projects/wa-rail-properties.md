@@ -4,6 +4,13 @@ blurb: An inventory of every parcel in Washington State with private rail access
 description: An interactive map and concentration analysis of rail-served industrial real estate in Washington State. Built on USDOT Bureau of Transportation Statistics rail network data crossed against statewide parcel layers from county GIS sources.
 category: geospatial
 year: 2026
+plate: 4
+figure:
+  src: figures/wa-rail-properties.jpg
+  alt: Washington State with the freight rail network drawn in ink and 671 rail-served parcels as red dots sized by assessed value
+  caption: 671 rail-served parcels over the North American rail network, sized by assessed value.
+  ratio: '2090/1398'
+  source: BTS NARN rail lines, county assessor parcels
 tech:
   - MapLibre GL JS
   - OpenFreeMap
@@ -22,6 +29,7 @@ caseStudy:
 links:
   repo: https://github.com/aschulz714/wa-rail-properties
   demo: https://aschulz714.github.io/wa-rail-properties/
+embedDemo: false
 featured: true
 ---
 

@@ -5,6 +5,12 @@ description: Hodego is a sports marketplace I co-founded and helped take from co
 category: product
 projectType: product
 year: 2025
+plate: 12
+figure:
+  src: figures/hodego-hero.jpg
+  alt: Hodego marketing hero image
+  caption: Marketing hero from the shipped MVP.
+  ratio: '1792/1024'
 tech:
   - TypeScript
   - React
@@ -12,7 +18,7 @@ tech:
   - Stripe
   - Agora
   - AWS
-status: MVP shipped and operated; offline after a failed migration
+status: MVP shipped; offline after migration
 role: Co-founder, product lead, and technical delivery lead
 scale:
   - Three-developer distributed team

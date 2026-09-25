@@ -1,0 +1,29 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+const email = 'alex.j.schulz@gmail.com';
+---
+
+<section class="py-14 md:py-20">
+  <div class="shell">
+    <div class="plate p-6 md:p-10">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-[1fr_auto] md:items-end">
+        <div>
+          <p class="eyebrow eyebrow-signal">Next conversation</p>
+          <h2 class="display mt-3 max-w-2xl text-3xl md:text-5xl">
+            Bring me the dataset nobody has reconciled, or the asset nobody has mapped.
+          </h2>
+          <p class="copy mt-4 max-w-2xl text-base">
+            I am interested in roles and collaborations at the seam of finance and physical
+            assets: real-asset investment, land and infrastructure intelligence, property data,
+            and the finance-systems work that makes them auditable.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a href={`${base}/resume.pdf`} class="btn-ghost">Resume</a>
+          <a href="https://www.linkedin.com/in/alex-schulz13/" target="_blank" rel="noopener noreferrer" class="btn-ghost">LinkedIn</a>
+          <a href={`mailto:${email}`} class="btn">Email Alex</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

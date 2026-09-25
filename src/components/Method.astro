@@ -1,0 +1,34 @@
+---
+const steps = [
+  ['01', 'Learn the operation', 'Understand the people, constraints, data, and decisions behind the visible task. Most of the edge is in what the operation already knows and has not written down.'],
+  ['02', 'Find the public record', 'Parcels, deeds, filings, permits, registries. Locate the source of truth, route around the vendor portal, and confirm the field actually holds what its name claims.'],
+  ['03', 'Build the system', 'Directed AI agents for implementation, Python for the pipeline, Git for the audit trail. Every route, join, and owner field gets re-verified by hand before it is trusted.'],
+  ['04', 'Publish with limits', 'State the finding, the method, and what was not checked. An accountant\'s standard of evidence, applied to maps.'],
+];
+---
+
+<section id="method" class="border-y border-rule bg-paper-deep/35 py-14 md:py-20">
+  <div class="shell">
+    <div class="atlas-rule"><span>Working method</span></div>
+    <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-[1fr_2fr] md:gap-14">
+      <div>
+        <h2 class="display text-3xl md:text-4xl">Opportunity, then evidence.</h2>
+        <p class="copy mt-4 max-w-sm text-sm md:text-base">
+          The same four moves whether the object is a close process, a county assessor's
+          endpoint, or a public company's facility list.
+        </p>
+      </div>
+      <ol class="grid grid-cols-1 gap-x-8 sm:grid-cols-2">
+        {steps.map(([number, title, body]) => (
+          <li class="border-t border-rule py-5">
+            <div class="flex items-baseline gap-3">
+              <span class="plate-roman text-sm">{number}</span>
+              <p class="text-lg font-semibold text-ink">{title}</p>
+            </div>
+            <p class="copy mt-2 text-sm">{body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>

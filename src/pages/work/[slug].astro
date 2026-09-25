@@ -1,16 +1,29 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import Figure from '../../components/Figure.astro';
+import CTA from '../../components/CTA.astro';
+import { toRoman } from '../../lib/roman';
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
-  return projects.map((project) => ({
+  const projects = (await getCollection('projects', ({ data }) => !data.hidden)).sort((a, b) => {
+    const pa = a.data.plate ?? 999;
+    const pb = b.data.plate ?? 999;
+    if (pa !== pb) return pa - pb;
+    return b.data.year - a.data.year;
+  });
+  return projects.map((project, index) => ({
     params: { slug: project.id },
-    props: { project },
+    props: {
+      project,
+      plateNumber: project.data.plate ?? index + 1,
+      prev: index > 0 ? projects[index - 1] : null,
+      next: index < projects.length - 1 ? projects[index + 1] : null,
+    },
   }));
 }
 
-const { project } = Astro.props;
+const { project, plateNumber, prev, next } = Astro.props;
 const { Content } = await render(project);
 const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
 
@@ -23,137 +36,169 @@ const categoryLabel: Record<string, string> = {
   web: 'Web product',
 };
 
-const caseFields = [
+const frame = [
   ['Question', project.data.caseStudy.question],
-  ['Inputs', project.data.caseStudy.data],
+  ['Data', project.data.caseStudy.data],
   ['Method', project.data.caseStudy.method],
   ['Signal', project.data.caseStudy.signal],
   ['Why it matters', project.data.caseStudy.why],
-  ['Artifact', project.data.artifact?.detail ?? project.data.description],
 ];
+
+const roman = toRoman(plateNumber);
+const demo = project.data.links.demo;
+const repo = project.data.links.repo;
+const related = (await getCollection('analysis', ({ data }) => !data.draft && data.plates.includes(project.id)))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Base
-  title={`${project.data.title} | Alex Schulz`}
+  title={`${project.data.title} · No. ${roman} | Alex Schulz`}
   description={project.data.description}
+  current="work"
 >
-  <section class="relative border-b border-hairline bg-paper-soft/45">
-    <div class="section-shell pb-12 pt-14 md:pb-16 md:pt-20">
-      <a href={`${base}/#work`} class="coord inline-flex items-center gap-2 text-accent hover:underline">
-        <span aria-hidden="true">&lt;-</span> Selected work
+  <article>
+    <header class="shell pt-10 md:pt-16">
+      <a href={`${base}/work`} class="eyebrow inline-flex items-center gap-2 hover:text-signal">
+        <span aria-hidden="true">&lt;-</span> All work
       </a>
-
-      <div class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_19rem] lg:items-end">
+      <div class="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[1fr_18rem] lg:items-end">
         <div>
-          <div class="flex flex-wrap items-center gap-3">
-            <p class="coord text-accent">{categoryLabel[project.data.category] ?? project.data.category}</p>
-            <span class="coord rounded-sm border border-signal/30 bg-signal-soft px-2 py-1 text-signal">
-              {project.data.status ?? 'Case study'}
-            </span>
+          <div class="flex flex-wrap items-baseline gap-x-4 gap-y-2">
+            <span class="plate-roman text-3xl md:text-4xl">No. {roman}</span>
+            <span class="eyebrow">{categoryLabel[project.data.category] ?? project.data.category} · {project.data.year}</span>
           </div>
-          <h1 class="section-heading mt-6 max-w-4xl text-balance text-5xl md:text-7xl">
-            {project.data.title}
-          </h1>
-          <p class="mt-6 max-w-3xl text-xl leading-relaxed text-ink-soft md:text-2xl">
-            {project.data.blurb}
-          </p>
+          <h1 class="display mt-3 max-w-4xl text-4xl md:text-6xl">{project.data.title}</h1>
+          <p class="lede mt-5 max-w-2xl text-base md:text-xl">{project.data.blurb}</p>
         </div>
-
-        <dl class="surface-quiet rounded-md p-5">
-          <div>
-            <dt class="coord text-accent">My role</dt>
-            <dd class="mt-2 text-base font-semibold leading-snug text-ink">
-              {project.data.role ?? 'Builder and researcher'}
-            </dd>
+        <div class="flex flex-col gap-3 lg:items-end">
+          {project.data.status && <span class="tag tag-sage">{project.data.status}</span>}
+          <div class="flex flex-wrap gap-2 lg:justify-end">
+            {demo && <a href={demo} target="_blank" rel="noopener noreferrer" class="btn">Open the live demo</a>}
+            {repo && <a href={repo} target="_blank" rel="noopener noreferrer" class="btn-ghost">Repository</a>}
           </div>
-          <div class="mt-5 border-t border-hairline pt-5">
-            <dt class="coord">Year</dt>
-            <dd class="mt-2 text-base font-semibold text-ink">{project.data.year}</dd>
-          </div>
-        </dl>
+        </div>
       </div>
+    </header>
 
-      {project.data.scale.length > 0 && (
-        <dl class="ledger-rule mt-10 grid grid-cols-1 sm:grid-cols-3">
-          {project.data.scale.slice(0, 3).map((item, index) => (
-            <div class="border-b border-hairline p-4 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0">
-              <dt class="coord text-accent">{index === 0 ? 'Scale' : 'Evidence'}</dt>
-              <dd class="mt-2 text-sm font-semibold leading-relaxed text-ink">{item}</dd>
+    {project.data.figure && (
+      <section class="shell mt-10 md:mt-14">
+        <Figure figure={project.data.figure} label={`Fig. ${roman}`} eager={true} />
+      </section>
+    )}
+
+    <section class="shell mt-12 grid grid-cols-1 gap-10 lg:mt-16 lg:grid-cols-[1fr_20rem] lg:gap-16">
+      <div>
+        <div class="atlas-rule !justify-start"><span>The frame</span></div>
+        <dl class="mt-5">
+          {frame.map(([label, value]) => (
+            <div class="evidence-row">
+              <dt class="eyebrow pt-0.5">{label}</dt>
+              <dd>{value}</dd>
             </div>
           ))}
         </dl>
-      )}
-    </div>
-  </section>
 
-  <section class="relative py-14 md:py-20">
-    <div class="section-shell">
-      <div class="grid grid-cols-1 gap-6 lg:grid-cols-[1.35fr_0.65fr]">
-        <div class="dossier-panel rounded-lg p-5 md:p-8">
-          <p class="coord text-accent">Case file / system summary</p>
-          <div class="mt-7 grid grid-cols-1 gap-3 md:grid-cols-2">
-            {caseFields.map(([label, value]) => (
-              <div class="surface-quiet rounded-md p-4">
-                <p class="coord text-accent">{label}</p>
-                <p class="mt-3 text-sm leading-relaxed text-ink-soft">{value}</p>
-              </div>
-            ))}
-          </div>
+        <div class="prose-atlas mt-10 max-w-none text-[0.98rem]">
+          <Content />
         </div>
 
-        <aside class="space-y-5">
-          {project.data.proof.length > 0 && (
-            <div class="surface-quiet rounded-md p-5">
-              <p class="coord text-accent">Inspectable proof</p>
-              <ul class="mt-5 space-y-3">
-                {project.data.proof.map((item) => (
-                  <li class="grid grid-cols-[1rem_1fr] gap-2 text-sm leading-relaxed text-ink-soft">
-                    <span class="mono text-signal" aria-hidden="true">+</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          <div class="surface-quiet rounded-md p-5">
-            <p class="coord text-accent">Technology</p>
-            <div class="mt-5 flex flex-wrap gap-2">
-              {project.data.tech.map((technology) => (
-                <span class="mono rounded-sm border border-hairline bg-paper-soft px-2.5 py-1 text-xs text-ink-muted">
-                  {technology}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {project.data.confidentiality && (
-            <div class="rounded-md border border-signal/25 bg-signal-soft/45 p-5">
-              <p class="coord text-signal">Disclosure note</p>
-              <p class="mt-3 text-sm leading-relaxed text-ink-soft">{project.data.confidentiality}</p>
-            </div>
-          )}
-        </aside>
+        {project.data.confidentiality && (
+          <p class="mt-10 border-l-2 border-signal pl-4 text-sm text-ink-muted">
+            <span class="eyebrow eyebrow-signal block">Confidentiality</span>
+            <span class="mt-1 block">{project.data.confidentiality}</span>
+          </p>
+        )}
       </div>
 
-      <article class="prose prose-lg mt-12 max-w-3xl prose-headings:font-sans prose-headings:font-semibold prose-headings:tracking-normal prose-headings:text-ink prose-p:text-ink-soft prose-p:leading-relaxed prose-strong:text-ink prose-a:text-accent">
-        <Content />
-      </article>
+      <aside class="space-y-8 lg:sticky lg:top-24 lg:self-start">
+        {project.data.role && (
+          <div>
+            <p class="eyebrow">Role</p>
+            <p class="mt-2 text-sm text-ink-soft">{project.data.role}</p>
+          </div>
+        )}
+        {project.data.scale.length > 0 && (
+          <div>
+            <p class="eyebrow">Scale</p>
+            <ul class="mt-2 space-y-2 border-t border-rule-soft">
+              {project.data.scale.map((item) => (
+                <li class="border-b border-rule-soft py-2 text-sm text-ink-soft">{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {project.data.proof.length > 0 && (
+          <div>
+            <p class="eyebrow">Proof</p>
+            <ul class="mt-2 space-y-2">
+              {project.data.proof.map((item) => (
+                <li class="grid grid-cols-[0.9rem_1fr] gap-2 text-sm text-ink-soft">
+                  <span class="mono text-signal" aria-hidden="true">+</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {project.data.tech.length > 0 && (
+          <div>
+            <p class="eyebrow">Stack</p>
+            <div class="mt-2 flex flex-wrap gap-1.5">
+              {project.data.tech.map((t) => <span class="tag">{t}</span>)}
+            </div>
+          </div>
+        )}
+        {related.length > 0 && (
+          <div>
+            <p class="eyebrow">Analysis built on this project</p>
+            <ul class="mt-2 space-y-2">
+              {related.map((piece) => (
+                <li><a href={`${base}/analysis/${piece.id}`} class="text-sm text-ink hover:text-signal">{piece.data.title}</a></li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </aside>
+    </section>
 
-      {(project.data.links.repo || project.data.links.demo) && (
-        <div class="mt-12 flex flex-wrap gap-3 border-t border-hairline pt-8">
-          {project.data.links.demo && (
-            <a href={project.data.links.demo} target="_blank" rel="noopener noreferrer" class="button-primary">
-              View live project <span class="mono text-xs" aria-hidden="true">-&gt;</span>
-            </a>
-          )}
-          {project.data.links.repo && (
-            <a href={project.data.links.repo} target="_blank" rel="noopener noreferrer" class="button-secondary">
-              View repository <span class="mono text-xs" aria-hidden="true">-&gt;</span>
-            </a>
-          )}
+    {project.data.gallery.length > 0 && (
+      <section class="shell mt-14 md:mt-20">
+        <div class="atlas-rule"><span>Further figures</span></div>
+        <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+          {project.data.gallery.map((fig, i) => (
+            <Figure figure={fig} label={`Fig. ${i + 1}`} />
+          ))}
         </div>
+      </section>
+    )}
+
+    {demo && project.data.embedDemo && (
+      <section class="shell mt-14 md:mt-20">
+        <div class="atlas-rule"><span>Live</span></div>
+        <div class="mt-6">
+          <Figure
+            figure={{ kind: 'iframe', src: demo, alt: `${project.data.title} live demo`, ratio: '16/10', caption: 'Embedded live build. Opens full-size from the button above.' }}
+            frame={true}
+          />
+        </div>
+      </section>
+    )}
+
+    <nav class="shell mt-14 grid grid-cols-1 gap-4 border-t border-rule pt-6 sm:grid-cols-2 md:mt-20" aria-label="Neighboring projects">
+      {prev ? (
+        <a href={`${base}/work/${prev.id}`} class="group">
+          <span class="eyebrow">&lt;- Previous</span>
+          <span class="display mt-1 block text-xl group-hover:text-signal">{prev.data.title}</span>
+        </a>
+      ) : <span></span>}
+      {next && (
+        <a href={`${base}/work/${next.id}`} class="group text-left sm:text-right">
+          <span class="eyebrow">Next -&gt;</span>
+          <span class="display mt-1 block text-xl group-hover:text-signal">{next.data.title}</span>
+        </a>
       )}
-    </div>
-  </section>
+    </nav>
+  </article>
+
+  <CTA />
 </Base>

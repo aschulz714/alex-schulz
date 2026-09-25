@@ -1,0 +1,62 @@
+---
+/**
+ * A framed figure: image or live iframe, with a mono caption line.
+ * `src` for images is relative to the site base (no leading slash), e.g. "figures/parcel-coverage-us.svg".
+ */
+export interface FigureData {
+  kind?: 'image' | 'iframe';
+  src: string;
+  alt: string;
+  caption?: string;
+  ratio?: string;
+  source?: string;
+}
+
+export interface Props {
+  figure: FigureData;
+  label?: string;
+  eager?: boolean;
+  frame?: boolean;
+  class?: string;
+}
+
+const { figure, label, eager = false, frame = true, class: className = '' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+const kind = figure.kind ?? 'image';
+const ratio = figure.ratio ?? '16/9';
+const src = /^https?:\/\//.test(figure.src) ? figure.src : `${base}/${figure.src.replace(/^\/+/, '')}`;
+---
+
+<figure class={className}>
+  <div class={frame ? 'plate-frame' : ''}>
+    <div class="figure-well" style={`aspect-ratio: ${ratio};`}>
+      {kind === 'iframe' ? (
+        <iframe
+          src={src}
+          title={figure.alt}
+          loading={eager ? 'eager' : 'lazy'}
+          referrerpolicy="no-referrer-when-downgrade"
+          class="h-full w-full border-0"
+          allow="fullscreen"
+        ></iframe>
+      ) : (
+        <img
+          src={src}
+          alt={figure.alt}
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+        />
+      )}
+    </div>
+  </div>
+  {(figure.caption || figure.source || label) && (
+    <figcaption class="figure-caption mt-2">
+      <span>
+        {label && <span class="text-signal">{label}</span>}
+        {label && figure.caption && <span aria-hidden="true"> · </span>}
+        {figure.caption}
+      </span>
+      {figure.source && <span class="text-ink-faint">{figure.source}</span>}
+    </figcaption>
+  )}
+</figure>

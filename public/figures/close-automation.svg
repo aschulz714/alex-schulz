@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" font-family="Geist Variable, Segoe UI, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#17222e"/>
+    </marker>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 H0 V40" fill="none" stroke="#17222e" stroke-opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="700" fill="url(#grid)"/>
+
+  <!-- title strip -->
+  <text x="60" y="70" font-size="18" fill="#66717c" font-family="Geist Mono Variable, Consolas, monospace" letter-spacing="2">CONTROL PLANE · GENERALIZED</text>
+  <text x="60" y="118" font-size="36" fill="#17222e" font-weight="600">Deterministic preparation, gated release, full audit trail.</text>
+
+  <!-- stage boxes -->
+  <g font-size="22" fill="#17222e" font-weight="600">
+    <g transform="translate(60,220)">
+      <rect width="260" height="150" fill="#faf7ee" stroke="#cfc6ad"/>
+      <text x="20" y="42" font-family="Geist Mono Variable, Consolas, monospace" font-size="14" fill="#b8402c" font-weight="500">01</text>
+      <text x="20" y="80">Prepare</text>
+      <text x="20" y="112" font-size="15" fill="#66717c" font-weight="400">Schema-validated inputs</text>
+      <text x="20" y="134" font-size="15" fill="#66717c" font-weight="400">Balanced entry lines</text>
+    </g>
+    <g transform="translate(380,220)">
+      <rect width="260" height="150" fill="#faf7ee" stroke="#cfc6ad"/>
+      <text x="20" y="42" font-family="Geist Mono Variable, Consolas, monospace" font-size="14" fill="#b8402c" font-weight="500">02</text>
+      <text x="20" y="80">Preview</text>
+      <text x="20" y="112" font-size="15" fill="#66717c" font-weight="400">Reviewer sees every line</text>
+      <text x="20" y="134" font-size="15" fill="#66717c" font-weight="400">Nothing posts from here</text>
+    </g>
+    <g transform="translate(700,220)">
+      <rect width="260" height="150" fill="#dbe5dc" stroke="#4f6f5a"/>
+      <text x="20" y="42" font-family="Geist Mono Variable, Consolas, monospace" font-size="14" fill="#b8402c" font-weight="500">03</text>
+      <text x="20" y="80">Approve</text>
+      <text x="20" y="112" font-size="15" fill="#33414f" font-weight="400">Routed by policy</text>
+      <text x="20" y="134" font-size="15" fill="#33414f" font-weight="400">Human decision, logged</text>
+    </g>
+    <g transform="translate(1020,220)">
+      <rect width="260" height="150" fill="#faf7ee" stroke="#cfc6ad"/>
+      <text x="20" y="42" font-family="Geist Mono Variable, Consolas, monospace" font-size="14" fill="#b8402c" font-weight="500">04</text>
+      <text x="20" y="80">Post</text>
+      <text x="20" y="112" font-size="15" fill="#66717c" font-weight="400">Idempotent batch key</text>
+      <text x="20" y="134" font-size="15" fill="#66717c" font-weight="400">Duplicates rejected</text>
+    </g>
+    <g transform="translate(1340,220)">
+      <rect width="200" height="150" fill="#faf7ee" stroke="#cfc6ad"/>
+      <text x="20" y="42" font-family="Geist Mono Variable, Consolas, monospace" font-size="14" fill="#b8402c" font-weight="500">05</text>
+      <text x="20" y="80">Close</text>
+      <text x="20" y="112" font-size="15" fill="#66717c" font-weight="400">Task marked done</text>
+      <text x="20" y="134" font-size="15" fill="#66717c" font-weight="400">Period dashboard</text>
+    </g>
+  </g>
+
+  <!-- arrows between stages -->
+  <g stroke="#17222e" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <path d="M320,295 H372"/>
+    <path d="M640,295 H692"/>
+    <path d="M960,295 H1012"/>
+    <path d="M1280,295 H1332"/>
+  </g>
+
+  <!-- reject path from approve back to prepare -->
+  <path d="M830,370 V440 H190 V378" fill="none" stroke="#b8402c" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#arrow)"/>
+  <text x="470" y="430" font-size="14" fill="#b8402c" font-family="Geist Mono Variable, Consolas, monospace" letter-spacing="1">REJECTED → BACK TO PREPARE WITH REASON</text>
+
+  <!-- audit log bar -->
+  <g transform="translate(60,520)">
+    <rect width="1480" height="90" fill="#17222e"/>
+    <text x="24" y="38" font-size="14" fill="#cfc6ad" font-family="Geist Mono Variable, Consolas, monospace" letter-spacing="2">AUDIT LOG</text>
+    <text x="24" y="68" font-size="18" fill="#faf7ee">Every preparation, preview, approval, rejection, posting, and completion event is appended with actor, timestamp, and payload hash.</text>
+  </g>
+  <g stroke="#17222e" stroke-width="1.5" stroke-dasharray="3 5" fill="none">
+    <path d="M190,370 V520"/>
+    <path d="M510,370 V520"/>
+    <path d="M830,440 V520"/>
+    <path d="M1150,370 V520"/>
+    <path d="M1440,370 V520"/>
+  </g>
+</svg>

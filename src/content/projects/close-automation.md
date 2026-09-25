@@ -5,6 +5,12 @@ description: An internal system I designed and built in my current role — recu
 category: ai-automation
 projectType: automation
 year: 2026
+plate: 11
+figure:
+  src: figures/close-automation.svg
+  alt: Schematic of the close control plane, prepare, preview, approve, post, close, with a rejection loop and an audit log
+  caption: The control plane in generalized form. No employer data is shown.
+  ratio: '16/7'
 tech:
   - Python
   - Streamlit
@@ -12,7 +18,7 @@ tech:
   - SQLite
   - Schema contracts
   - API integration design
-status: Internal prototype, built in my current role
+status: Internal prototype
 role: Workflow designer, product architect, and builder
 scale:
   - 20 close tasks organized across a six-day close
