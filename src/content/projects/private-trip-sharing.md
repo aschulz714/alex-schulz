@@ -5,7 +5,7 @@ description: A React and Firebase progressive web app that started as a family's
 category: product
 projectType: product
 year: 2026
-plate: 2
+plate: 3
 figure:
   src: figures/trip-demo-photos.jpg
   alt: The Photos view of a sample trip in the pilot, a grid of captioned and dated photos of the Olympic Peninsula under the trip's name and its Map, Itinerary, and Photos tabs

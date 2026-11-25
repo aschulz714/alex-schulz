@@ -13,9 +13,9 @@ const projects = (await getCollection('projects', ({ data }) => !data.hidden)).s
   return b.data.year - a.data.year;
 });
 
-// The first four in project order get cards; the rest are a plain list.
-const top = projects.slice(0, 4);
-const others = projects.slice(4);
+// The first five in project order get cards; the rest are a plain list.
+const top = projects.slice(0, 5);
+const others = projects.slice(5);
 
 const categoryLabel: Record<string, string> = {
   'ai-automation': 'AI + automation',
@@ -29,23 +29,23 @@ const categoryLabel: Record<string, string> = {
 
 <Base
   title="Work | Alex Schulz"
-  description={`Four projects first: a month-end close cockpit, a private trip-sharing app, Item2, and a live map of rail-served property in Washington. ${others.length} more below.`}
+  description={`Five projects first: a national parcel store, a month-end close cockpit, a private trip-sharing app, Item2, and a live map of rail-served property in Washington. ${others.length} more below.`}
   current="work"
 >
   <section class="shell pt-12 md:pt-20">
     <p class="eyebrow">Work</p>
-    <h1 class="display mt-4 max-w-3xl text-4xl md:text-6xl">Four projects first.</h1>
+    <h1 class="display mt-4 max-w-3xl text-4xl md:text-6xl">Five projects first.</h1>
     <p class="lede mt-5 max-w-2xl text-base md:text-lg">
-      These are the four I'd show first. The other {others.length} are listed below them, each
+      These are the five I'd show first. The other {others.length} are listed below them, each
       with its own page.
     </p>
   </section>
 
   <section class="shell pb-12 pt-8 md:pb-16">
     {top[0] && <PlateCard entry={top[0]} plate={top[0].data.plate ?? 1} size="lead" />}
-    <div class="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
       {top.slice(1).map((entry, index) => (
-        <PlateCard entry={entry} plate={entry.data.plate ?? index + 2} size="std" />
+        <PlateCard entry={entry} plate={entry.data.plate ?? index + 2} size="compact" />
       ))}
     </div>
   </section>

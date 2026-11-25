@@ -5,7 +5,7 @@ description: A national data system that acquires, normalizes, validates, and ma
 category: data-systems
 projectType: data-system
 year: 2026
-plate: 6
+plate: 1
 figure:
   src: figures/parcel-coverage-us.jpg
   alt: Choropleth of every US county by parcel-record status, in the bulk store, viewer-only portal, or no public source
@@ -61,6 +61,6 @@ The two layers reinforce each other: the bulk store supports national analysis, 
 
 Fleets of directed AI agents probed states in parallel; every promising endpoint they surfaced was then re-verified independently before being routed, because agents oversell and undersell — verification passes personally caught three statewide sources the agents missed entirely (Maine, New Hampshire, and a Puerto Rico tax-roll snapshot covering all 78 municipios) and killed false positives that would have quietly corrupted the atlas. The accounting discipline carried over intact: nothing ships until it reconciles against the source.
 
-## The footnote
+## What it cost
 
-This atlas was built on nights and weekends for roughly the cost of an AI subscription. A few years ago I applied to the company that leads this market and never heard back — which turned out to be useful calibration, not a grievance: the distance between "no reply" and "rebuilt the core layer" is shorter than it has ever been, for anyone willing to verify their own work.
+The market leader's 2023 price list started a nationwide license at $50,000 a year. This atlas was built on nights and weekends for roughly the cost of an AI subscription.

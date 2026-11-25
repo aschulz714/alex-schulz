@@ -12,10 +12,10 @@ const projects = (await getCollection('projects'))
   .filter((entry) => entry.data.plate !== undefined && !entry.data.hidden)
   .sort((a, b) => (a.data.plate ?? 99) - (b.data.plate ?? 99));
 
-// The four shown on the home page are the first four in project order.
+// The five shown on the home page are the first five in project order.
 const lead = projects[0];
-const rest = projects.slice(1, 4);
-const more = projects.length - 4;
+const rest = projects.slice(1, 5);
+const more = projects.length - 5;
 
 // Where the skills come from. Every item is stated elsewhere on the site
 // (Story page, life timeline, Hodego project page).
@@ -67,7 +67,7 @@ const background: [string, string, string][] = [
   <section id="work" class="shell pb-14 pt-4 md:pb-20 md:pt-6">
     <div class="atlas-rule"><span>Selected work</span></div>
     <div class="mt-8 flex flex-wrap items-end justify-between gap-4">
-      <h2 class="display max-w-2xl text-3xl md:text-5xl">Four to start with.</h2>
+      <h2 class="display max-w-2xl text-3xl md:text-5xl">Five to start with.</h2>
       <a href={`${base}/work`} class="link-arrow">{more} more projects <span class="arrow" aria-hidden="true">-&gt;</span></a>
     </div>
 
@@ -77,10 +77,10 @@ const background: [string, string, string][] = [
       </div>
     )}
 
-    <div class="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
       {rest.map((entry) => (
         <div class="reveal">
-          <PlateCard entry={entry} plate={entry.data.plate ?? 99} size="std" />
+          <PlateCard entry={entry} plate={entry.data.plate ?? 99} size="compact" />
         </div>
       ))}
     </div>
