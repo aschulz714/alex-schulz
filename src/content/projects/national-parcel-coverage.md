@@ -39,6 +39,10 @@ caseStudy:
   method: Route each county to its best source, acquire in bulk, normalize to one schema, reconcile counts and coverage, standardize owners and land use, then preserve provenance and test for regressions.
   signal: More than 143 million parcels can be assembled across 2,613 counties, while the remaining gaps reveal where access, licensing, and vendor portals create the commercial moat.
   why: The system converts thousands of inconsistent local sources into reusable infrastructure for property, ownership, industrial, and geospatial research.
+links:
+  repo: https://github.com/aschulz714/us-parcel-coverage
+  demo: https://aschulz714.github.io/us-parcel-coverage/
+embedDemo: false
 featured: true
 featuredRank: 2
 ---
