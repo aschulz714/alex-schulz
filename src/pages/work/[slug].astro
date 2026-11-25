@@ -74,6 +74,9 @@ const repo = project.data.links.repo;
             {demo && <a href={demo} target="_blank" rel="noopener noreferrer" class="btn">Open the live demo</a>}
             {repo && <a href={repo} target="_blank" rel="noopener noreferrer" class="btn-ghost">Repository</a>}
           </div>
+          {project.data.links.demoNote && (
+            <p class="text-sm text-ink-soft lg:text-right">{project.data.links.demoNote}</p>
+          )}
         </div>
       </div>
     </header>

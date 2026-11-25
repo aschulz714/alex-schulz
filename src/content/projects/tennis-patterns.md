@@ -5,7 +5,7 @@ description: A command-line coach and drill tool that parses the Match Charting 
 category: python
 projectType: research
 year: 2026
-plate: 13
+plate: 14
 figure:
   src: figures/tennis-patterns.jpg
   alt: Two bar charts comparing crosscourt and down-the-line outcomes for forehands and backhands at three incoming ball depths

@@ -4,7 +4,7 @@ blurb: Six Washington counties, 1,749 high-value homes, and one question — how
 description: An academic study of wealth formation grounded in property records instead of surveys — every mansion above a threshold in six counties, resolved to an owner, traced to a source of wealth.
 category: geospatial
 year: 2026
-plate: 2
+plate: 7
 figure:
   src: figures/wealth-atlas.jpg
   alt: Map of the six Washington study counties shaded by the number of high-value homes swept, King County darkest

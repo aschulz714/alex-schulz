@@ -5,7 +5,7 @@ description: A rules-based index of publicly traded franchise-driven companies, 
 category: data-systems
 projectType: research
 year: 2018
-plate: 6
+plate: 8
 figure:
   src: figures/north-kai-index.jpg
   alt: Line chart of the reconstructed franchise index against SPY from 2007 to 2026, with a marker where the historical holdings end in December 2017

@@ -5,7 +5,7 @@ description: A national parcel discovery and enrichment pipeline that finds ever
 category: data-systems
 projectType: data-system
 year: 2026
-plate: 3
+plate: 5
 figure:
   src: figures/rail-served-national.jpg
   alt: Map of the United States with each state shaded by its count of rail-served parcels in the national inventory

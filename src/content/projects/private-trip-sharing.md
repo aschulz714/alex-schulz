@@ -5,12 +5,24 @@ description: A React and Firebase progressive web app that started as a family's
 category: product
 projectType: product
 year: 2026
-plate: 15
+plate: 2
 figure:
-  src: figures/hawaii-trip-app.svg
-  alt: Schematic of the trip app, three phone views feeding Firestore and Cloud Storage, with Cloud Functions fanning out push notifications and a guest PIN and editor PIN gating access
-  caption: "How the family app is put together. Photos are personal and stay in the app; this page shows the architecture, not the trip."
-  ratio: '1600/760'
+  src: figures/trip-demo-photos.jpg
+  alt: The Photos view of a sample trip in the pilot, a grid of captioned and dated photos of the Olympic Peninsula under the trip's name and its Map, Itinerary, and Photos tabs
+  caption: "A sample trip in the pilot: four days on the Olympic Peninsula, eight stops and ten photos."
+  ratio: '1348/843'
+  fit: cover
+  source: 'Sample photos: National Park Service, public domain.'
+gallery:
+  - src: figures/trip-demo-map.jpg
+    alt: The Map view of the sample trip, with clustered markers for its eight stops and ten photos across Olympic National Park
+    caption: The same trip on the map. Orange markers count stops, blue ones count photos.
+    ratio: '1348/843'
+    fit: cover
+  - src: figures/hawaii-trip-app.svg
+    alt: Schematic of the trip app, three phone views feeding Firestore and Cloud Storage, with Cloud Functions fanning out push notifications and a guest PIN and editor PIN gating access
+    caption: How the family app is put together.
+    ratio: '1600/760'
 tech:
   - React 19 + TypeScript
   - Vite 7 + Tailwind v4
@@ -23,7 +35,7 @@ role: Designer and builder
 scale:
   - 'Two family trips: 60 and 38 photos, 36 and 44 comments'
   - 'Seven Cloud Functions in the family app: push fan-out, cleanup, PIN checks, PIN setters'
-  - Product pilot running since November 2026, not yet public
+  - Product pilot running since November 2026, with a sample trip anyone can open
 proof:
   - Guest and editor PINs verified server-side by callable functions that let the device in
   - Firestore and Storage rules enforce viewer-only reads, editor-only writes, comment field constraints, and a 5 MB image cap
@@ -38,8 +50,16 @@ caseStudy:
   method: Anonymous sign-in on load, a guest PIN and an editor PIN each checked by a Cloud Function that lets the device in, Firestore and Storage rules that back the same model, and a service worker that handles installs, offline uploads, and the share sheet.
   signal: The access model is the interesting part. Two PINs and a server-side whitelist do the job of user accounts for a private group, and the same idea generalizes to any small shared tool.
   why: Most of my work is data pipelines. This is the product side, built end to end for people who would tell me immediately if it was annoying. They asked for more.
+links:
+  demo: https://tripsapp-demo.firebaseapp.com/join/gfsWtVG5D9S7Ytxt12UF/NU_zKMo9kVcVn9DWpslNOhzUiGqkgAbq
+  demoNote: 'Guest PIN: 000000'
+embedDemo: false
 featured: false
 ---
+
+## Try the sample trip
+
+The live demo opens a sample trip in the pilot: four days on the Olympic Peninsula, with eight stops and ten photos. The link asks for a PIN, and the guest PIN is printed under the button at the top of this page. It lets you in as a guest: you can move around the map, open the itinerary and the photos, and leave a comment. Adding or changing places and photos takes the editor PIN, which isn't published. The photos are National Park Service images in the public domain, not mine.
 
 ## From a family app to a product
 
@@ -47,7 +67,7 @@ I built the app for a family trip to Hawaii in April 2026 and used it again for 
 
 So in November I started rebuilding it as a product anyone can use. An organizer signs in and starts a trip. Everyone else gets one private link and a PIN, with no account. A pilot has been running since November 22, 2026, with separate guest and editor PINs, push notifications when photos and comments land, and controls to remove a person, replace a leaked link, or delete a trip.
 
-Early in the build, the written App Store reviews of the closest existing app were coded by theme. Failed uploads were the most common complaint, so the product saves every picked photo on the phone before it sends any. The product's name and address come at launch.
+Early in the build, the written App Store reviews of the closest existing app were coded by theme. Failed uploads were the most common complaint, so the product saves every picked photo on the phone before it sends any. The pilot runs under the working name Trips. The product's own name and domain come at launch.
 
 ## What the family app does
 
@@ -63,6 +83,6 @@ There are no user accounts. Everyone is signed in anonymously on load, but that 
 
 Seven functions. Two fan out push notifications on new photos and new comments to subscribed devices that have been let in, skipping the device that posted and pruning tokens that fail. One cleans up a photo's comments when the photo is deleted. Two check the guest and editor PINs, and two let an editor change them. Deploys are run by hand from the Firebase CLI.
 
-## What is not shown
+## What stays private
 
-The photos and the itinerary are a family's trips. The figure on this page is the architecture, and the app itself stays behind its PIN. The product pilot isn't linked here until it launches under its own name.
+The family's two trips stay private. Their photos and itineraries belong to the people in them, and that app stays behind its own PINs. What is open here is the sample trip in the product pilot, filled with public-domain National Park Service photos, and the diagram of how the family app is put together.

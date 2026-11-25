@@ -5,7 +5,7 @@ description: An internal system I designed and built in my current role — recu
 category: ai-automation
 projectType: automation
 year: 2026
-plate: 11
+plate: 1
 figure:
   src: figures/close-automation.svg
   alt: Schematic of the close control plane, prepare, preview, approve, post, close, with a rejection loop and an audit log

@@ -5,7 +5,7 @@ description: Hodego is a sports marketplace I co-founded and helped take from co
 category: product
 projectType: product
 year: 2025
-plate: 12
+plate: 13
 figure:
   src: figures/hodego-hero.jpg
   alt: Hodego marketing hero image

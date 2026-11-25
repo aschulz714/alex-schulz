@@ -12,9 +12,9 @@ export interface Props {
 const OG_IMAGE_VERSION = 4;
 
 const {
-  title = 'Alex Schulz | CPA · Geospatial Intelligence · Asset Data',
+  title = 'Alex Schulz | A CPA who builds practical software with AI',
   description =
-    'Alex Schulz is a CPA with a master\'s in geospatial intelligence who turns public records into asset intelligence: parcels, owners, facilities, and the maps that make them legible.',
+    'Alex Schulz is a CPA who builds practical software with AI: Python steps that run the same way every time, a month-end close cockpit, Item2, and a private trip-sharing app in pilot.',
   ogImage = 'og-image.png',
   current,
 } = Astro.props;
@@ -95,10 +95,9 @@ const nav: { key: NonNullable<Props['current']>; label: string; href: string }[]
       <div class="shell grid grid-cols-1 gap-8 py-12 md:grid-cols-[1.2fr_1fr_1fr]">
         <div>
           <p class="display text-2xl">Alex Schulz</p>
-          <p class="eyebrow mt-2">Compiled at Lake Stevens, WA · {homeCoords}</p>
+          <p class="eyebrow mt-2">Lake Stevens, WA · {homeCoords}</p>
           <p class="copy mt-4 max-w-md text-sm">
-            A CPA with a master's in geospatial intelligence. I turn public records into
-            asset intelligence, and I publish the method alongside the finding.
+            A CPA who builds practical software with AI, and shows where the numbers come from.
           </p>
         </div>
         <div>

@@ -5,7 +5,7 @@ description: Four maps from the Digital Mapping certificate and the start of the
 category: geospatial
 projectType: research
 year: 2020
-plate: 14
+plate: 15
 figure:
   src: figures/early-refineries.jpg
   alt: A 2020 map of United States petroleum refineries sized by distillation capacity with crude oil pipelines drawn as dashed lines

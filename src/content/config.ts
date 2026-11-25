@@ -68,6 +68,8 @@ const projects = defineCollection({
       .object({
         repo: z.string().url().optional(),
         demo: z.string().url().optional(),
+        /** One line printed under the demo button, e.g. the guest PIN of a sample trip. */
+        demoNote: z.string().optional(),
       })
       .default({}),
     /** Embed the live demo as an iframe on the project page (button link is always shown). */

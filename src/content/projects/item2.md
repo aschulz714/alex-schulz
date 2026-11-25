@@ -5,7 +5,7 @@ description: Item2 turns public-company filings into a verified, geocoded databa
 category: ai-automation
 projectType: data-system
 year: 2026
-plate: 5
+plate: 3
 figure:
   src: figures/item2-footprint.jpg
   alt: North America map with geocoded facility candidates from SEC filings as sage dots and verified assets as red markers

@@ -5,17 +5,26 @@ import PlateCard from '../components/PlateCard.astro';
 import Figure from '../components/Figure.astro';
 import Method from '../components/Method.astro';
 import CTA from '../components/CTA.astro';
-import { siteStats, heroFigure, heroLegend } from '../data/site';
-import { toRoman } from '../lib/roman';
 
 const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
 
-const plates = (await getCollection('projects'))
+const projects = (await getCollection('projects'))
   .filter((entry) => entry.data.plate !== undefined && !entry.data.hidden)
   .sort((a, b) => (a.data.plate ?? 99) - (b.data.plate ?? 99));
 
-const lead = plates[0];
-const rest = plates.slice(1, 7);
+// The four shown on the home page are the first four in project order.
+const lead = projects[0];
+const rest = projects.slice(1, 4);
+const more = projects.length - 4;
+
+// Where the skills come from. Every item is stated elsewhere on the site
+// (Story page, life timeline, Hodego project page).
+const background: [string, string, string][] = [
+  ['CPA', 'Washington license', 'Ten years of accounting inside companies: film, a family office, real estate, aerospace, a marketplace.'],
+  ['Hodego', 'Co-founder and technical delivery lead', 'Three developers. TypeScript, React, LoopBack 4, Stripe, Agora, AWS.'],
+  ['Maryland', 'MS, Geospatial Intelligence · 4.0', 'Capstone: an interactive map of rail-served real estate.'],
+  ['Kentucky', 'Graduate Certificate, Digital Mapping · 4.0', 'HTML, CSS, JavaScript, Git, QGIS, Leaflet, Mapbox.'],
+];
 ---
 
 <Base current="home">
@@ -23,15 +32,16 @@ const rest = plates.slice(1, 7);
   <section class="relative overflow-hidden">
     <div class="graticule absolute inset-0" aria-hidden="true"></div>
     <div class="shell relative pb-10 pt-12 md:pb-14 md:pt-20">
-      <p class="eyebrow">Compiled at Lake Stevens, WA · Edition 2026</p>
+      <p class="eyebrow">Lake Stevens, Washington</p>
       <h1 class="display mt-5 max-w-4xl text-5xl sm:text-6xl lg:text-7xl">
-        Public records, resolved into asset intelligence.
+        I'm a CPA who builds practical software with AI.
       </h1>
       <div class="mt-7 grid grid-cols-1 gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-end">
         <p class="lede max-w-2xl text-lg md:text-xl">
-          I am a CPA with a master's in geospatial intelligence. I find the parcel, the owner, the
-          facility, and the filing behind an asset, reconcile them like a ledger, and publish the
-          method next to the finding.
+          I use AI to write Python steps that run the same way every time, so the result can be
+          checked. Where a step has one right answer, the model writes the code and never
+          improvises the result. I learn how the work gets done, design the system, and verify
+          what comes out.
         </p>
         <div class="flex flex-wrap gap-3 lg:justify-end">
           <a href="#work" class="btn">See the work <span class="mono text-xs" aria-hidden="true">-&gt;</span></a>
@@ -39,38 +49,26 @@ const rest = plates.slice(1, 7);
         </div>
       </div>
 
-      <dl class="ledger ledger-cols mt-10 grid grid-cols-2 sm:grid-cols-4">
-        {siteStats.map(([value, label]) => (
+      <dl class="ledger ledger-cols mt-10 grid grid-cols-1 sm:grid-cols-4">
+        {background.map(([name, what, detail]) => (
           <div class="px-0 py-4 sm:px-4 sm:first:pl-0">
-            <dt class="display text-3xl md:text-4xl">{value}</dt>
-            <dd class="eyebrow mt-1 normal-case tracking-normal">{label}</dd>
+            <dt class="display text-2xl md:text-3xl">{name}</dt>
+            <dd class="mt-2 text-sm leading-snug text-ink-soft">
+              <span class="font-semibold text-ink">{what}</span>
+              <span class="mt-1 block">{detail}</span>
+            </dd>
           </div>
         ))}
       </dl>
     </div>
   </section>
 
-  <!-- Flagship figure -->
-  <section class="shell pb-14 md:pb-20">
-    <a href={`${base}/work/national-parcel-coverage`} class="group block">
-      <Figure figure={heroFigure} label="Fig. I" eager={true} />
-    </a>
-    <div class="mt-4 flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
-      <ul class="flex flex-wrap gap-x-5 gap-y-2 text-xs text-ink-soft">
-        {heroLegend.map(([color, label]) => (
-          <li><span class="swatch" style={`background:${color}`}></span>{label}</li>
-        ))}
-      </ul>
-      <a href={`${base}/work/national-parcel-coverage`} class="link-arrow">How the map was made <span class="arrow" aria-hidden="true">-&gt;</span></a>
-    </div>
-  </section>
-
-  <!-- Plates -->
-  <section id="work" class="shell py-14 md:py-20">
+  <!-- Selected work -->
+  <section id="work" class="shell pb-14 pt-4 md:pb-20 md:pt-6">
     <div class="atlas-rule"><span>Selected work</span></div>
     <div class="mt-8 flex flex-wrap items-end justify-between gap-4">
-      <h2 class="display max-w-2xl text-3xl md:text-5xl">Each project is a system built from public records.</h2>
-      <a href={`${base}/work`} class="link-arrow">All {plates.length} projects <span class="arrow" aria-hidden="true">-&gt;</span></a>
+      <h2 class="display max-w-2xl text-3xl md:text-5xl">Four to start with.</h2>
+      <a href={`${base}/work`} class="link-arrow">{more} more projects <span class="arrow" aria-hidden="true">-&gt;</span></a>
     </div>
 
     {lead && (
@@ -110,7 +108,7 @@ const rest = plates.slice(1, 7);
           It shows industry, land, movement, and memory at once. Ten years of accounting inside
           film production, a billionaire's family office, real-estate development, and aerospace
           taught me how real money keeps its books. Two geospatial degrees taught me where the
-          assets actually sit. The projects on this site are what happens when the two habits meet.
+          assets actually sit. Most of what I build is where those two habits meet.
         </p>
         <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
           <a href={`${base}/about#timeline`} class="link-arrow">The timeline <span class="arrow" aria-hidden="true">-&gt;</span></a>

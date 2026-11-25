@@ -5,7 +5,7 @@ description: A national data system that acquires, normalizes, validates, and ma
 category: data-systems
 projectType: data-system
 year: 2026
-plate: 1
+plate: 6
 figure:
   src: figures/parcel-coverage-us.jpg
   alt: Choropleth of every US county by parcel-record status, in the bulk store, viewer-only portal, or no public source

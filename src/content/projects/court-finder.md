@@ -5,7 +5,7 @@ description: A computer-vision pilot that finds tennis and pickleball court cand
 category: geospatial
 projectType: research
 year: 2026
-plate: 9
+plate: 11
 figure:
   src: figures/court-finder.jpg
   alt: 2023 aerial imagery of a public park with dashed white outlines for raw SAM 3 masks and solid red outlines for the court candidates that survived the geometry filters

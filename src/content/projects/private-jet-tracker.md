@@ -5,7 +5,7 @@ description: A Flask application that joins the FAA aircraft registry to live AD
 category: data-systems
 projectType: research
 year: 2026
-plate: 7
+plate: 9
 figure:
   src: figures/jet-tracker.jpg
   alt: Horizontal bar chart of private jets by the owner's industry, led by trucking and logistics, agriculture, construction, and manufacturing

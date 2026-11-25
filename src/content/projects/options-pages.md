@@ -5,7 +5,7 @@ description: A personal catalog of every US-listed optionable company with each 
 category: data-systems
 projectType: data-system
 year: 2026
-plate: 8
+plate: 10
 figure:
   src: figures/options-pages.jpg
   alt: Scatter plot of every optionable US company, 30-day implied volatility against 60-day realized volatility on log axes, colored by liquidity tier, with a dashed line where implied equals realized
