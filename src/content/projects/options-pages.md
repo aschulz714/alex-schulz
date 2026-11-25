@@ -18,7 +18,7 @@ tech:
   - SQLite
   - SEC EDGAR + XBRL companyfacts
   - Cloudflare R2 archive
-  - Windows Task Scheduler + healthchecks.io
+  - Windows Task Scheduler
 status: Running nightly since August 2026; personal only
 role: Designer, builder, and the reviewer who ruled on the accounting edge cases
 scale:
@@ -56,7 +56,7 @@ Point-in-time fundamentals come from SEC XBRL company facts: twenty standardized
 
 ## Controls
 
-The job is designed to fail loudly and, more importantly, to notice when it did not run. A health check verifies the token age, the last run, the expected snapshot count, the archive, and the backup, and raises a persistent alert on any shortfall. An off-machine dead man's switch pages a phone when the nightly ping is absent. Long jobs hold a run lock so a weekly OAuth login cannot kill a running snapshot. Both scheduled tasks consult a market calendar. Screens are versioned, and a logged version is never edited, so a year of hits can be scored honestly.
+The job is designed to fail loudly and, more importantly, to notice when it did not run. A laptop asleep at run time produces silence, not an error, so a separate health check runs every morning, at logon, and whenever the network reconnects. It verifies the token age, the last run, the expected snapshot count, the archive, and the backup, and raises a persistent alert on any shortfall. Long jobs hold a run lock so a weekly OAuth login cannot kill a running snapshot. Both scheduled tasks consult a market calendar. Screens are versioned, and a logged version is never edited, so a year of hits can be scored honestly.
 
 ## What is not here
 

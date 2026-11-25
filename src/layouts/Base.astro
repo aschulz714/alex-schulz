@@ -1,11 +1,12 @@
 ---
 import '../styles/global.css';
+import { contact, resumePath, homeCoords } from '../data/site';
 
 export interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
-  current?: 'home' | 'work' | 'analysis' | 'about';
+  current?: 'home' | 'work' | 'about';
 }
 
 const OG_IMAGE_VERSION = 4;
@@ -18,18 +19,16 @@ const {
   current,
 } = Astro.props;
 
-const linkedInUrl = 'https://www.linkedin.com/in/alex-schulz13/';
-const githubUrl = 'https://github.com/aschulz714';
-const email = 'alex.j.schulz@gmail.com';
+const { email, linkedIn: linkedInUrl, github: githubUrl } = contact;
 
 const siteUrl = Astro.site?.toString() ?? 'https://aschulz714.github.io/';
 const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+const resumeUrl = resumePath ? `${base}/${resumePath}` : null;
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImageUrl = `${new URL(`${base}/${ogImage}`, siteUrl).toString()}?v=${OG_IMAGE_VERSION}`;
 
 const nav: { key: NonNullable<Props['current']>; label: string; href: string }[] = [
   { key: 'work', label: 'Work', href: `${base}/work` },
-  { key: 'analysis', label: 'Analysis', href: `${base}/analysis` },
   { key: 'about', label: 'Story', href: `${base}/about` },
 ];
 ---
@@ -82,7 +81,7 @@ const nav: { key: NonNullable<Props['current']>; label: string; href: string }[]
               {item.label}
             </a>
           ))}
-          <a href={`${base}/resume.pdf`} class="nav-link hidden sm:inline-block">Resume</a>
+          {resumeUrl && <a href={resumeUrl} class="nav-link hidden sm:inline-block">Resume</a>}
           <a href={`mailto:${email}`} class="btn ml-1 !min-h-9 !px-3 !py-2 text-xs sm:ml-2">Contact</a>
         </div>
       </nav>
@@ -96,7 +95,7 @@ const nav: { key: NonNullable<Props['current']>; label: string; href: string }[]
       <div class="shell grid grid-cols-1 gap-8 py-12 md:grid-cols-[1.2fr_1fr_1fr]">
         <div>
           <p class="display text-2xl">Alex Schulz</p>
-          <p class="eyebrow mt-2">Compiled at Lake Stevens, WA · 47.979° N · 122.202° W</p>
+          <p class="eyebrow mt-2">Compiled at Lake Stevens, WA · {homeCoords}</p>
           <p class="copy mt-4 max-w-md text-sm">
             A CPA with a master's in geospatial intelligence. I turn public records into
             asset intelligence, and I publish the method alongside the finding.
@@ -106,9 +105,8 @@ const nav: { key: NonNullable<Props['current']>; label: string; href: string }[]
           <p class="eyebrow">Site</p>
           <ul class="mt-3 space-y-2 text-sm">
             <li><a class="hover:text-signal" href={`${base}/work`}>Work · selected projects</a></li>
-            <li><a class="hover:text-signal" href={`${base}/analysis`}>Analysis · published findings</a></li>
             <li><a class="hover:text-signal" href={`${base}/about`}>Story · the long version</a></li>
-            <li><a class="hover:text-signal" href={`${base}/resume.pdf`}>Resume (PDF)</a></li>
+            {resumeUrl && <li><a class="hover:text-signal" href={resumeUrl}>Resume (PDF)</a></li>}
           </ul>
         </div>
         <div>
@@ -120,8 +118,8 @@ const nav: { key: NonNullable<Props['current']>; label: string; href: string }[]
           </ul>
         </div>
       </div>
-      <div class="shell border-t border-rule-soft py-4">
-        <p class="eyebrow">Edition 2026 · Built with Astro · Figures rendered from public records</p>
+      <div class="shell">
+        <p class="eyebrow border-t border-rule-soft py-4">Edition 2026 · Built with Astro · Figures rendered from public records</p>
       </div>
     </footer>
 

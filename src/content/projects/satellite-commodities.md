@@ -9,7 +9,7 @@ figure:
   src: figures/satellite-commodities.jpg
   alt: Four small charts, sawmill activity index and lumber futures, citrus canopy stress and orange juice futures
   caption: The two pilots as monthly series. Concluded June 2026 with no tradeable signal, which is the finding.
-  ratio: '2400/1200'
+  ratio: '2333/1130'
   source: Sentinel-2 via Google Earth Engine, futures settlements
 tech:
   - Google Earth Engine

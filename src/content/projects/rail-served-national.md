@@ -10,7 +10,7 @@ figure:
   src: figures/rail-served-national.jpg
   alt: Map of the United States with each state shaded by its count of rail-served parcels in the national inventory
   caption: Rail-served parcels by state, September 2026 snapshot. Counts only. The parcel-level data stays unpublished until source rights are resolved.
-  ratio: '2086/1180'
+  ratio: '2086/1244'
   source: rail_master_national.csv, 2026-09-18
 tech:
   - Python

@@ -19,6 +19,7 @@ frame:
   method: Route each county to its best public endpoint (ArcGIS REST, WFS, join views, bulk downloads), verify each route by hand with a point query at the county seat, ingest in bulk, and classify every county that did not resolve by the reason it did not.
   finding: 2,613 of 3,143 counties (83 percent) are in the store, holding 143.9 million parcels. Of the 530 that are not, 493 publish parcels only through a vendor viewer with no endpoint, 28 have no public source at all, 4 suppress owner names at the source, 4 are mapped but not yet ingested, and 1 is unprobed.
   limits: Counts are from the July 2026 status build and the September 2026 method table. Source vintages range from 2017 to 2026 and are not uniform. Owner coverage measures whether the field is populated, not whether it is correct. Puerto Rico's 78 municipios are recorded with a 2018 snapshot but excluded from the store universe. Nothing here was scraped from a viewer.
+draft: true
 plates:
   - national-parcel-coverage
 ---

@@ -16,20 +16,6 @@ const plates = (await getCollection('projects'))
 
 const lead = plates[0];
 const rest = plates.slice(1, 7);
-
-const analysis = (await getCollection('analysis', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
-
-const verticalLabel: Record<string, string> = {
-  parcels: 'Parcels & ownership',
-  'data-centers': 'Data centers',
-  power: 'Power & grid',
-  wealth: 'Wealth formation',
-  method: 'Method',
-};
-
-const dateFmt = new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
 ---
 
 <Base current="home">
@@ -49,7 +35,7 @@ const dateFmt = new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeri
         </p>
         <div class="flex flex-wrap gap-3 lg:justify-end">
           <a href="#work" class="btn">See the work <span class="mono text-xs" aria-hidden="true">-&gt;</span></a>
-          <a href={`${base}/analysis`} class="btn-ghost">Read the analysis</a>
+          <a href={`${base}/about`} class="btn-ghost">Read the story</a>
         </div>
       </div>
 
@@ -103,31 +89,6 @@ const dateFmt = new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeri
   </section>
 
   <Method />
-
-  <!-- Analysis -->
-  {analysis.length > 0 && (
-    <section class="shell py-14 md:py-20">
-      <div class="atlas-rule"><span>Analysis · published findings</span></div>
-      <div class="mt-8 flex flex-wrap items-end justify-between gap-4">
-        <h2 class="display max-w-2xl text-3xl md:text-5xl">Findings, with the method and the limits attached.</h2>
-        <a href={`${base}/analysis`} class="link-arrow">All pieces <span class="arrow" aria-hidden="true">-&gt;</span></a>
-      </div>
-      <ol class="mt-8 border-t border-rule">
-        {analysis.map((piece, index) => (
-          <li class="border-b border-rule-soft">
-            <a href={`${base}/analysis/${piece.id}`} class="group grid grid-cols-1 gap-3 py-6 md:grid-cols-[7rem_1fr_auto] md:items-baseline md:gap-8">
-              <span class="eyebrow">{dateFmt.format(piece.data.date)}</span>
-              <span>
-                <span class="display block text-2xl md:text-3xl group-hover:text-signal">{piece.data.title}</span>
-                <span class="copy mt-2 block max-w-2xl text-sm md:text-base">{piece.data.dek}</span>
-              </span>
-              <span class="tag tag-signal">{verticalLabel[piece.data.vertical]}</span>
-            </a>
-          </li>
-        ))}
-      </ol>
-    </section>
-  )}
 
   <!-- Story teaser -->
   <section class="shell py-14 md:py-20">

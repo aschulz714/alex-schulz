@@ -10,6 +10,7 @@ export interface FigureData {
   caption?: string;
   ratio?: string;
   source?: string;
+  fit?: 'contain' | 'cover';
 }
 
 export interface Props {
@@ -43,6 +44,7 @@ const src = /^https?:\/\//.test(figure.src) ? figure.src : `${base}/${figure.src
         <img
           src={src}
           alt={figure.alt}
+          class={(figure.fit ?? 'contain') === 'contain' ? 'fit-contain' : undefined}
           loading={eager ? 'eager' : 'lazy'}
           decoding="async"
         />

@@ -1,3 +1,22 @@
+/** Contact points used by the header, footer, CTA, and Story page. */
+export const contact = {
+  email: 'alex.j.schulz@gmail.com',
+  linkedIn: 'https://www.linkedin.com/in/alex-schulz13/',
+  github: 'https://github.com/aschulz714',
+};
+
+/**
+ * Resume link, relative to the site base (e.g. 'resume.pdf'), or null to hide every Resume link.
+ * Null until a current resume is exported to public/ (the old file was a placeholder).
+ */
+export const resumePath: string | null = null;
+
+/**
+ * Footer coordinates: the Census 2023 Gazetteer internal point for Lake Stevens city
+ * (INTPTLAT 48.003405, INTPTLONG -122.096828). A city centroid, not a street address.
+ */
+export const homeCoords = '48.003° N · 122.097° W';
+
 /**
  * Headline figures for the home page.
  * Every number here was recomputed from the built project files on 2026-09-23:

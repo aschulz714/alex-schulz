@@ -47,8 +47,6 @@ const frame = [
 const roman = toRoman(plateNumber);
 const demo = project.data.links.demo;
 const repo = project.data.links.repo;
-const related = (await getCollection('analysis', ({ data }) => !data.draft && data.plates.includes(project.id)))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <Base
@@ -144,18 +142,8 @@ const related = (await getCollection('analysis', ({ data }) => !data.draft && da
           <div>
             <p class="eyebrow">Stack</p>
             <div class="mt-2 flex flex-wrap gap-1.5">
-              {project.data.tech.map((t) => <span class="tag">{t}</span>)}
+              {project.data.tech.map((t) => <span class="tag max-w-full !whitespace-normal">{t}</span>)}
             </div>
-          </div>
-        )}
-        {related.length > 0 && (
-          <div>
-            <p class="eyebrow">Analysis built on this project</p>
-            <ul class="mt-2 space-y-2">
-              {related.map((piece) => (
-                <li><a href={`${base}/analysis/${piece.id}`} class="text-sm text-ink hover:text-signal">{piece.data.title}</a></li>
-              ))}
-            </ul>
           </div>
         )}
       </aside>
@@ -184,7 +172,8 @@ const related = (await getCollection('analysis', ({ data }) => !data.draft && da
       </section>
     )}
 
-    <nav class="shell mt-14 grid grid-cols-1 gap-4 border-t border-rule pt-6 sm:grid-cols-2 md:mt-20" aria-label="Neighboring projects">
+    <nav class="shell mt-14 md:mt-20" aria-label="Neighboring projects">
+      <div class="grid grid-cols-1 gap-4 border-t border-rule pt-6 sm:grid-cols-2">
       {prev ? (
         <a href={`${base}/work/${prev.id}`} class="group">
           <span class="eyebrow">&lt;- Previous</span>
@@ -197,6 +186,7 @@ const related = (await getCollection('analysis', ({ data }) => !data.draft && da
           <span class="display mt-1 block text-xl group-hover:text-signal">{next.data.title}</span>
         </a>
       )}
+      </div>
     </nav>
   </article>
 

@@ -10,7 +10,7 @@ figure:
   src: figures/jet-tracker.jpg
   alt: Horizontal bar chart of private jets by the owner's industry, led by trucking and logistics, agriculture, construction, and manufacturing
   caption: Jets whose owner's industry can be read straight from the registration. Trucking, agriculture, construction, and manufacturing lead. Technology is eleventh.
-  ratio: '2400/1350'
+  ratio: '2353/1305'
   source: FAA Aircraft Registry pulled 2026-03-10, classified 2026-09-19
 tech:
   - Python

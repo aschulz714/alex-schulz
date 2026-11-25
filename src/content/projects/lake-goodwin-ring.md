@@ -11,7 +11,7 @@ figure:
   src: figures/lake-goodwin-ring.jpg
   alt: Lake Goodwin ring-search app showing depth contours, a numbered station line, and timestamped position fixes over aerial imagery
   caption: Search grid over bathymetry, Lake Goodwin, WA. Stations every 25 m along the modeled heading.
-  ratio: '16/7'
+  ratio: '1568/655'
   source: Phone GPS fixes, video timestamps, WA Ecology and 1952 WDFW depth surveys
 tech:
   - Leaflet

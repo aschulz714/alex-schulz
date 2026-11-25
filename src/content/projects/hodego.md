@@ -11,6 +11,7 @@ figure:
   alt: Hodego marketing hero image
   caption: Marketing hero from the shipped MVP.
   ratio: '1792/1024'
+  fit: cover
 tech:
   - TypeScript
   - React

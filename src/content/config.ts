@@ -11,8 +11,13 @@ const figure = z.object({
   src: z.string(),
   alt: z.string(),
   caption: z.string().optional(),
-  /** Aspect ratio as "w/h" for layout stability, e.g. "16/9". */
+  /** Aspect ratio as "w/h" for layout stability, e.g. "16/9". Match the file's pixel size. */
   ratio: z.string().default('16/9'),
+  /**
+   * How the image fills a fixed-ratio frame such as a project card. 'contain' (default) never
+   * crops, which suits charts, maps, and schematics; 'cover' fills the frame, for photos and imagery.
+   */
+  fit: z.enum(['contain', 'cover']).default('contain'),
   /** Optional source line printed under the figure. */
   source: z.string().optional(),
 });
@@ -74,6 +79,7 @@ const projects = defineCollection({
   }),
 });
 
+/** Parked: the site has no analysis pages (removed 2026-09-24); pieces stay here as drafts. */
 const analysis = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/analysis' }),
   schema: z.object({

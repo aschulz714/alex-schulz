@@ -1,6 +1,8 @@
 ---
+import { contact, resumePath } from '../data/site';
+
 const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
-const email = 'alex.j.schulz@gmail.com';
+const resumeUrl = resumePath ? `${base}/${resumePath}` : null;
 ---
 
 <section class="py-14 md:py-20">
@@ -19,9 +21,9 @@ const email = 'alex.j.schulz@gmail.com';
           </p>
         </div>
         <div class="flex flex-wrap gap-3">
-          <a href={`${base}/resume.pdf`} class="btn-ghost">Resume</a>
-          <a href="https://www.linkedin.com/in/alex-schulz13/" target="_blank" rel="noopener noreferrer" class="btn-ghost">LinkedIn</a>
-          <a href={`mailto:${email}`} class="btn">Email Alex</a>
+          {resumeUrl && <a href={resumeUrl} class="btn-ghost">Resume</a>}
+          <a href={contact.linkedIn} target="_blank" rel="noopener noreferrer" class="btn-ghost">LinkedIn</a>
+          <a href={`mailto:${contact.email}`} class="btn">Email Alex</a>
         </div>
       </div>
     </div>

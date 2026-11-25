@@ -11,6 +11,7 @@ figure:
   alt: 2023 aerial imagery of a public park with dashed white outlines for raw SAM 3 masks and solid red outlines for the court candidates that survived the geometry filters
   caption: "Raw SAM 3 masks (dashed) versus retained candidates (red) on a public parcel, a school campus. The model proposes; the geometry filters and a person decide."
   ratio: '16/10'
+  fit: cover
   source: 2023 NAIP via the federal GeoPlatform ImageServer; King County parcels
 tech:
   - SAM 3 (text prompts)

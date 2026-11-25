@@ -10,7 +10,7 @@ figure:
   src: figures/item2-footprint.jpg
   alt: North America map with geocoded facility candidates from SEC filings as sage dots and verified assets as red markers
   caption: Geocoded facility candidates (sage, sized by count) and verified assets (red), North America.
-  ratio: '2086/1300'
+  ratio: '1767/1500'
   source: item2 database, Sep 2026
 tech:
   - Python

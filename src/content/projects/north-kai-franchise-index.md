@@ -10,7 +10,7 @@ figure:
   src: figures/north-kai-index.jpg
   alt: Line chart of the reconstructed franchise index against SPY from 2007 to 2026, with a marker where the historical holdings end in December 2017
   caption: Reconstructed index level versus SPY, base 100 at the end of 2007. Left of the marker uses the 21 historical holdings snapshots; right of it carries the last basket forward, so it is a reference line, not a track record.
-  ratio: '2400/1050'
+  ratio: '2357/1002'
   source: EQM holdings snapshots 2007–2017, EODHD adjusted prices, SPY as benchmark
 tech:
   - Index methodology

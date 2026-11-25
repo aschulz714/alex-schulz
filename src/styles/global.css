@@ -2,7 +2,6 @@
 @import "@fontsource-variable/geist";
 @import "@fontsource-variable/geist-mono";
 @import "@fontsource-variable/eb-garamond";
-@plugin "@tailwindcss/typography";
 
 /*
   Atlas design system.
@@ -209,6 +208,11 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+/* Charts, maps, and schematics: show the whole figure, letterboxed on the chart paper. */
+.figure-well img.fit-contain {
+  object-fit: contain;
 }
 
 .figure-caption {
@@ -561,37 +565,3 @@ a:hover .link-arrow .arrow,
   background: var(--color-signal-soft);
 }
 
-/* ---------- compatibility aliases for pages still written against the casebook classes ---------- */
-.section-shell { width: 100%; max-width: 72rem; margin-inline: auto; padding-inline: 1rem; }
-@media (min-width: 768px) { .section-shell { padding-inline: 2.5rem; } }
-.coord { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-muted); }
-.section-heading { font-family: var(--font-display); font-weight: 500; line-height: 1.05; color: var(--color-ink); text-wrap: balance; }
-.section-copy { color: var(--color-ink-muted); line-height: 1.7; }
-.surface, .surface-quiet, .dossier-panel { border: 1px solid var(--color-rule); background: color-mix(in srgb, var(--color-paper-soft) 78%, transparent); }
-.dossier-panel { box-shadow: 0 18px 50px -24px rgba(23, 34, 46, 0.35); }
-.button-primary { display: inline-flex; min-height: 2.6rem; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 2px; padding: 0.65rem 1rem; font-size: 0.875rem; font-weight: 520; line-height: 1; border: 1px solid var(--color-ink); background: var(--color-ink); color: var(--color-paper-soft); }
-.button-primary:hover { background: var(--color-signal); border-color: var(--color-signal); }
-.button-secondary { display: inline-flex; min-height: 2.6rem; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 2px; padding: 0.65rem 1rem; font-size: 0.875rem; font-weight: 520; line-height: 1; border: 1px solid var(--color-rule); background: color-mix(in srgb, var(--color-paper-soft) 85%, transparent); color: var(--color-ink); }
-.button-secondary:hover { border-color: var(--color-ink); }
-.annotation { border-left: 2px solid var(--color-signal); padding-left: 0.85rem; }
-.timeline-number { display: inline-flex; min-width: 2.25rem; min-height: 2.25rem; align-items: center; justify-content: center; border: 1px solid var(--color-rule); border-radius: 2px; background: color-mix(in srgb, var(--color-paper-soft) 78%, transparent); color: var(--color-ink-muted); font-family: var(--font-mono); font-size: 0.75rem; font-variant-numeric: tabular-nums; }
-.timeline-dot { position: absolute; left: 0; top: 0.55rem; width: 0.5rem; height: 0.5rem; border-radius: 999px; background: var(--color-signal); box-shadow: 0 0 0 4px var(--color-signal-soft); }
-.text-accent { color: var(--color-sage); }
-.text-signal { color: var(--color-signal); }
-.bg-signal-soft { background: var(--color-signal-soft); }
-.border-hairline { border-color: var(--color-rule-soft); }
-.bg-paper-soft\/45, .bg-paper-soft\/55 { background: color-mix(in srgb, var(--color-paper-soft) 50%, transparent); }
-
-/* MapLibre chrome */
-.maplibregl-ctrl-attrib {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  background: transparent !important;
-  color: var(--color-ink-faint);
-}
-.maplibregl-ctrl-attrib a {
-  color: var(--color-ink-muted);
-}
-.maplibregl-ctrl-logo {
-  display: none !important;
-}

@@ -84,7 +84,7 @@ export const life: LifeEntry[] = [
   {
     when: '2015',
     title: 'WSU, summa cum laude',
-    body: 'BA in Accounting at Washington State. Delta Sigma Pi Scholarship Key for the highest cumulative GPA across all of business and economics. One of thirteen students chosen for Cougs on Wall Street, a trip to the Quinnipiac GAME Forum in New York. The CPA license followed.',
+    body: 'BA in Accounting at Washington State. Delta Sigma Pi Scholarship Key for the highest cumulative GPA across all of business and economics. In spring 2014, one of thirteen students chosen for Cougs on Wall Street, a trip to the Quinnipiac GAME Forum in New York. The CPA license followed.',
     place: 'Pullman, WA',
     category: 'finance',
   },
@@ -171,7 +171,7 @@ export const life: LifeEntry[] = [
   {
     when: '2026',
     title: 'A ring in Lake Goodwin',
-    body: 'A wedding ring went overboard in August. Forty-eight hours later a phone app fused the boat\'s fixes and a video clock into a numbered search grid over the lake\'s depth contours. The smallest project on the site and the most personal.',
+    body: 'A wedding ring went overboard in August. Forty-eight hours later a phone app fused the boat\'s fixes and a video clock into a numbered search grid over the lake\'s depth contours. A small project, and the most personal one.',
     place: 'Lake Goodwin, WA',
     category: 'geospatial',
   },

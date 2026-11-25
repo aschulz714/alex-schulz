@@ -27,8 +27,11 @@ const categoryLabel: Record<string, string> = {
   web: 'Web product',
 };
 
-const ratio = size === 'lead' ? '16/9' : size === 'compact' ? '3/2' : '4/3';
+const ratio = size === 'lead' ? '16/9' : size === 'compact' ? '3/2' : '16/10';
+const fitClass = (figure?.fit ?? 'contain') === 'contain' ? 'fit-contain' : undefined;
 const stats = entry.data.scale.slice(0, size === 'lead' ? 3 : 2);
+// One ledger column per stat, so two stats don't leave an empty third column.
+const statCols = stats.length >= 3 ? 'sm:grid-cols-3' : stats.length === 2 ? 'sm:grid-cols-2' : '';
 ---
 
 <a
@@ -38,7 +41,7 @@ const stats = entry.data.scale.slice(0, size === 'lead' ? 3 : 2);
   <div class={`p-2 ${size === 'lead' ? 'lg:border-r lg:border-rule' : ''}`}>
     <div class="figure-well" style={`aspect-ratio: ${ratio};`}>
       {showImage ? (
-        <img src={figureSrc} alt={figure!.alt} loading={size === 'lead' ? 'eager' : 'lazy'} decoding="async" />
+        <img src={figureSrc} alt={figure!.alt} class={fitClass} loading={size === 'lead' ? 'eager' : 'lazy'} decoding="async" />
       ) : (
         <div class="flex h-full items-end p-4">
           <span class="eyebrow">{entry.data.artifact?.label ?? 'Figure pending'}</span>
@@ -59,7 +62,7 @@ const stats = entry.data.scale.slice(0, size === 'lead' ? 3 : 2);
     <p class={`copy mt-3 flex-1 ${size === 'compact' ? 'text-sm' : 'text-sm md:text-[0.95rem]'}`}>{entry.data.blurb}</p>
 
     {stats.length > 0 && size !== 'compact' && (
-      <ul class="ledger mt-5 grid grid-cols-1 ledger-cols sm:grid-cols-3">
+      <ul class={`ledger mt-5 grid grid-cols-1 ledger-cols ${statCols}`}>
         {stats.map((item) => (
           <li class="px-0 py-2 text-xs leading-snug text-ink-soft sm:px-3 sm:first:pl-0">{item}</li>
         ))}
@@ -67,7 +70,7 @@ const stats = entry.data.scale.slice(0, size === 'lead' ? 3 : 2);
     )}
 
     <div class="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
-      {entry.data.status && <span class="tag tag-sage max-w-full truncate">{entry.data.status}</span>}
+      {entry.data.status && <span class="tag tag-sage max-w-full !whitespace-normal">{entry.data.status}</span>}
       <span class="link-arrow ml-auto whitespace-nowrap">Open project <span class="arrow" aria-hidden="true">-&gt;</span></span>
     </div>
   </div>

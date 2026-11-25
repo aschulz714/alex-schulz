@@ -48,7 +48,7 @@
     <text x="16" y="26" font-family="Geist Mono Variable, Consolas, monospace" font-size="12" fill="#b8402c" letter-spacing="1">ON THE PHONE · SERVICE WORKER</text>
     <text x="16" y="54">Installable PWA · Web Share Target receives a photo from the OS share sheet</text>
     <text x="16" y="78">Client-side compression · EXIF coordinates and timestamp · offline upload queue in IndexedDB</text>
-    <text x="16" y="102">Anonymous sign-in on load · guest PIN unlock remembered on the device</text>
+    <text x="16" y="102">Anonymous sign-in on load · guest PIN entered once, checked on the server</text>
   </g>
 
   <!-- arrows phones -> firebase -->
@@ -67,11 +67,12 @@
     <rect x="20" y="132" width="340" height="56" fill="#faf7ee" stroke="#cfc6ad"/>
     <text x="34" y="158" font-weight="600">Cloud Storage</text>
     <text x="34" y="178" font-size="12" fill="#33414f">trips/{trip}/photos · images only · 5 MB cap · editor-only writes</text>
-    <rect x="20" y="200" width="340" height="110" fill="#faf7ee" stroke="#cfc6ad"/>
-    <text x="34" y="226" font-weight="600">Cloud Functions</text>
-    <text x="34" y="248" font-size="12" fill="#33414f">notifyNewPhoto · notifyNewComment → push fan-out</text>
-    <text x="34" y="268" font-size="12" fill="#33414f">cleanupPhotoComments on delete</text>
-    <text x="34" y="288" font-size="12" fill="#33414f">claimEditor: verify PIN hash, whitelist the device</text>
+    <rect x="20" y="200" width="340" height="118" fill="#faf7ee" stroke="#cfc6ad"/>
+    <text x="34" y="224" font-weight="600">Cloud Functions</text>
+    <text x="34" y="245" font-size="12" fill="#33414f">notifyNewPhoto · notifyNewComment → push fan-out</text>
+    <text x="34" y="264" font-size="12" fill="#33414f">cleanupPhotoComments on delete</text>
+    <text x="34" y="283" font-size="12" fill="#33414f">claimViewer · claimEditor: check a PIN, let the device in</text>
+    <text x="34" y="302" font-size="12" fill="#33414f">setGuestPin · setEditorPin: an editor changes a PIN</text>
   </g>
 
   <!-- push out -->
@@ -81,7 +82,7 @@
   <text x="1200" y="418" font-size="12" fill="#b8402c" text-anchor="middle">FCM push</text>
   <g transform="translate(1260,380)" font-size="13" fill="#33414f">
     <rect width="280" height="100" fill="#faf7ee" stroke="#cfc6ad"/>
-    <text x="16" y="28" font-weight="600" fill="#17222e" font-size="15">Every subscribed phone</text>
+    <text x="16" y="28" font-weight="600" fill="#17222e" font-size="15">Subscribed, let-in phones</text>
     <text x="16" y="54">new photo · new comment</text>
     <text x="16" y="76">sender skipped · dead tokens pruned</text>
   </g>
@@ -90,8 +91,8 @@
   <g transform="translate(770,540)" font-size="13" fill="#33414f">
     <rect width="770" height="118" fill="#17222e"/>
     <text x="20" y="30" font-family="Geist Mono Variable, Consolas, monospace" font-size="12" fill="#cfc6ad" letter-spacing="2">ACCESS MODEL</text>
-    <text x="20" y="60" fill="#faf7ee" font-size="15"><tspan font-weight="600">Guest PIN</tspan> gates viewing, checked on the device.   <tspan font-weight="600">Editor PIN</tspan> gates writing, checked by claimEditor on the server.</text>
-    <text x="20" y="88" fill="#cfc6ad">Firestore and Storage rules enforce the same split: editor-only writes, constrained comments, capped images. No accounts.</text>
+    <text x="20" y="60" fill="#faf7ee" font-size="15"><tspan font-weight="600">Guest PIN</tspan> gates viewing, checked by claimViewer.   <tspan font-weight="600">Editor PIN</tspan> gates writing, checked by claimEditor.</text>
+    <text x="20" y="88" fill="#cfc6ad">Firestore and Storage rules enforce it: let-in devices read and comment, editors write, images capped. No accounts.</text>
   </g>
 
   <!-- deploy -->
@@ -100,7 +101,7 @@
     <text x="16" y="30" font-family="Geist Mono Variable, Consolas, monospace" font-size="12" fill="#b8402c" letter-spacing="1">STACK · DEPLOY</text>
     <text x="16" y="60">React 19 · TypeScript · Vite 7 · Tailwind v4</text>
     <text x="16" y="84">Leaflet + clustering · Google Places v1</text>
-    <text x="16" y="108">GitHub Actions → Firebase Hosting on push</text>
+    <text x="16" y="108">Deployed by hand with the Firebase CLI</text>
     <text x="16" y="132">Build stamp injected at build time</text>
     <text x="16" y="156">Firebase and Leaflet split into own chunks</text>
   </g>
