@@ -33,7 +33,7 @@ W, H = 1200, 630
 LEFT = 60
 
 EYEBROW = "ALEX SCHULZ · CPA · MS GEOINT"
-HEADLINE = ["I'm a CPA who", "builds practical", "software with AI."]
+HEADLINE = ["I'm a CPA who builds", "working apps, data", "pipelines, and accounting", "automation with AI."]
 SUB = ["I use AI to write Python steps that run the same", "way every time, so the result can be checked."]
 STATS = "143.9M parcel records · 2,613 of 3,143 counties"
 
@@ -81,7 +81,7 @@ def main() -> None:
     img.paste(m, (W - mw - 26, (H - m.height) // 2 + 6), alpha)
 
     eyebrow = font("geist-mono", "geist-mono-latin-wght-normal.woff2", 19, 400)
-    display = font("eb-garamond", "eb-garamond-latin-wght-normal.woff2", 76, 500)
+    display = font("eb-garamond", "eb-garamond-latin-wght-normal.woff2", 54, 500)
     sub = font("geist", "geist-latin-wght-normal.woff2", 23, 400)
     mono = font("geist-mono", "geist-mono-latin-wght-normal.woff2", 16, 400)
 
@@ -90,7 +90,7 @@ def main() -> None:
     y = 118
     for line in HEADLINE:
         draw.text((LEFT, y), line, font=display, fill=INK)
-        y += 80
+        y += 60
 
     y += 34
     for line in SUB:

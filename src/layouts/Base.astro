@@ -9,12 +9,12 @@ export interface Props {
   current?: 'home' | 'work' | 'about';
 }
 
-const OG_IMAGE_VERSION = 5;
+const OG_IMAGE_VERSION = 6;
 
 const {
-  title = 'Alex Schulz | A CPA who builds practical software with AI',
+  title = 'Alex Schulz | A CPA who builds working apps, data pipelines, and accounting automation with AI',
   description =
-    'Alex Schulz is a CPA who builds practical software with AI: a 143.9-million-record national parcel store, a month-end close cockpit, a private trip-sharing app in pilot, and Item2.',
+    'Alex Schulz is a CPA who builds working apps, data pipelines, and accounting automation with AI: a 143.9-million-record national parcel store, a month-end close cockpit, a private trip-sharing app in pilot, and Item2.',
   ogImage = 'og-image.png',
   current,
 } = Astro.props;
@@ -97,7 +97,7 @@ const nav: { key: NonNullable<Props['current']>; label: string; href: string }[]
           <p class="display text-2xl">Alex Schulz</p>
           <p class="eyebrow mt-2">Lake Stevens, WA · {homeCoords}</p>
           <p class="copy mt-4 max-w-md text-sm">
-            A CPA who builds practical software with AI, and shows where the numbers come from.
+            A CPA who builds working apps, data pipelines, and accounting automation with AI, and shows where the numbers come from.
           </p>
         </div>
         <div>

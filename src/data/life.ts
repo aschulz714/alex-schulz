@@ -162,6 +162,14 @@ export const life: LifeEntry[] = [
   },
   {
     when: '2026',
+    title: 'Full-time on a revenue team',
+    body: 'Senior Accountant, Revenue, at a marketplace company: on contract from 2025, full-time since April 2026. The close cockpit on this site was built in this role.',
+    place: 'Remote from WA',
+    category: 'finance',
+    href: '/work/close-automation',
+  },
+  {
+    when: '2026',
     title: 'National parcel coverage, and the wealth atlas',
     body: 'Recorded an owner-resolution method for every one of the 3,221 US county-equivalents, built a 143.9-million-parcel store from free public sources, then ran a six-county study of how Washington\'s wealthiest households actually made their money. Solo, directing AI agents, every route verified by hand.',
     place: 'Lake Stevens, WA',

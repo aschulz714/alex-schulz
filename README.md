@@ -1,6 +1,6 @@
 # Alex Schulz Portfolio
 
-Source for [aschulz714.github.io/alex-schulz](https://aschulz714.github.io/alex-schulz/): a CPA who builds practical software with AI. The site shows five projects first, ten more behind them, and a long-form Story page.
+Source for [aschulz714.github.io/alex-schulz](https://aschulz714.github.io/alex-schulz/): a CPA who builds working apps, data pipelines, and accounting automation with AI. The site shows five projects first, ten more behind them, and a long-form Story page.
 
 Built with Astro and Tailwind CSS. GitHub Actions builds and publishes `main` to GitHub Pages.
 

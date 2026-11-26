@@ -1,7 +1,7 @@
 ---
 title: Controlled Close Automation
-blurb: An internal finance-operations cockpit, built in my current role, that turns recurring close tasks into validated, reviewable, and auditable workflows.
-description: An internal system I designed and built in my current role — recurring journal-entry and close processes prepared, validated, approved, posted, and logged without removing human control. Described here in generalized form.
+blurb: An internal finance-operations cockpit, built in my role at Taskrabbit, that turns recurring close tasks into validated, reviewable, and auditable workflows.
+description: An internal system I designed and built in my role at Taskrabbit — recurring journal-entry and close processes prepared, validated, approved, posted, and logged without removing human control. Described here in generalized form.
 category: ai-automation
 projectType: automation
 year: 2026
@@ -9,7 +9,7 @@ plate: 2
 figure:
   src: figures/close-automation.svg
   alt: Schematic of the close control plane, prepare, preview, approve, post, close, with a rejection loop and an audit log
-  caption: The control plane in generalized form. No employer data is shown.
+  caption: The control plane in generalized form. No company data is shown.
   ratio: '16/7'
 tech:
   - Python
@@ -21,7 +21,7 @@ tech:
 status: Internal prototype
 role: Workflow designer, product architect, and builder
 scale:
-  - 20 close tasks organized across a six-day close
+  - 20 recurring close tasks organized in one cockpit
   - Two working journal-entry preparers and ten extensible workflow stubs
   - ERP posting, approval, and close-platform integrations modeled end to end
 proof:
@@ -29,7 +29,6 @@ proof:
   - Deterministic journal-entry preparation and balanced-line review
   - Idempotency prevents duplicate posting
   - Every preparation, posting, approval, and completion event enters an audit log
-confidentiality: This system was built in my role at my current employer and belongs to them. This case study describes it in generalized form only — no employer data, code, screenshots, integrations, or process specifics are published, and the underlying system is not publicly available.
 artifact:
   label: Internal workflow system
   detail: A four-view Streamlit application with a close checklist, journal-entry runner, period dashboard, and audit log.
@@ -45,7 +44,9 @@ featuredRank: 1
 
 ## The problem
 
-Recurring close work often starts as a collection of spreadsheets, exports, scripts, checklists, and manual journal entries. Individual tasks may be partially automated, but the overall process still depends on memory: which file to run, which period to select, who must review the result, whether a batch has already posted, and where the evidence lives.
+In most finance teams, recurring close work starts as a collection of spreadsheets, exports, scripts, checklists, and manual journal entries. Individual tasks may be partially automated, but the overall process still depends on memory: which file to run, which period to select, who must review the result, whether a batch has already posted, and where the evidence lives.
+
+A marketplace makes this harder. Its revenue arrives as tens of thousands of transactions, not a handful of invoices, so close work has to be checked by rule, not by eye.
 
 The project asks what happens when those isolated scripts are treated as components in a controlled operating system.
 

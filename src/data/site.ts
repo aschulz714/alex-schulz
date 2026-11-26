@@ -7,9 +7,10 @@ export const contact = {
 
 /**
  * Resume link, relative to the site base (e.g. 'resume.pdf'), or null to hide every Resume link.
- * Null until a current resume is exported to public/ (the old file was a placeholder).
+ * The PDF is built outside this repository (its source is kept private) and copied into public/.
+ * It carries no phone number.
  */
-export const resumePath: string | null = null;
+export const resumePath: string | null = 'Alex-Schulz-Resume.pdf';
 
 /**
  * Footer coordinates: the Census 2023 Gazetteer internal point for Lake Stevens city
