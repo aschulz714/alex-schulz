@@ -15,7 +15,7 @@ figure:
 gallery:
   - src: figures/early-fortune500.jpg
     alt: A 2021 Leaflet map of Fortune 500 headquarters as proportional circles sized by profit margin
-    caption: "Fortune 500 Headquarters sized by profit margin, 2021. Leaflet with a filter by name. The basemap has since gone behind an API key, which is its own lesson."
+    caption: "Fortune 500 Headquarters sized by profit margin, 2021. Leaflet with a filter by name. Its first basemap later went behind an API key; a keyless one replaced it in 2026."
     ratio: '16/10'
   - src: figures/early-golf.jpg
     alt: A 2022 Leaflet map of Western Washington golf courses colored by green fee with a weekday and weekend selector
@@ -62,11 +62,11 @@ featured: false
 
 **United States Petroleum Refineries, December 2020.** The first one. Every refinery as a graduated symbol by atmospheric distillation capacity in thousands of barrels per day, crude oil pipelines as dashed lines, on EIA layers. A static ArcGIS export, published as a page. [Live](https://aschulz714.github.io/United-States-Refineries/).
 
-**Fortune 500 Headquarters, spring 2021.** Proportional circles sized by profit margin rather than revenue, because margin is the juicier metric. Tech, biotech, tobacco, and banking swell; retail and energy shrink; Walmart, the largest company on the list, is a blip at 2.81 percent. Leaflet, with a type-ahead filter. The CARTO basemap it used now demands an API key, so the page shows a watermark, which is a small lesson in dependencies. [Live](https://aschulz714.github.io/Fortune-500-Headquarters/).
+**Fortune 500 Headquarters, spring 2021.** Proportional circles sized by profit margin rather than revenue, because margin is the juicier metric. Tech, biotech, tobacco, and banking swell; retail and energy shrink; Walmart, the largest company on the list, is a blip at 2.81 percent. Leaflet, with a type-ahead filter. The CARTO basemap it used later went behind an API key and stamped a watermark across the map, so in 2026 I swapped in a keyless one, which is a small lesson in dependencies. [Live](https://aschulz714.github.io/Fortune-500-Headquarters/).
 
 **Pacific County Timber, 2021.** Every parcel classified as designated forest land, from the county's taxlot shapefile through QGIS and Mapshaper into TopoJSON, rendered in Mapbox GL with a custom style. Refreshed in 2026 with a top-owners panel. [Live](https://aschulz714.github.io/Pacific-County-Timber/).
 
-**Green Fees in Western Washington, spring 2022.** Courses colored by green fee, with a dropdown for weekday, weekend, and time of day. The page says plainly that the data was entered by hand and is not entirely accurate. [Live](https://aschulz714.github.io/Western-WA-Golf/).
+**Green Fees in Western Washington, spring 2022.** Courses colored by green fee, with a dropdown for weekday, weekend, and time of day. The page says plainly that the data was entered by hand and is not entirely accurate. Its basemap was swapped in 2026 for the same reason. [Live](https://aschulz714.github.io/Western-WA-Golf/).
 
 ## What changed
 

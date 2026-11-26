@@ -52,7 +52,7 @@ caseStudy:
   why: Most of my work is data pipelines. This is the product side, built end to end for people who would tell me immediately if it was annoying. They asked for more.
 links:
   demo: https://tripsapp-demo.firebaseapp.com/join/gfsWtVG5D9S7Ytxt12UF/NU_zKMo9kVcVn9DWpslNOhzUiGqkgAbq
-  demoNote: 'Guest PIN: 000000'
+  demoNote: 'The demo opens on a PIN screen. Guest PIN: 000000'
 embedDemo: false
 featured: false
 ---

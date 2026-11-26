@@ -21,13 +21,13 @@ export const homeCoords = '48.003° N · 122.097° W';
  * Headline figures for the home page.
  * Every number here was recomputed from the built project files on 2026-09-23:
  *  - national-parcel-coverage/output/counties_status.geojson (built 2026-07-18)
- *  - national-parcel-coverage/src/county_methods.csv (2026-09-14, alias rows excluded)
+ *  - national-parcel-coverage/src/county_methods.csv (2026-09-28, alias rows excluded; 2,363 before that date)
  * Update the source files first, then these values.
  */
 export const siteStats: [string, string][] = [
   ['143.9M', 'parcels normalized to one schema'],
   ['2,613', 'counties in the bulk store'],
-  ['2,363', 'counties with a live owner query'],
+  ['2,364', 'counties with a live owner query'],
   ['3,221', 'county-equivalents recorded'],
 ];
 

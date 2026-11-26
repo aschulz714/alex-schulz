@@ -23,7 +23,7 @@ status: Active national data system
 role: Product architect, AI-directed developer, and final verifier
 scale:
   - 143,955,093 parcel records in the store
-  - 2,613 of 3,143 counties ingested (83%); 2,363 answer a live owner query
+  - 2,613 of 3,143 counties ingested (83%); 2,364 of all 3,221 county-equivalents answer a live owner query
   - Owner populated on 84% of parcels (parcel-weighted), geometry ~99.6%
 proof:
   - Normalized county GeoParquet files with a shared schema
@@ -49,7 +49,7 @@ featuredRank: 2
 
 ## The system
 
-The current build is a local, normalized national parcel store: one GeoParquet per county, one shared schema, standardized owner and land-use fields, explicit source provenance, a regression suite, map tiles, and hash-verified backup. It contains more than 143 million records across 2,613 counties.
+The current build is a local, normalized national parcel store: one GeoParquet per county, one shared schema, standardized owner and land-use fields, explicit source provenance, a regression suite, map tiles, and hash-verified backup. It contains more than 143 million records across 2,613 of the 3,143 counties in the 50 states and DC. Puerto Rico's 78 municipios are recorded by the resolver but are not in the store, which is why the resolver counts 3,221 county-equivalents.
 
 The live resolver remains a second layer. Give it a coordinate or address and it routes the request to the best available public endpoint for that county. The project records an honest method for every US county-equivalent, including the places where a free owner answer is not available.
 
@@ -58,7 +58,7 @@ The two layers reinforce each other: the bulk store supports national analysis, 
 ## What the resolver says
 
 - **100% recorded.** Every county-equivalent in all 50 states, DC, and Puerto Rico has a documented resolution method or a documented reason there isn't one.
-- **73.4% resolvable.** 2,363 counties expose a free, public owner endpoint — each one independently re-verified with a live point query, not taken on faith from a directory listing.
+- **73.4% resolvable.** 2,364 of those 3,221 county-equivalents expose a free, public owner endpoint — each one independently re-verified with a live point query, not taken on faith from a directory listing.
 - **The ceiling is structural.** The unresolvable ~27% isn't missing data — it's the same ownership data gated behind a handful of commercial portal vendors. That's the real boundary between free and paid in American land records, drawn county by county.
 
 ## How it was actually done

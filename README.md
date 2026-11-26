@@ -1,33 +1,45 @@
 # Alex Schulz Portfolio
 
-Living resume and portfolio for work at the intersection of accounting discipline, geospatial intelligence, and physical-world financial signals.
+Source for [aschulz714.github.io/alex-schulz](https://aschulz714.github.io/alex-schulz/): a CPA who builds practical software with AI. The site shows five projects first, ten more behind them, and a long-form Story page.
+
+Built with Astro and Tailwind CSS. GitHub Actions builds and publishes `main` to GitHub Pages.
 
 ## Structure
 
-- `src/pages/index.astro`: homepage composition.
-- `src/pages/about.astro`: long-form biography and origin story.
-- `src/components`: visual sections and interactive project modal.
-- `src/content/projects`: project case studies managed through Astro content collections.
-- `src/data/profile.ts`: reusable profile data for hero places, three lenses, and notes.
-- `src/data/timeline.ts`: career timeline data.
-- `public`: static assets including resume, OG image, and artifact images.
+- `src/pages/index.astro`: home page. Headline, background strip, five project cards, working method.
+- `src/pages/work/index.astro`: all projects. `src/pages/work/[slug].astro`: one project page.
+- `src/pages/about.astro`: the Story page, with the life timeline.
+- `src/content/projects/*.md`: one file per project. The frontmatter drives the cards and the project page.
+- `src/components`: `PlateCard` (project card), `Figure` (framed figure that opens full size), `LifeTimeline`, `Method`, `CTA`.
+- `src/data/site.ts`: contact links, footer coordinates, resume switch. `src/data/life.ts`: timeline entries.
+- `src/layouts/Base.astro`: page shell, header, footer, link-preview tags.
+- `src/styles/global.css`: the design system (paper, ink, one red, one sage).
+- `public/figures`: figures rendered from project data. `public/og-image.png`: the link-preview image.
+- `scripts/generate-og-image.py`: regenerates the link-preview image from the home page headline.
 
 ## Commands
 
 ```sh
+npm install
 npm run dev
 npm run build
 npm run preview
 ```
 
-## Content Model
+## Content model
 
-Projects use frontmatter for the core portfolio proof layer:
+Each project file carries:
 
-- `blurb`: short card summary.
-- `caseStudy.question`: the research or product question.
-- `caseStudy.data`: source material or inputs.
-- `caseStudy.method`: how the work was done.
-- `caseStudy.signal`: what the work reveals.
-- `caseStudy.why`: why it matters.
-- `artifact`: the visible output or object visitors can inspect.
+- `title`, `blurb`, `description`, `category`, `year`, `status`.
+- `plate`: display order. The first five appear on the home page.
+- `figure` and `gallery`: images under `public/`, with the pixel ratio stated.
+- `role`, `scale`, `proof`, `tech`: the sidebar on the project page.
+- `caseStudy`: question, data, method, signal, and why it matters.
+- `links.repo`, `links.demo`, `links.demoNote`: the buttons at the top of the project page.
+- `hidden: true` keeps a file on disk and off the site.
+
+## Rules for content
+
+- Every number on the site is recomputed from its source file before it is published.
+- No private owner names or residential addresses appear on any page.
+- Employer work is described in generalized form only.

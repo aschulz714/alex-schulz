@@ -14,7 +14,7 @@
   --color-paper-deep: #e7e1d0;
   --color-ink: #17222e;
   --color-ink-soft: #33414f;
-  --color-ink-muted: #66717c;
+  --color-ink-muted: #5d6873;
   --color-ink-faint: #9aa3ab;
   --color-rule: #cfc6ad;
   --color-rule-soft: #e3dccb;
@@ -208,6 +208,40 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+/* Every image figure opens at full size in a new tab, so small diagram text can be read. */
+.figure-zoom {
+  display: block;
+  height: 100%;
+  cursor: zoom-in;
+}
+
+.figure-zoom-hint {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  border: 1px solid var(--color-rule);
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--color-paper-soft) 92%, transparent);
+  padding: 0.2rem 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  color: var(--color-ink-soft);
+  pointer-events: none;
+}
+
+.figure-zoom:hover .figure-zoom-hint,
+.figure-zoom:focus-visible .figure-zoom-hint {
+  border-color: var(--color-signal);
+  color: var(--color-signal);
+}
+
+/* Footer links: a taller tap area on phones. */
+.foot-link {
+  display: inline-block;
+  padding-block: 0.3rem;
 }
 
 /* Charts, maps, and schematics: show the whole figure, letterboxed on the chart paper. */
@@ -458,6 +492,25 @@ a:hover .link-arrow .arrow,
   background: color-mix(in srgb, var(--color-paper-deep) 60%, transparent);
   padding: 0.1em 0.35em;
   border-radius: 2px;
+}
+
+/* Fenced code blocks (the close page's architecture sketch). The inline-code chip style above
+   must not apply inside a block, or every line gets its own highlight bar. */
+.prose-atlas pre {
+  margin-block: 1.2rem;
+  overflow-x: auto;
+  border-radius: 2px;
+  background-color: var(--color-ink) !important;
+  padding: 1rem 1.2rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.prose-atlas pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
 }
 
 .prose-atlas table {

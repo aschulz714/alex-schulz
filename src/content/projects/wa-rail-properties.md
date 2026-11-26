@@ -1,6 +1,6 @@
 ---
 title: WA Rail-Served Properties
-blurb: An inventory of every parcel in Washington State with private rail access — 671 parcels, $9.3B in assessed value.
+blurb: An inventory of every parcel in Washington State with private rail access — 671 parcels, $9.4B in assessed value.
 description: An interactive map and concentration analysis of rail-served industrial real estate in Washington State. Built on USDOT Bureau of Transportation Statistics rail network data crossed against statewide parcel layers from county GIS sources.
 category: geospatial
 year: 2026
@@ -17,9 +17,17 @@ tech:
   - GeoJSON
   - Python
 status: Live
+role: Analyst and builder. A 2022 master's capstone, refreshed in 2026.
+scale:
+  - 671 parcels across 29 counties and 15 industries
+  - $9.4B assessed, across the 526 parcels with a value above zero
+proof:
+  - Live map and public repository
+  - Every statistic computed in the page from the loaded GeoJSON
+  - No tracking, API keys, or third-party tokens
 artifact:
   label: Property inventory
-  detail: 671 parcels · 29 counties · 15 industries · $9.3B assessed
+  detail: 671 parcels · 29 counties · 15 industries · $9.4B assessed
 caseStudy:
   question: Where are the rail-served industrial parcels in Washington, and what do they reveal about industrial-real-estate concentration?
   data: BTS NARN rail network, WA State GIS parcel layer, county assessor records.
@@ -35,7 +43,7 @@ featured: true
 
 ## What it does
 
-An interactive map of every parcel in Washington State where a freight rail spur extends onto private property — connecting the site directly to the North American rail network. 671 parcels across 29 counties and 15 industries, with $9.3B in combined assessed value across 562 parcels that have recorded assessor values.
+An interactive map of every parcel in Washington State where a freight rail spur extends onto private property — connecting the site directly to the North American rail network. 671 parcels across 29 counties and 15 industries, with $9.4B in combined assessed value across the 526 parcels that have an assessor value above zero.
 
 ## Why it matters
 
@@ -45,7 +53,7 @@ Rail access cannot be retrofitted. The cost and complexity of building a new spu
 
 - Map-first single-page tool: 100vh MapLibre map with glass-panel overlays for filter, basemap toggle, and rail-network visibility
 - Slide-out drawer (right) holds narrative — overview, key findings, methodology, notes
-- Light / Satellite basemap toggle (CARTO Positron + ESRI World Imagery), with foreground line colors auto-adapting for satellite contrast
+- Light / Satellite basemap toggle (OpenFreeMap Positron + Esri World Imagery), with foreground line colors auto-adapting for satellite contrast
 - 5 industry-tier toggles (multi-select) plus a 15-industry drill-down list
 - Per-parcel popup with owner, county, address, acres, assessed value, and a direct link to the county assessor record
 - All statistics computed live from the loaded GeoJSON — no precomputation

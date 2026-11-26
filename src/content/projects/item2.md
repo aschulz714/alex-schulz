@@ -64,3 +64,7 @@ Facility information is scattered across prose, exhibits, registries, addresses,
 ## What I am learning
 
 AI can accelerate extraction, code generation, debugging, and research, but the durable product is the surrounding evidence system: schemas, provenance, review states, guards, tests, and a clear boundary between machine suggestion and human decision.
+
+## Where to see it
+
+Nothing opens from this page. Item2 is a private build: the repository and the review interface are not public. Email me and I will walk through it.

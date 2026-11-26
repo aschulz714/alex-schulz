@@ -41,13 +41,16 @@ const src = /^https?:\/\//.test(figure.src) ? figure.src : `${base}/${figure.src
           allow="fullscreen"
         ></iframe>
       ) : (
-        <img
-          src={src}
-          alt={figure.alt}
-          class={(figure.fit ?? 'contain') === 'contain' ? 'fit-contain' : undefined}
-          loading={eager ? 'eager' : 'lazy'}
-          decoding="async"
-        />
+        <a href={src} target="_blank" rel="noopener" class="figure-zoom" aria-label={`Open full size: ${figure.alt}`}>
+          <img
+            src={src}
+            alt={figure.alt}
+            class={(figure.fit ?? 'contain') === 'contain' ? 'fit-contain' : undefined}
+            loading={eager ? 'eager' : 'lazy'}
+            decoding="async"
+          />
+          <span class="figure-zoom-hint" aria-hidden="true">Open full size</span>
+        </a>
       )}
     </div>
   </div>

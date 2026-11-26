@@ -91,7 +91,7 @@ export const life: LifeEntry[] = [
   {
     when: '2015',
     title: 'Twin Peaks: The Return',
-    body: 'Production accounting across ten episodes of David Lynch\'s limited-series revival, filmed September to October 2015 on the Washington state production team. The second IMDb credit, and it came before the family-office years.',
+    body: 'Production accounting across ten episodes of David Lynch\'s limited-series revival, filmed September to October 2015 on the Washington state production team. The second IMDb credit, and it came just before Vulcan.',
     place: 'Snoqualmie, WA',
     category: 'entertainment',
   },
