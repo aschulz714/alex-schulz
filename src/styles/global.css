@@ -447,12 +447,27 @@ a:hover .link-arrow .arrow,
   padding-left: 1.3rem;
 }
 
+/* Tailwind's reset removes list markers everywhere; lists inside page text need them back. */
+.prose-atlas ul {
+  list-style: disc;
+}
+
+.prose-atlas ol {
+  list-style: decimal;
+}
+
 .prose-atlas li {
   margin-block: 0.35rem;
 }
 
 .prose-atlas ul li::marker {
   color: var(--color-signal);
+}
+
+.prose-atlas ol li::marker {
+  color: var(--color-signal);
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
 }
 
 .prose-atlas a {
