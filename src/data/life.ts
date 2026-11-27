@@ -156,14 +156,14 @@ export const life: LifeEntry[] = [
   {
     when: '2025',
     title: 'The day job goes modular',
-    body: 'Revenue accounting and multi-jurisdiction VAT for a marketplace company; cash-flow modeling for a private trust holding a self-storage portfolio. Consulting funds the build.',
+    body: 'Cash-flow modeling for a private trust holding a self-storage portfolio; then a multi-jurisdiction VAT contract at Taskrabbit, followed by its revenue accounting. Consulting funds the build.',
     place: 'Remote from WA',
     category: 'finance',
   },
   {
     when: '2026',
     title: 'Full-time on a revenue team',
-    body: 'Senior Accountant, Revenue, at a marketplace company: on contract from 2025, full-time since April 2026. The close cockpit on this site was built in this role.',
+    body: 'Senior Accountant, Revenue, at Taskrabbit: on contract from July 2025, full-time since April 2026. The close cockpit on this site was built in this role.',
     place: 'Remote from WA',
     category: 'finance',
     href: '/work/close-automation',
