@@ -1,0 +1,4 @@
+October 2026: receipts.csv has 12 rows (the receiving system reported 12).
+5 receipts not yet invoiced, total 9,962.00 (the receiving system reported 9,962.00).
+Journal RNI-2026-10 balances: debits 9,962.00, credits 9,962.00.
+Tied. Wrote out/2026-10/journal.csv and out/2026-10/run_log.json for review. Nothing has been posted.

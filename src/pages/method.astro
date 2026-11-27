@@ -1,0 +1,286 @@
+---
+import { Code } from 'astro:components';
+import Base from '../layouts/Base.astro';
+import CTA from '../components/CTA.astro';
+// The worked example is read from the files themselves at build time, so the page cannot
+// show a command, an output or a line of code that differs from what is in the repository.
+import scriptSource from '../../examples/receipts-accrual/accrue_receipts.py?raw';
+import testSource from '../../examples/receipts-accrual/test_accrue_receipts.py?raw';
+import controlSource from '../../examples/receipts-accrual/inputs/2026-10/source_totals.txt?raw';
+import runOk from '../../examples/receipts-accrual/evidence/run-ok.txt?raw';
+import runStopped from '../../examples/receipts-accrual/evidence/run-stopped.txt?raw';
+
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '');
+const exampleUrl = 'https://github.com/aschulz714/alex-schulz/tree/main/examples/receipts-accrual';
+
+const checks = scriptSource.split(/# --- checks ---\r?\n/)[1].split('# --- end checks ---')[0].trimEnd();
+const testCount = (testSource.match(/^\s+def test_/gm) ?? []).length;
+const control = Object.fromEntries(
+  controlSource
+    .split('\n')
+    .filter((line) => line.includes('=') && !line.startsWith('#'))
+    .map((line) => line.split('=').map((part) => part.trim()) as [string, string]),
+);
+const controlTotal = Number(control.uninvoiced_total).toLocaleString('en-US', { minimumFractionDigits: 2 });
+const command = `python accrue_receipts.py --month ${control.period}`;
+
+const split: [string, string][] = [
+  ["I decide what's needed", 'The question, the system it comes from, and the period.'],
+  ['The agent builds the route', 'It writes the query, the script, and the first draft of the explanation.'],
+  ['Code does the arithmetic', 'Run it twice on one file and the answer is the same.'],
+];
+
+const steps: [string, string, 'Me' | 'Agent' | 'Script', string][] = [
+  ['01', 'Ask', 'Me', 'The question, the source and the period.'],
+  ['02', 'Pull', 'Agent', "The agent writes the query in that system's own language and runs it, or I export the report myself. Either way the rows are saved as a file, with the row count and the source's own total written down beside them."],
+  ['03', 'Calculate', 'Script', 'Filter, group and total, in code. The agent never types an amount or adds one up itself.'],
+  ['04', 'Build', 'Script', 'The journal, the workpaper and the import file, built by code.'],
+  ['05', 'Check', 'Script', "The result has to equal the source's own total. If it doesn't, the run stops and produces nothing."],
+  ['06', 'Review and post', 'Me', "A person reviews and posts, every time. Some connectors are able to create a record; none does it without my say."],
+];
+
+const who: Record<string, string> = { Me: 'tag tag-signal', Agent: 'tag', Script: 'tag tag-sage' };
+
+const bar: [string, string][] = [
+  ['The period is an argument.', 'Two different months run with no edit to the file.'],
+  ['Inputs come from one named folder.', 'Someone new can find and place them using only the runbook.'],
+  ['The whole task is one command.', 'The runbook has a single line to type.'],
+  ['It ties to the source, or it stops.', 'Feed it a file with a row missing and it must refuse and write nothing.'],
+  ['Errors are written for an accountant.', 'They say what is wrong and what to do about it, with no stack trace.'],
+  ['It has a runbook.', 'It lists the inputs, the command, the sign of a good run, the steps a person takes afterwards, and what to do if it stops.'],
+  ['It is safe to run twice.', "A second run cannot create a duplicate, and each run's outputs stay in the period's folder as evidence."],
+];
+
+const chapters: [string, string, string][] = [
+  ['01', 'The split', '#the-split'],
+  ['02', 'Six steps', '#six-steps'],
+  ['03', 'Connections', '#connections'],
+  ['04', 'The bar for a script', '#the-bar'],
+  ['05', 'A worked example', '#example'],
+  ['06', 'A second check', '#second-check'],
+  ['07', 'Gates', '#gates'],
+  ['08', 'What the agent knows', '#context'],
+  ['09', 'The standard', '#standard'],
+];
+
+const stack = ['Claude', 'MCP', 'Python', 'SQL'];
+---
+
+<Base
+  title="How I run finance work with an AI agent | Alex Schulz"
+  description="How Alex Schulz runs finance work with an AI agent: the agent writes the queries and the code, a saved script does the arithmetic, every result ties to its source or the run stops, and a person approves what goes out."
+>
+  <section class="shell pt-12 md:pt-20">
+    <p class="eyebrow">Method</p>
+    <h1 class="display mt-4 max-w-4xl text-4xl sm:text-5xl md:text-6xl">How I run finance work with an AI agent.</h1>
+    <p class="lede mt-5 max-w-2xl text-lg md:text-xl">
+      I do revenue accounting at Taskrabbit, and I do it with an AI agent. The agent writes the
+      queries and the code. A saved script does the arithmetic. Nothing is posted or sent until I
+      have reviewed it. This page is the method, with a worked example you can run.
+    </p>
+
+    <dl id="the-split" class="ledger ledger-cols mt-10 grid scroll-mt-24 grid-cols-1 sm:grid-cols-3">
+      {split.map(([name, detail]) => (
+        <div class="px-0 py-4 sm:px-5 sm:first:pl-0">
+          <dt class="display text-2xl md:text-3xl">{name}</dt>
+          <dd class="mt-2 text-sm leading-snug text-ink-soft">{detail}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <section class="shell py-12 md:py-16">
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_15rem] lg:gap-16">
+      <aside class="space-y-8 lg:order-2 lg:sticky lg:top-24 lg:self-start">
+        <nav aria-label="Sections of this page">
+          <p class="eyebrow">Contents</p>
+          <ol class="mt-3 grid grid-cols-2 gap-x-6 border-t border-rule-soft sm:grid-cols-3 lg:grid-cols-1">
+            {chapters.map(([number, label, href]) => (
+              <li class="border-b border-rule-soft">
+                <a href={href} class="flex items-baseline gap-3 py-2 text-sm text-ink-soft transition-colors hover:text-signal">
+                  <span class="plate-roman text-xs">{number}</span>
+                  <span>{label}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+        <div>
+          <p class="eyebrow">Stack</p>
+          <div class="mt-2 flex flex-wrap gap-1.5">
+            {stack.map((item) => <span class="tag">{item}</span>)}
+          </div>
+        </div>
+      </aside>
+
+      <div class="prose-atlas method-prose min-w-0 max-w-2xl text-[1.0625rem] lg:order-1">
+        <h2 class="!mt-0">Why split it this way.</h2>
+        <p>
+          Ask a language model to add up the same column twice and it can give you two answers. A
+          saved script can't. That decides the design: any step with one right answer is done by
+          code that can be run again, and the model's job is to find the data, write that code and
+          explain what came out.
+        </p>
+        <p>
+          It also makes the work reviewable. A reviewer doesn't have to trust me or the model. They
+          can read the script, run it on the same file and get the same number.
+        </p>
+
+        <h2 id="six-steps">Six steps, every time.</h2>
+        <p>
+          Once a recurring task is scripted, it follows the same six steps. The agent reaches into
+          a system twice: once to pull the rows, and once to read the total the result has to match.
+        </p>
+        <ol class="not-prose !my-6 !list-none border-t border-rule !pl-0">
+          {steps.map(([number, title, owner, body]) => (
+            <li class="!my-0 grid grid-cols-[2rem_1fr] gap-x-3 border-b border-rule-soft py-4">
+              <span class="plate-roman pt-0.5 text-sm">{number}</span>
+              <div>
+                <p class="!my-0 flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <span class="text-base font-semibold text-ink">{title}</span>
+                  <span class={who[owner]}>{owner}</span>
+                </p>
+                <p class="!mb-0 !mt-1.5 text-[0.95rem] leading-relaxed text-ink-soft">{body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <h2 id="connections">How the agent reaches the systems.</h2>
+        <p>
+          Where a system has a connector, the agent reaches it through MCP (the Model Context
+          Protocol), the open standard that lets an AI assistant use other software. A connector
+          exposes a handful of tools for one system: look something up, read a record, run a
+          query.
+        </p>
+        <p>
+          A connector signs in as me. Whatever my login and role are allowed to see, the agent can
+          see, and no more. Most connector tools only read. The few that can write are used only on
+          my say, one write at a time.
+        </p>
+        <p>
+          A script can't use a connector, and that keeps the two jobs apart. However the rows
+          arrive, they are saved as a file first, and the script does its math on the file. The
+          total it has to match reaches it the same way.
+        </p>
+        <p>
+          Once a query is right, it is saved and used again. The same question gets asked the same
+          way every month.
+        </p>
+
+        <h2 id="the-bar">Finished means someone else can run it.</h2>
+        <p>I hold a script to seven tests before I call it finished.</p>
+        <ol>
+          {bar.map(([rule, test]) => (
+            <li><strong>{rule}</strong> {test}</li>
+          ))}
+        </ol>
+        <p>
+          Rates and mappings sit in a settings block at the top, so changing a rate never means
+          reading code. The last test is a person, not a document: a colleague runs the task from
+          the runbook without my help.
+        </p>
+
+        <h2 id="example">A worked example you can run.</h2>
+        <p>
+          This one was written for this page. A small shop has received goods it hasn't been billed
+          for, and at month end it has to book what it owes. The shop, its suppliers and every
+          amount are invented.
+        </p>
+        <p>
+          There are two inputs: the month's receiving log, saved as a file, and a note of what the
+          receiving system itself showed at the export, which was {control.rows} rows and {controlTotal} not
+          yet invoiced. One command runs the task.
+        </p>
+        <Code code={`$ ${command}\n${runOk.trimEnd()}`} lang="text" wrap />
+        <p>Delete one line from the file and run it again.</p>
+        <Code code={`$ ${command}\n${runStopped.trimEnd()}`} lang="text" wrap />
+        <p>
+          The script counts the rows and adds up the open receipts itself, then compares both with
+          what the source reported. Its {testCount} tests cover a short file, a changed amount, a
+          repeated receipt, a receipt from another month and a quantity that isn't a number. Run it
+          twice and the two output files are identical, byte for byte.
+        </p>
+        <details class="my-5 border-y border-rule-soft py-3">
+          <summary class="cursor-pointer text-[0.95rem] font-semibold text-ink">The checks, in Python</summary>
+          <Code code={checks} lang="python" />
+        </details>
+        <p>
+          The script, its sample files, its tests and its runbook are in
+          <a href={exampleUrl} target="_blank" rel="noopener noreferrer">this site's repository</a>.
+        </p>
+
+        <h2 id="second-check">A second check that can't see the first.</h2>
+        <p>
+          Before a figure goes into a journal or to another person, a second agent derives it
+          again. It is given two things: the claim, and where the source is. It never sees how the
+          number was first worked out, so it can't follow the same wrong turn.
+        </p>
+        <p>
+          It answers in a fixed form: the source it read and when that source last changed, the
+          figure it got, the difference, and one of three verdicts: matches, does not match, or
+          cannot verify. Then it lists what it was unable to check.
+        </p>
+        <p>
+          Reading the same export twice counts as one check. A real second check starts from a
+          second source.
+        </p>
+
+        <h2 id="gates">The agent prepares. I click.</h2>
+        <ul>
+          <li>For email, messages, shared files and the ledger, the agent stages the draft. I send, post or approve it.</li>
+          <li>Agreeing with the content is not permission to write it somewhere. Those are two separate yeses.</li>
+          <li>A write to anything shared is rehearsed first. I read exactly what it will change, and then it runs as its own step.</li>
+          <li>Every claim the agent makes is labeled verified, inferred or speculation, with its source and the time it was read.</li>
+          <li>Before it tells me something is missing, it has to search for it.</li>
+        </ul>
+
+        <h2 id="context">What the agent knows before it starts.</h2>
+        <ul>
+          <li><strong>A short context file,</strong> loaded every session: the facts every task needs.</li>
+          <li><strong>Rules tied to a folder,</strong> which load only when the work is in that folder.</li>
+          <li><strong>Reference material,</strong> opened when a task calls for it and not before.</li>
+          <li><strong>A saved procedure for a recurring task:</strong> its steps, its checks, its scripts, and the points where it must stop for a person.</li>
+        </ul>
+        <p>
+          The rules come from mistakes. When the agent gets something wrong and I correct it, the
+          correction is saved as a note along with what happened. Notes that keep proving useful
+          are promoted into a standing rules file the agent reads when a session opens, and a check
+          at that moment tells me when newer notes are waiting. That file holds
+          36 rules today. Most began as a correction. A few were proposed by the agent and approved
+          by me.
+        </p>
+
+        <h2 id="standard">The standard behind all of it.</h2>
+        <p>These lines are in my own standing instructions to the agent, for work and for everything else on this site.</p>
+        <blockquote>
+          <p>No guessing. No inferring. No unstated assumptions.</p>
+          <p>
+            Figures carried over from a summary, a subagent or an earlier session are unverified
+            until re-derived from the source; tie any recomputed total to the source's own control
+            total.
+          </p>
+          <p>Always state what was checked and what was not checked. If a gap in analysis exists, name it.</p>
+        </blockquote>
+        <p>
+          The agent I use is Claude, mostly through Claude Code. The method doesn't depend on
+          either: any agent that can run code, use connectors and follow a rules file fits the same
+          frame.
+        </p>
+        <p>
+          <a href={`${base}/work/close-automation`} class="link-arrow !no-underline">Related work: Controlled Close Automation <span class="arrow" aria-hidden="true">-&gt;</span></a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</Base>
+
+<style is:global>
+  /* A command has to show its two hyphens; the mono font would otherwise join them into one dash. */
+  .method-prose pre,
+  .method-prose pre code {
+    font-variant-ligatures: none;
+  }
+</style>

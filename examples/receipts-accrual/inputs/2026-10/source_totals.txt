@@ -1,0 +1,6 @@
+# The receiving system's own figures for the month, typed in at the moment of the export.
+# Invented sample values.
+period=2026-10
+rows=12
+uninvoiced_total=9962.00
+pulled=2026-11-02 09:14

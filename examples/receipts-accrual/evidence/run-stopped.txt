@@ -1,0 +1,3 @@
+STOPPED. receipts.csv has 11 rows, but the receiving system reported 12 for October 2026.
+The export is incomplete or was filtered. Export the receiving log again and re-run.
+Nothing was written.

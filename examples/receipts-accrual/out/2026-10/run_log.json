@@ -1,0 +1,32 @@
+{
+  "task": "goods received not invoiced",
+  "month": "2026-10",
+  "input": {
+    "file": "receipts.csv",
+    "bytes": 650,
+    "sha256": "90f3d35d17b728494840c858600dc3a3eae0da17f4bb8bb612c416ae723acbf5",
+    "exported": "2026-11-02 09:14"
+  },
+  "rows": {
+    "in_file": 12,
+    "reported_by_source": 12
+  },
+  "uninvoiced_total": {
+    "computed": "9962.00",
+    "reported_by_source": "9962.00"
+  },
+  "receipts_accrued": [
+    "R-1004",
+    "R-1006",
+    "R-1009",
+    "R-1010",
+    "R-1012"
+  ],
+  "journal": {
+    "id": "RNI-2026-10",
+    "debits": "9962.00",
+    "credits": "9962.00"
+  },
+  "result": "tied",
+  "posted": false
+}
