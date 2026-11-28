@@ -17,6 +17,8 @@ const projects = (await getCollection('projects', ({ data }) => !data.hidden)).s
 const top = projects.slice(0, 5);
 const others = projects.slice(5);
 
+const FIVE = 'a national parcel store, a month-end close cockpit, a private trip-sharing app, Item2, and a live map of rail-served property in Washington';
+
 const categoryLabel: Record<string, string> = {
   'ai-automation': 'AI + automation',
   'data-systems': 'Data system',
@@ -29,15 +31,16 @@ const categoryLabel: Record<string, string> = {
 
 <Base
   title="Work | Alex Schulz"
-  description={`Five projects first: a national parcel store, a month-end close cockpit, a private trip-sharing app, Item2, and a live map of rail-served property in Washington. ${others.length} more below.`}
+  description={others.length > 0 ? `Five projects first: ${FIVE}. ${others.length} more below.` : `Five projects: ${FIVE}.`}
   current="work"
 >
   <section class="shell pt-12 md:pt-20">
     <p class="eyebrow">Work</p>
-    <h1 class="display mt-4 max-w-3xl text-4xl md:text-6xl">Five projects first.</h1>
+    <h1 class="display mt-4 max-w-3xl text-4xl md:text-6xl">{others.length > 0 ? 'Five projects first.' : 'Five projects.'}</h1>
     <p class="lede mt-5 max-w-2xl text-base md:text-lg">
-      These are the five I'd show first. The other {others.length} are listed below them, each
-      with its own page.
+      {others.length > 0
+        ? `These are the five I'd show first. The other ${others.length} are listed below them, each with its own page.`
+        : `${FIVE.charAt(0).toUpperCase()}${FIVE.slice(1)}. Each has its own page.`}
     </p>
   </section>
 
@@ -50,6 +53,7 @@ const categoryLabel: Record<string, string> = {
     </div>
   </section>
 
+  {others.length > 0 && (
   <section class="shell pb-16 md:pb-20">
     <div class="atlas-rule"><span>More projects</span></div>
     <ul class="mt-6 border-t border-rule">
@@ -67,6 +71,7 @@ const categoryLabel: Record<string, string> = {
       ))}
     </ul>
   </section>
+  )}
 
   <CTA />
 </Base>

@@ -18,8 +18,9 @@ const rest = projects.slice(1, 5);
 const more = projects.length - 5;
 
 // Where the skills come from. Every item is stated elsewhere on the site
-// (Story page, life timeline, Hodego project page), except the Maryland tools,
-// which are the ones used in my own coursework files.
+// (Story page, life timeline), except two: the Maryland tools, which are the
+// ones used in my own coursework files, and the Hodego stack, which was on a
+// project page that is no longer published.
 const background: [string, string, string][] = [
   ['CPA', 'Washington license', 'Ten years of accounting inside companies: film, a family office, real estate, aerospace, a marketplace.'],
   ['Hodego', 'Co-founder and technical delivery lead', 'Three developers. TypeScript, React, LoopBack 4, Stripe, Agora, AWS.'],
@@ -68,8 +69,10 @@ const background: [string, string, string][] = [
   <section id="work" class="shell pb-14 pt-4 md:pb-20 md:pt-6">
     <div class="atlas-rule"><span>Selected work</span></div>
     <div class="mt-8 flex flex-wrap items-end justify-between gap-4">
-      <h2 class="display max-w-2xl text-3xl md:text-5xl">Five to start with.</h2>
-      <a href={`${base}/work`} class="link-arrow">{more} more projects <span class="arrow" aria-hidden="true">-&gt;</span></a>
+      <h2 class="display max-w-2xl text-3xl md:text-5xl">{more > 0 ? 'Five to start with.' : 'Five projects.'}</h2>
+      {more > 0 && (
+        <a href={`${base}/work`} class="link-arrow">{more} more projects <span class="arrow" aria-hidden="true">-&gt;</span></a>
+      )}
     </div>
 
     {lead && (
