@@ -18,12 +18,10 @@ const rest = projects.slice(1, 5);
 const more = projects.length - 5;
 
 // Where the skills come from. Every item is stated elsewhere on the site
-// (Story page, life timeline), except two: the Maryland tools, which are the
-// ones used in my own coursework files, and the Hodego stack, which was on a
-// project page that is no longer published.
+// (Story page, life timeline), except the Maryland tools, which are the ones
+// used in my own coursework files.
 const background: [string, string, string][] = [
   ['CPA', 'Washington license', 'Ten years of accounting inside companies: film, a family office, real estate, aerospace, a marketplace.'],
-  ['Hodego', 'Co-founder and technical delivery lead', 'Three developers. TypeScript, React, LoopBack 4, Stripe, Agora, AWS.'],
   ['Maryland', 'MS, Geospatial Intelligence · 4.0', 'Python, ArcPy, NumPy, GeoPandas, R, ArcGIS, Google Earth Engine. Capstone: an interactive map of rail-served real estate.'],
   ['Kentucky', 'Graduate Certificate, Digital Mapping · 4.0', 'HTML, CSS, JavaScript, Git, QGIS, Leaflet, Mapbox.'],
 ];
@@ -51,7 +49,7 @@ const background: [string, string, string][] = [
         </div>
       </div>
 
-      <dl class="ledger ledger-cols mt-10 grid grid-cols-1 sm:grid-cols-4">
+      <dl class="ledger ledger-cols mt-10 grid grid-cols-1 sm:grid-cols-3">
         {background.map(([name, what, detail]) => (
           <div class="px-0 py-4 sm:px-4 sm:first:pl-0">
             <dt class="display text-2xl md:text-3xl">{name}</dt>
