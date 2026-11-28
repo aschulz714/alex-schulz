@@ -1,7 +1,7 @@
 /**
- * The life timeline. Every entry paraphrases a fact already stated on the Story page or in
- * timeline.ts; year labels are only given where the source states them. Undated entries carry
- * a short era label instead of a year so nothing is invented.
+ * The life timeline. It is the one telling of each stop on the Story page; the prose below it
+ * covers only what the cards do not. Year labels are only given where the source states them.
+ * Undated entries carry a short era label instead of a year so nothing is invented.
  */
 export type LifeCategory = 'origin' | 'entertainment' | 'finance' | 'geospatial' | 'build';
 
@@ -28,23 +28,16 @@ export const life: LifeEntry[] = [
   {
     when: 'Origin',
     title: 'Honolulu to Everett',
-    body: 'Born at Kapiolani in Honolulu. A year later the family moved to Everett, Washington, where my mom was from. An only child, raised by a dental assistant, and by all accounts a serious kid.',
+    body: 'Born at Kapiolani in Honolulu. A year later the family moved to Everett, Washington, where my mom was from. An only child, raised by a dental assistant, and by all accounts a serious kid. When I was born the doctor told my mom I\'d have wrinkles on my forehead by age five.',
     place: 'Honolulu → Everett, WA',
     category: 'origin',
   },
   {
     when: 'Summers',
     title: 'Backstage with Steve Ozark',
-    body: 'Childhood summers back in Hawaii with my uncle, who ran backstage catering on Oahu for more than thirty years and cooked for Santana, Bob Dylan, Neil Diamond, Elton John, and Jimmy Buffett. The lesson before I could name it: the world is smaller and more reachable than it looks.',
+    body: 'Childhood summers back in Hawaii with my uncle, who ran backstage catering on Oahu for more than thirty years and cooked for Santana, Bob Dylan, Neil Diamond, Elton John, and Jimmy Buffett. He knew everyone on Oahu. The lesson before I could name it: the world is smaller and more reachable than it looks. He passed away in 2014.',
     place: 'Oahu, HI',
     category: 'entertainment',
-  },
-  {
-    when: 'Custer',
-    title: 'The map on the porch',
-    body: 'An old Industrial Map of Washington hung by a thumbtack on the porch of my great-grandparents\' dairy farm until my mom framed it. Industry, land, movement, and memory on one sheet. The work still circles back to it.',
-    place: 'Custer, WA',
-    category: 'origin',
   },
   {
     when: 'Everett High',
@@ -56,16 +49,9 @@ export const life: LifeEntry[] = [
   {
     when: 'Trinity',
     title: 'The detour, and the dropout',
-    body: 'A year at Trinity University in San Antonio, then out. In between, a job flying down to Montecito to help with properties, including one acquired from John Cleese, and a private meet-and-greet with Cleese himself the fall he spoke at Trinity.',
+    body: 'A year at Trinity University in San Antonio, then out. In between, a job with Craig McCaw\'s family office, flying down to Montecito to help with properties, including one acquired from John Cleese, and a private meet-and-greet with Cleese himself the fall he spoke at Trinity.',
     place: 'San Antonio, TX',
     category: 'origin',
-  },
-  {
-    when: 'Before WSU',
-    title: 'A first family office',
-    body: 'The McCaw chapter came unusually early, before the comeback. A close-up view of how real money does accounting, years before the credential.',
-    place: 'Seattle, WA',
-    category: 'finance',
   },
   {
     when: '2011',
@@ -84,7 +70,7 @@ export const life: LifeEntry[] = [
   {
     when: '2015',
     title: 'WSU, summa cum laude',
-    body: 'BA in Accounting at Washington State. Delta Sigma Pi Scholarship Key for the highest cumulative GPA across all of business and economics. In spring 2014, one of thirteen students chosen for Cougs on Wall Street, a trip to the Quinnipiac GAME Forum in New York. The CPA license followed.',
+    body: 'BA in Accounting at Washington State. Delta Sigma Pi Scholarship Key for the highest cumulative GPA across all of business and economics. I wanted to minor in Geospatial Analysis, but the labs overlapped with the core accounting courses. In spring 2014, one of thirteen students chosen for Cougs on Wall Street, a trip to the Quinnipiac GAME Forum in New York. The CPA license followed.',
     place: 'Pullman, WA',
     category: 'finance',
   },
@@ -115,13 +101,6 @@ export const life: LifeEntry[] = [
     body: 'Sole accountant on construction draws for fifteen-plus multimillion-dollar Seattle development projects: job costs, lender draws, equity partners. Where buildings become ledgers. Fund administration at ALPS sits in the same stretch of craft years.',
     place: 'Seattle, WA',
     category: 'finance',
-  },
-  {
-    when: 'Everett',
-    title: 'Land records get personal',
-    body: 'Twice helped my mom defend the boundaries of her own property. An unwanted education in documentation, recorded facts, and the gap between being right and being able to prove it.',
-    place: 'Everett, WA',
-    category: 'geospatial',
   },
   {
     when: '2021',
